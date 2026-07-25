@@ -1,0 +1,11 @@
+# ## 算法2.2 顺序表的插入
+
+```c
+int ListInsert_Sq(SqList *L, int i, ElemType e)
+/*在顺序表 L 的第 i 个位置之前插入新的元素 e，若插入成功，则返回 1，否则返回 -1*/
+{
+    int j;
+    ElemType *newbase;
+    if (i < 0 || i > L->length) return -1;    /*插入位置不合法，插入失败*/
+    if (L->length >= L->listsize)    /*当前存储空间已满，增加分配*/
+    {

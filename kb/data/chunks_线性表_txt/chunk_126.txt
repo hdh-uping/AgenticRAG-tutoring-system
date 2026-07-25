@@ -1,0 +1,12 @@
+# ## 1. 实现单链表常用操作的代码
+
+st(L,4,27);    /*在第 4 个元素之前插入值 27*/
+    if(status==1){printf("\n\n 进行插入操作后");Print_LinkList(L);} else{ printf("\n 插入失败！");}
+    status=Delete_LinkList(L,5,&e);    /*删除第 5 个元素*/
+    if(status==1)
+    {
+    printf("\n\n 被删除元素的值为：%d",e);
+    printf("\n\n 进行删除操作后");
+    Print_LinkList(L);
+    }
+    else{ printf("\n 删除失败！"); }

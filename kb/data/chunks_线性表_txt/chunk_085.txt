@@ -1,0 +1,9 @@
+# ## 9. 单链表的应用
+
+{pc->next=pb; pc=pb; pb=pb->next;}
+    }
+    pc->next=pa?pa:pb;    /*插入剩余段*/
+    free(Lb);    /*释放 Lb 的头节点*/
+    return Lc;
+}
+```

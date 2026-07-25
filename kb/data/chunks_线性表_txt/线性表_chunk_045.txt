@@ -1,0 +1,12 @@
+# ## 2. 单链表数据类型定义 › ## 3. 建立单链表
+
+## 2. 单链表数据类型定义
+
+链表是由若干节点构成的，线性表的单链表存储结构描述如下：
+
+```c
+typedef struct LNode {
+    ElemType data;
+    struct LNode *next;
+} LNode, *LinkList;
+```

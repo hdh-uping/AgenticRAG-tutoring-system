@@ -1,0 +1,14 @@
+# ## 1. 实现单链表常用操作的代码
+
+```c
+else return i;
+}
+int main()
+{
+    LinkList L;    /*定义一个头指针，以指示一个单链表*/
+    int n,i,e,status;
+    printf("请输入单链表的长度：n=");
+    scanf("%d",&n);
+    L=Create_LinkList(n);    /*建立一个含 n 个元素的单链表*/
+    Print_LinkList(L);    /*依次输出线性表中各元素的值*/
+    status=Insert_LinkList(L,4,27);    /*在第 4 个元素之前插入值 27*/

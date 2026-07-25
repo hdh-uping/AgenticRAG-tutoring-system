@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentic-rag-tutoring-system"
+version = "0.1.0"
+description = "面向数据结构课程的双 Agent、三 Skill 教学 RAG 原型"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "fastapi>=0.110,<1",
+    "uvicorn[standard]>=0.29,<1",
+    "openai>=1.30,<3",
+    "langgraph>=1.0,<2",
+    "pydantic-settings>=2.2,<3",
+    "jieba>=0.42,<1",
+    "rank-bm25>=0.2.2,<1",
+    "pymilvus>=2.5,<3.1",
+    "milvus-lite>=2.4,<3",
+    "sentence-transformers>=3,<6",
+    "transformers>=4.51,<6",
+    "torch>=2.2,<3",
+    "accelerate>=0.30,<2",
+    "neo4j>=5.20,<7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "httpx>=0.27,<1",
+    "pytest>=8,<10",
+]
+vision = [
+    "Pillow>=10,<13",
+    "qwen-vl-utils>=0.0.8,<1",
+]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-q"

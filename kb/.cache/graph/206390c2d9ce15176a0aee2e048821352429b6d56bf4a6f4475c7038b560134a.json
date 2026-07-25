@@ -1,0 +1,1 @@
+{"entities": [{"name": "数组", "type": "数据结构", "description": "由一组相同类型的元素组成的集合，元素在内存中占用一段连续的存储空间，通常用于存储多维数据。", "content_ids": ["数组:content:0004", "数组:content:0007", "数组:content:0008"]}, {"name": "矩阵", "type": "数据结构", "description": "科学工程计算中常见的数学模型，由m行n列元素组成，通常用二维数组存储。", "content_ids": ["数组:content:0006"]}], "relations": []}

@@ -1,0 +1,11 @@
+# ## 2）多维数组存储地址的计算
+
+$$
+
+(2) 列为主序优先存储。以列为主序优先存储的地址计算公式为
+
+$$
+\operatorname{loc} \left(a _ {i j}\right) = \operatorname{loc} \left(a _ {1 1}\right) + ((j - 1) \times m + i - 1) \times \text { sizeof   (ElemType) }
+$$
+
+或者按照 C 语言数组下标, 即

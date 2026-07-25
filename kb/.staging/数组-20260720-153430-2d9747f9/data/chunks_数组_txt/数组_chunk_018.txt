@@ -1,0 +1,12 @@
+# ## 2）三角矩阵
+
+到a_nm的元素。  
+图 3-17 下三角矩阵的压缩存储示意图
+
+有
+
+$$
+k = \left\{ \begin{array}{l l} i \times (i - 1) / 2 + j - 1 & (i \geqslant j) \text {下三角区和主对角线元素} \\ n \times (n + 1) / 2 & (i <   j) \text {上三角区元素} \end{array} \right.
+$$
+
+注意,下标从 0 开始。

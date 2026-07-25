@@ -1,0 +1,20 @@
+# ## 2. 程序实现代码 › ## 3. 程序的运行结果
+
+```c
+c
+{
+    ListNode *p;
+    p=head->next;    /*使 p 指向最前面的节点*/
+    printf("编号    姓名    性别    联系电话    地址\n");
+    printf("----\n");
+    while (p!=NULL)
+    {
+    printf("%s%s%s%s%s",p->data.num,p->data.name,p->data.sex, p->data.phone,p->data.addr);
+    printf("----\n");
+    p=p->next;    /*后移一个节点*/
+    }
+}
+/*定义主函数*/
+void main()
+{
+    for (; ; )

@@ -1,0 +1,13 @@
+# ## 9. 单链表的应用
+
+```c
+LinkList MergeList_L(LinkList La, LinkList Lb)
+/*已知单链表 La 和 Lb 的元素按值非递减排列。合并 La 和 Lb 得到新的单链表 Lc，Lc 的元素也按值非递减排列*/
+{
+    LNode *pa,*pb,*pc,*Lc;
+    pa=La->next; pb=Lb->next;
+    Lc=pc=La;    /*将 La 的头节点作为 Lc 的头节点*/
+    while(pa&&pb)
+    {
+    if(pa->data<=pb->data) {pc->next=pa; pc=pa; pa=pa->next;}
+    else {pc->next=pb; pc=pb; pb=pb->next;}

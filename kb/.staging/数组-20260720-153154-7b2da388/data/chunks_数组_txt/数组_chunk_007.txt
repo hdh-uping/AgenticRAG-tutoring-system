@@ -1,0 +1,11 @@
+# ## 2）多维数组存储地址的计算
+
+n$ 个元素，在第j行中前面已经存放了j-1个元素。
+
+地址计算公式为
+
+$$
+\operatorname{loc} \left(a _ {i j}\right) = \operatorname{loc} \left(a _ {1 1}\right) + ((i - 1) \times n + j - 1) \times \text { sizeof   (ElemType) }
+$$
+
+或者按照 C 语言数组下标, 即

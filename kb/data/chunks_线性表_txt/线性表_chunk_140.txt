@@ -1,0 +1,21 @@
+# ## 2. 程序实现代码 › ## 3. 程序的运行结果
+
+```c
+/* 通讯者节点的查找 */
+/**********/
+ListNode * ListFind(LinkList head)
+{
+    ListNode *p;
+    char num[5];
+    char name[9];
+    int xz;
+    printf("--------\n");
+    printf("1. 按编号查询 \n");
+    printf("2. 按姓名查询 \n");
+    printf("--------\n");
+    printf("请选择 ");
+    p=head->next;
+    scanf("%d",&xz);
+    if(xz=1)
+    {
+    printf("请输入要查找通讯者的编号：");

@@ -1,0 +1,3 @@
+# ## (3) 实例演示。
+
+><td>#</td><td>Pop(optr);Pop(opnd); Pop(opnd);Push(opnd,operate('4','+','8'))</td></tr><tr><td>13</td><td>#</td><td>12</td><td>#</td><td>Gettop(opnd);</td></tr></table>

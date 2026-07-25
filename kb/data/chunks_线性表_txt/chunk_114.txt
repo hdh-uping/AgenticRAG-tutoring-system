@@ -1,0 +1,11 @@
+# ## 1. 实现顺序表常用操作的代码 › ## 2. 顺序表常用操作的程序运行结果 › ## 2.4.2 单链表的常用操作
+
+f(status==1) printf("顺序表初始化成功！\n");
+    else {printf("顺序表初始化失败！"); return 0;}
+    InputSqList(&L);    /*输入顺序表的各元素值*/
+    PrintSqList(L);
+    printf("请输入插入位置:");
+    scanf("%d", &i);
+    status=ListInsert_Sq(&L, i, 30);    /*在第i个元素之前插入30*/
+    if(status==1) {printf("进行插入操作后"); PrintSqList(L);} 
+    else {printf("\n插入失败！"); return 0;}

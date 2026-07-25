@@ -1,0 +1,29 @@
+# ## 3. 循环队列的算法实现 › ## 3.3.3 队列的链式存储结构
+
+txt
+//取出数据放入 e 所指的单元中
+```
+
+(6) 取队头。
+
+```c
+int QueueFront(SqQueue Q, Elemtype &e)
+{
+    if(QueueEmpty(Q)) return ERROR; // 队空
+    e = Q.data[(Q.front + 1) % MAXSIZE]; // 取出队头数据
+    return OK;
+}
+```
+
+(7) 求队列长度。
+
+```txt
+int QueueLength(SqQueue Q)
+{
+    return (Q.rear-Q.front+MAXSIZE)%MAXSIZE;
+}
+```
+
+## 3.3.3 队列的链式存储结构
+
+链式存储的队列称为链队列。和链栈类似，通常用单链表来实现链队列。

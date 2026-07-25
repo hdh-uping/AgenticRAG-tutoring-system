@@ -1,0 +1,5 @@
+# ## 3) 删除操作的时间复杂度 › ## 4. 顺序表的按值查找
+
+$$
+\mathrm{E} _ {\mathrm{de}} = \sum_ {\mathrm{i} = 0} ^ {\mathrm{n} - 1} \mathrm{P} _ {\mathrm{i}} (\mathrm{n} - \mathrm{i} - 1) = \frac {1}{\mathrm{n}} \sum_ {\mathrm{i} = 0} ^ {\mathrm{n} - 1} (\mathrm{n} - \mathrm{i} - 1) = \frac {1}{\mathrm{n}} \cdot \frac {\mathrm{n} (\mathrm{n} - 1)}{2} = \frac {\mathrm{n} - 1}{2}\tag{2.4}
+$$

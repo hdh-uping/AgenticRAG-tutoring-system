@@ -1,0 +1,15 @@
+# ## 2) 尾插入法建立单链表 › ## 3) 建立单链表的算法时间复杂度
+
+算法 2.7 尾插入法建立单链表  
+```c
+LinkList CreatRear_LinkList(int n)
+/*建立一个单链表 L，输入 n 个元素的值*/
+{
+    LinkList L=NULL;    /*定义一个空表*/
+    LNode *s,*p=NULL;    /*定义新节点指针和尾指针*/
+    int i;
+    for(i=0; i<=n-1; i++)
+    {
+    s=(LNode *)malloc(sizeof(LNode));    /*生成新节点*/
+    printf("请输入第%d 个元素的值:",i);
+    scanf("%d",&s->data);    /*输入元素值*/

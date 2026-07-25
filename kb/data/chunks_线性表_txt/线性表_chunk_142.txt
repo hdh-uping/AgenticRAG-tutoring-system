@@ -1,0 +1,19 @@
+# ## 2. 程序实现代码 › ## 3. 程序的运行结果
+
+}
+    return p;
+}
+/**********/
+/* 通讯者节点的删除 */
+/**********/
+void DelNode(LinkList head)
+{
+    char jx;
+    ListNode *p,*q;
+    p=ListFind(head);    /*调用查找函数*/
+    if(p==NULL){printf("没有查找到要删除的通讯者！\n");return;}
+    printf("确定要删除该通讯者？(y/n): ");
+    scanf("%c",&jx);
+    if(jx='y'||jx='Y')
+    {
+    q=head;

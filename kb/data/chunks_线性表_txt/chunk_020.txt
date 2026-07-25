@@ -1,0 +1,11 @@
+# ## 算法2.2 顺序表的插入
+
+istsize)    /*当前存储空间已满，增加分配*/
+    {
+    newbase = (ElemType *)realloc(L->elem, (L->listsize + INCREMENT) * sizeof(ElemType));
+    if (!newbase) return -1;    /*存储分配失败，插入失败*/
+    L->elem = newbase;
+    L->listsize += INCREMENT;
+    }
+    for (j = L->length - 1; j >= i; j--)
+    L->elem[j + 1] = L->elem[j];    /*插入位置及之后的元素从后开始向后移动*/

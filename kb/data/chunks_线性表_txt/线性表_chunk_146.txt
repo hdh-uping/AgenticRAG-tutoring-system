@@ -1,0 +1,12 @@
+# ## 2. 程序实现代码 › ## 3. 程序的运行结果
+
+\n");
+    printf("* 通讯者节点的插入 *\n");
+    printf("**************************\n");
+    printf("编号(4)姓名(8)性别电话(11)地址(31)\n");
+    printf("**************************\n");
+    p=(ListNode *)malloc(sizeof(ListNode));
+    scanf("%s%s%s%s%s",p->data.num,p->data.name,p->data.sex, p->data.phone,p->data.addr);
+    InsertNode(head,p);
+    break;
+    case 3:

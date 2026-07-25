@@ -1,0 +1,18 @@
+# ## 2. 链栈的算法实现 › ## 3.2 栈的应用举例
+
+图 3.4 链栈示意图  
+```c
+LinkStack InitStack()
+//空栈的 top 指针为 NULL
+{ return NULL; }
+(2) 判栈空。
+int StackEmpty(LinkStack top)
+//判栈为空栈时返回值为真, 反之为假
+{ return (top == NULL? TRUE: FALSE); }
+(3) 进栈。
+void Push(LinkStack top, Elemtype e)
+{ //将元素 e 进链栈, 即在表头插入新的结点
+    StackNode *s;
+    s = (StackNode*)malloc(sizeof(StackNode));
+    s->data = e;
+    s->next = top;

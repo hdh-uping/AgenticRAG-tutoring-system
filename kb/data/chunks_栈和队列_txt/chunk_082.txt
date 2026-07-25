@@ -1,0 +1,22 @@
+# ## 2. 链队列的算法实现 › ## 3.4 队列应用举例
+
+{a}_1$ 出队  
+图 3.11 链队列示意图
+
+(1) 初始化。
+
+```c
+LinkQueue* InitQueue()
+//创建一个带头结点的空队
+{
+    LinkQueue *q;
+    QueueNode *p;
+    q=(LinkQueue*)malloc(sizeof(LinkQueue)); //申请头尾指针结点
+    p=(QueueNode*)malloc(sizeof(QueueNode)); //申请链队列头结点
+    p->next=NULL;
+    q->front=q->rear=p;
+    return q;
+}
+```
+
+(2) 判队空。

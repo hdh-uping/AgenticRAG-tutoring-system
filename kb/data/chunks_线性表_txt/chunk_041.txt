@@ -1,0 +1,19 @@
+# ## 2) 算法描述 › ## 3) 算法的时间复杂度 › ## 2.3 线性表的链式存储及运算的实现
+
+ile(i<LA.length&&j<LB.length)
+    {
+    if(LA.elem[i]<=LB.elem[j]) LC->elem[k++] =LA.elem[i++];
+    else LC->elem[k++] =LB.elem[j++];
+    }
+    while(i<LA.length) LC->elem[k++] =LA.elem[i++];
+    while(j<LB.length) LC->elem[k++] =LB.elem[j++];
+    LC->length=k;
+    return 1;
+}
+```
+
+## 3) 算法的时间复杂度
+
+本算法的基本操作为 “元素赋值”，算法的时间复杂度为 O(LA.length+LB.length)。
+
+## 2.3 线性表的链式存储及运算的实现

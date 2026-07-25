@@ -1,0 +1,1318 @@
+[
+  {
+    "name": "数组",
+    "type": "数据结构",
+    "content_ids": [
+      "数组:content:0004",
+      "数组:content:0007",
+      "数组:content:0008"
+    ],
+    "description": "由一组相同类型的元素组成的集合，元素在内存中占用一段连续的存储空间，通过下标访问。",
+    "aliases": []
+  },
+  {
+    "name": "矩阵",
+    "type": "数据结构",
+    "content_ids": [
+      "数组:content:0006"
+    ],
+    "description": "科学工程计算中常见的数学模型，通常用二维数组存储，可视为数组的一种应用。",
+    "aliases": []
+  },
+  {
+    "name": "对称矩阵",
+    "type": "数据结构",
+    "content_ids": [
+      "数组:content:0033",
+      "数组:content:0034",
+      "数组:content:0035",
+      "数组:content:0037"
+    ],
+    "description": "n阶方阵，满足a_{ij}=a_{ji}，可压缩存储于一维数组中。",
+    "aliases": []
+  },
+  {
+    "name": "上三角矩阵",
+    "type": "数据结构",
+    "content_ids": [
+      "数组:content:0045",
+      "数组:content:0046"
+    ],
+    "description": "主对角线及以下的所有元素均为同一常数或0的n阶矩阵。",
+    "aliases": []
+  },
+  {
+    "name": "下三角矩阵",
+    "type": "数据结构",
+    "content_ids": [
+      "数组:content:0052"
+    ],
+    "description": "主对角线以上的所有元素均为同一常数或0的n阶矩阵。",
+    "aliases": []
+  },
+  {
+    "name": "对称矩阵·压缩存储",
+    "type": "操作",
+    "content_ids": [
+      "数组:content:0037",
+      "数组:content:0040",
+      "数组:content:0044"
+    ],
+    "description": "将对称矩阵的上三角或下三角元素存储到一维数组中，节省存储空间。",
+    "pseudocode": "1. 确定存储区域（上三角或下三角） 2. 计算元素在一维数组中的下标 3. 存储元素",
+    "aliases": []
+  },
+  {
+    "name": "上三角矩阵·压缩存储",
+    "type": "操作",
+    "content_ids": [
+      "数组:content:0047",
+      "数组:content:0050"
+    ],
+    "description": "将上三角矩阵的上三角区和主对角线元素按行优先存储，下三角区常数存于最后。",
+    "pseudocode": "1. 对i≤j的元素按行优先存储 2. 对i>j的元素存储常数于最后 3. 计算下标",
+    "aliases": []
+  },
+  {
+    "name": "下三角矩阵·压缩存储",
+    "type": "操作",
+    "content_ids": [
+      "数组:content:0053",
+      "数组:content:0056"
+    ],
+    "description": "将下三角矩阵的下三角区和主对角线元素按行优先存储，上三角区常数存于最后。",
+    "pseudocode": "1. 对i≥j的元素按行优先存储 2. 对i<j的元素存储常数于最后 3. 计算下标",
+    "aliases": []
+  },
+  {
+    "name": "三对角矩阵",
+    "type": "数据结构",
+    "content_ids": [
+      "数组:content:0058",
+      "数组:content:0059"
+    ],
+    "description": "除主对角线及主对角线上下各一个元素外，其余元素都为零的矩阵。",
+    "aliases": []
+  },
+  {
+    "name": "三对角矩阵·压缩存储",
+    "type": "操作",
+    "content_ids": [
+      "数组:content:0060",
+      "数组:content:0064",
+      "数组:content:0074",
+      "数组:content:0075",
+      "数组:content:0076",
+      "数组:content:0077",
+      "数组:content:0078"
+    ],
+    "description": "按行为主序优先存储方法把非零区的三对角元素依次顺序存储到一片连续的存储空间中。",
+    "pseudocode": "1. 确定三条对角线上的元素 a_{ij} 2. 计算一维数组下标 k = 2i + j - 3, |i - j| ≤ 1 3. 将元素存入一维数组对应位置",
+    "aliases": [],
+    "code": "```c\n#define MaxSize 100;\n//假设非零元个数的最大值为100\ntypedef struct {\n    int i, j;\n    ElemType e;\n} Triple;\ntypedef struct {\n    Triple data[MaxSize+1];\n    int mu, nu, tu;\n} TSMatrix;\n```"
+  },
+  {
+    "name": "稀疏矩阵",
+    "type": "数据结构",
+    "content_ids": [
+      "数组:content:0065",
+      "数组:content:0067",
+      "数组:content:0070"
+    ],
+    "description": "非零元素个数远少于矩阵元素总数且分布无规律的矩阵，通常稀疏因子δ≤0.05。",
+    "aliases": []
+  },
+  {
+    "name": "三元组顺序表",
+    "type": "数据结构",
+    "content_ids": [
+      "数组:content:0067",
+      "数组:content:0075",
+      "数组:content:0076"
+    ],
+    "description": "以三元组（行标，列标，元素值）形式按行有序存储稀疏矩阵非零元素的顺序表。",
+    "aliases": []
+  },
+  {
+    "name": "栈",
+    "type": "数据结构",
+    "content_ids": [
+      "栈和队列:content:0007",
+      "栈和队列:content:0010",
+      "栈和队列:content:0013",
+      "栈和队列:content:0068",
+      "栈和队列:content:0075",
+      "栈和队列:content:0088",
+      "栈和队列:content:0094",
+      "栈和队列:content:0130"
+    ],
+    "description": "限定仅在表尾进行插入或删除操作的线性表，用于表达式求值中的算符栈和操作数栈。",
+    "aliases": []
+  },
+  {
+    "name": "顺序栈",
+    "type": "数据结构",
+    "content_ids": [
+      "栈和队列:content:0017",
+      "栈和队列:content:0019",
+      "栈和队列:content:0033",
+      "栈和队列:content:0034",
+      "栈和队列:content:0035"
+    ],
+    "description": "用顺序存储结构实现的栈，使用数组存储元素，栈顶指针top指示栈顶位置。",
+    "aliases": []
+  },
+  {
+    "name": "栈·初始化",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0015",
+      "栈和队列:content:0130",
+      "栈和队列:content:0139",
+      "栈和队列:content:0140",
+      "栈和队列:content:0141",
+      "栈和队列:content:0142",
+      "栈和队列:content:0143"
+    ],
+    "description": "创建一个空栈，为后续操作做准备。",
+    "pseudocode": "1. 分配存储空间 2. 设置栈顶指针top为-1",
+    "aliases": [],
+    "code": "```txt\nfloat CaculateExpression()\n    { //算术表达式求值的算符优先算法。设 optr 和 opnd 分别为算符栈和操作数栈，\n    //OP 为算符集合\n    InitStack(optr); Push(optr,'#');\n    InitStack(opnd); c=getchar();\n    while(c!='#' || GetTop(optr) != '#')\n    {\n    if(!In(c,OP)) {Push(opnd,c); c=getchar();} //不是算符则进栈\n    else\n    switch(Precede(GetTop(optr),c))\n    {\n    case '<': //栈顶算符优先级低\n    Push(optr,c); c=getchar();\n    break;\n    case '=': //优先级相同，脱去括号并读入下一字符\n    Pop(optr,x); c=getchar();\n    break;\n    case '>': //栈顶算符优先级高，退栈并将运算结果入栈\n    Pop(optr,theta);\n    Pop(opnd,b);Pop(opnd,a);\n    Push(opnd,Operate(a,theta,b));\n    break;\n    }\n    }\n    return GetTop(opnd);\n}\n```"
+  },
+  {
+    "name": "栈·判空",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0013",
+      "栈和队列:content:0014",
+      "栈和队列:content:0015",
+      "栈和队列:content:0016",
+      "栈和队列:content:0017"
+    ],
+    "description": "判断栈S是否为空栈，若为空则返回TRUE，否则返回FALSE。",
+    "pseudocode": "1. 若top等于-1则返回TRUE 2. 否则返回FALSE",
+    "aliases": [],
+    "code": "```txt\nADT Stack {\n    数据对象 D: D = { a_i | a_i ∈ ElemSet, i = 1, 2, ..., n, n ≥ 0 }\n    数据关系 R: R = { <a_{i-1}, a_i> | a_{i-1}, a_i ∈ D, i = 2, ..., n } 约定 a_n 端为栈顶，a_1 端为栈底。\n基本操作 P:\n    InitStack(&S)\n    操作结果：构造一个空栈 S\n    StackEmpty(S)\n    初始条件：栈 S 已存在\n    操作结果：若栈 S 为空栈，则返回 TRUE，否则返回 FALSE\n    StackFull(S)\n    初始条件：栈 S 已存在\n    操作结果：若栈 S 满，则返回 TRUE，否则返回 FALSE\n    GetTop(S, &e)\n    初始条件：栈 S 已存在\n    操作结果：若栈 S 非空，用 e 返回 S 的栈顶元素\n    Push(&S, e)\n    初始条件：栈 S 已存在\n    操作结果：若栈 S 不满，插入元素 e 为新的栈顶元素\n    Pop(&S, &e)\n    初始条件：栈 S 已存在且非空\n    操作结果：若栈 S 非空，删除 S 的栈顶元素，并用 e 返回其值\n} ADT Stack\n```"
+  },
+  {
+    "name": "栈·判满",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0013",
+      "栈和队列:content:0014",
+      "栈和队列:content:0015",
+      "栈和队列:content:0016",
+      "栈和队列:content:0017"
+    ],
+    "description": "判断栈S是否已满，若满则返回TRUE，否则返回FALSE。",
+    "pseudocode": "1. 若top等于MAXSIZE-1则返回TRUE 2. 否则返回FALSE",
+    "aliases": [],
+    "code": "```txt\nADT Stack {\n    数据对象 D: D = { a_i | a_i ∈ ElemSet, i = 1, 2, ..., n, n ≥ 0 }\n    数据关系 R: R = { <a_{i-1}, a_i> | a_{i-1}, a_i ∈ D, i = 2, ..., n } 约定 a_n 端为栈顶，a_1 端为栈底。\n基本操作 P:\n    InitStack(&S)\n    操作结果：构造一个空栈 S\n    StackEmpty(S)\n    初始条件：栈 S 已存在\n    操作结果：若栈 S 为空栈，则返回 TRUE，否则返回 FALSE\n    StackFull(S)\n    初始条件：栈 S 已存在\n    操作结果：若栈 S 满，则返回 TRUE，否则返回 FALSE\n    GetTop(S, &e)\n    初始条件：栈 S 已存在\n    操作结果：若栈 S 非空，用 e 返回 S 的栈顶元素\n    Push(&S, e)\n    初始条件：栈 S 已存在\n    操作结果：若栈 S 不满，插入元素 e 为新的栈顶元素\n    Pop(&S, &e)\n    初始条件：栈 S 已存在且非空\n    操作结果：若栈 S 非空，删除 S 的栈顶元素，并用 e 返回其值\n} ADT Stack\n```"
+  },
+  {
+    "name": "栈·取栈顶",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0015",
+      "栈和队列:content:0133",
+      "栈和队列:content:0139",
+      "栈和队列:content:0140",
+      "栈和队列:content:0141",
+      "栈和队列:content:0142",
+      "栈和队列:content:0143"
+    ],
+    "description": "若栈S非空，用e返回S的栈顶元素。",
+    "pseudocode": "1. 若栈非空 2. 将栈顶元素赋值给e",
+    "aliases": [],
+    "code": "```txt\nfloat CaculateExpression()\n    { //算术表达式求值的算符优先算法。设 optr 和 opnd 分别为算符栈和操作数栈，\n    //OP 为算符集合\n    InitStack(optr); Push(optr,'#');\n    InitStack(opnd); c=getchar();\n    while(c!='#' || GetTop(optr) != '#')\n    {\n    if(!In(c,OP)) {Push(opnd,c); c=getchar();} //不是算符则进栈\n    else\n    switch(Precede(GetTop(optr),c))\n    {\n    case '<': //栈顶算符优先级低\n    Push(optr,c); c=getchar();\n    break;\n    case '=': //优先级相同，脱去括号并读入下一字符\n    Pop(optr,x); c=getchar();\n    break;\n    case '>': //栈顶算符优先级高，退栈并将运算结果入栈\n    Pop(optr,theta);\n    Pop(opnd,b);Pop(opnd,a);\n    Push(opnd,Operate(a,theta,b));\n    break;\n    }\n    }\n    return GetTop(opnd);\n}\n```"
+  },
+  {
+    "name": "栈·入栈",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0015",
+      "栈和队列:content:0130",
+      "栈和队列:content:0132",
+      "栈和队列:content:0136",
+      "栈和队列:content:0139",
+      "栈和队列:content:0140",
+      "栈和队列:content:0141",
+      "栈和队列:content:0142",
+      "栈和队列:content:0143"
+    ],
+    "description": "若栈S不满，插入元素e为新的栈顶元素。",
+    "pseudocode": "1. 若栈不满 2. 栈顶指针top加1 3. 将e放入top位置",
+    "aliases": [],
+    "code": "```txt\nfloat CaculateExpression()\n    { //算术表达式求值的算符优先算法。设 optr 和 opnd 分别为算符栈和操作数栈，\n    //OP 为算符集合\n    InitStack(optr); Push(optr,'#');\n    InitStack(opnd); c=getchar();\n    while(c!='#' || GetTop(optr) != '#')\n    {\n    if(!In(c,OP)) {Push(opnd,c); c=getchar();} //不是算符则进栈\n    else\n    switch(Precede(GetTop(optr),c))\n    {\n    case '<': //栈顶算符优先级低\n    Push(optr,c); c=getchar();\n    break;\n    case '=': //优先级相同，脱去括号并读入下一字符\n    Pop(optr,x); c=getchar();\n    break;\n    case '>': //栈顶算符优先级高，退栈并将运算结果入栈\n    Pop(optr,theta);\n    Pop(opnd,b);Pop(opnd,a);\n    Push(opnd,Operate(a,theta,b));\n    break;\n    }\n    }\n    return GetTop(opnd);\n}\n```"
+  },
+  {
+    "name": "栈·出栈",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0015",
+      "栈和队列:content:0137",
+      "栈和队列:content:0138",
+      "栈和队列:content:0139",
+      "栈和队列:content:0140",
+      "栈和队列:content:0141",
+      "栈和队列:content:0142",
+      "栈和队列:content:0143"
+    ],
+    "description": "若栈S非空，删除S的栈顶元素，并用e返回其值。",
+    "pseudocode": "1. 若栈非空 2. 将栈顶元素赋值给e 3. 栈顶指针top减1",
+    "aliases": [],
+    "code": "```txt\nfloat CaculateExpression()\n    { //算术表达式求值的算符优先算法。设 optr 和 opnd 分别为算符栈和操作数栈，\n    //OP 为算符集合\n    InitStack(optr); Push(optr,'#');\n    InitStack(opnd); c=getchar();\n    while(c!='#' || GetTop(optr) != '#')\n    {\n    if(!In(c,OP)) {Push(opnd,c); c=getchar();} //不是算符则进栈\n    else\n    switch(Precede(GetTop(optr),c))\n    {\n    case '<': //栈顶算符优先级低\n    Push(optr,c); c=getchar();\n    break;\n    case '=': //优先级相同，脱去括号并读入下一字符\n    Pop(optr,x); c=getchar();\n    break;\n    case '>': //栈顶算符优先级高，退栈并将运算结果入栈\n    Pop(optr,theta);\n    Pop(opnd,b);Pop(opnd,a);\n    Push(opnd,Operate(a,theta,b));\n    break;\n    }\n    }\n    return GetTop(opnd);\n}\n```"
+  },
+  {
+    "name": "链栈",
+    "type": "数据结构",
+    "content_ids": [
+      "栈和队列:content:0053",
+      "栈和队列:content:0054",
+      "栈和队列:content:0055",
+      "栈和队列:content:0056",
+      "栈和队列:content:0057",
+      "栈和队列:content:0058",
+      "栈和队列:content:0063"
+    ],
+    "description": "用链式存储结构实现的栈，通常用无头结点的单链表表示，栈顶指针指向链表第一个结点。",
+    "aliases": []
+  },
+  {
+    "name": "顺序栈·初始化",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0033",
+      "栈和队列:content:0034",
+      "栈和队列:content:0035"
+    ],
+    "description": "分配存储空间，并将栈顶指针置为-1。",
+    "pseudocode": "1. 分配存储空间 2. 栈顶指针top置为-1",
+    "code": "int InitStack(SqStack &S)\n//构造一个空栈\n{\n    S.top=-1;\n    return OK;\n}",
+    "aliases": []
+  },
+  {
+    "name": "顺序栈·判栈空",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0036",
+      "栈和队列:content:0037"
+    ],
+    "description": "判断栈是否为空，若栈顶指针为-1则返回真，否则返回假。",
+    "pseudocode": "1. 若top等于-1则返回TRUE 2. 否则返回FALSE",
+    "code": "int StackEmpty(SqStack S)\n//判栈为空栈时返回值为真,反之为假\n{ return(S.top==-1? TRUE:FALSE); }",
+    "aliases": []
+  },
+  {
+    "name": "顺序栈·判栈满",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0038",
+      "栈和队列:content:0039"
+    ],
+    "description": "判断栈是否已满，若栈顶指针等于最大容量减1则返回真，否则返回假。",
+    "pseudocode": "1. 若top等于MAXSIZE-1则返回TRUE 2. 否则返回FALSE",
+    "code": "int StackFull(SqStack S)\n//判栈为满栈时返回值为真,反之为假\n{ return(S.top==MAXSIZE-1?TRUE:FALSE); }",
+    "aliases": []
+  },
+  {
+    "name": "顺序栈·进栈",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0040",
+      "栈和队列:content:0041",
+      "栈和队列:content:0042",
+      "栈和队列:content:0047"
+    ],
+    "description": "将元素e插入栈顶，先判栈满，若不满则栈顶指针上移，存入元素。",
+    "pseudocode": "1. 判栈满，若满则返回ERROR 2. 栈顶指针top加1 3. 将e存入栈顶位置 4. 返回OK",
+    "code": "if(StackFull(S)) return ERROR; //栈满\nS.top++; //top加1，栈顶位置上移\nS.data[S.top]=e; //数据e存入当前栈顶\nreturn OK;",
+    "aliases": []
+  },
+  {
+    "name": "顺序栈·出栈",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0048",
+      "栈和队列:content:0049",
+      "栈和队列:content:0050"
+    ],
+    "description": "删除栈顶元素并返回其值，先判栈空，若不为空则取出栈顶元素，栈顶指针下移。",
+    "pseudocode": "1. 判栈空，若空则返回ERROR 2. 取出栈顶元素存入e 3. 栈顶指针top减1 4. 返回OK",
+    "code": "int Pop(SqStack &S, Elemtype &e)\n{\n    if(StackEmpty(S)) return ERROR; //若栈不为空，则删除栈顶元素\n    e=S.data[S.top]; //取出数据放入e所指单元中\n    S.top--; // top减1，栈顶位置下移\n    return OK;\n}",
+    "aliases": []
+  },
+  {
+    "name": "顺序栈·取栈顶元素",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0046",
+      "栈和队列:content:0051"
+    ],
+    "description": "获取栈顶元素的值但不删除，先判栈空，若不为空则取出栈顶元素。",
+    "pseudocode": "1. 判栈空，若空则返回ERROR 2. 将栈顶元素存入e 3. 返回OK",
+    "code": "int GetTop(SqStack S, Elemtype &e)\n{\n    if(StackEmpty(S)) return ERROR; //若栈不为空，则取栈顶元素\n    e=S.data[S.top]; //栈空\n    return OK; //取出数据，top不变\n}",
+    "aliases": []
+  },
+  {
+    "name": "O(1)",
+    "type": "复杂度",
+    "content_ids": [
+      "栈和队列:content:0052",
+      "栈和队列:content:0063",
+      "栈和队列:content:0197",
+      "栈和队列:content:0229",
+      "栈和队列:content:0247",
+      "线性表:content:0108",
+      "线性表:content:0172",
+      "线性表:content:0226",
+      "线性表:content:0244",
+      "线性表:content:0249",
+      "线性表:content:0271"
+    ],
+    "aliases": []
+  },
+  {
+    "name": "链栈·初始化",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0064",
+      "栈和队列:content:0066"
+    ],
+    "description": "创建一个空链栈，将栈顶指针置为NULL。",
+    "pseudocode": "1. 返回NULL作为栈顶指针",
+    "code": "LinkStack InitStack()\n//空栈的 top 指针为 NULL\n{ return NULL; }",
+    "aliases": []
+  },
+  {
+    "name": "链栈·判栈空",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0066"
+    ],
+    "description": "判断链栈是否为空，即检查栈顶指针是否为NULL。",
+    "pseudocode": "1. 若top为NULL则返回TRUE，否则返回FALSE",
+    "code": "int StackEmpty(LinkStack top)\n//判栈为空栈时返回值为真, 反之为假\n{ return (top == NULL? TRUE: FALSE); }",
+    "aliases": []
+  },
+  {
+    "name": "链栈·进栈",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0066"
+    ],
+    "description": "将新元素压入链栈，即在链表表头插入新结点。",
+    "pseudocode": "1. 分配新结点s 2. 将e存入s的数据域 3. s的next指向当前栈顶 4. 更新栈顶指针为s",
+    "code": "void Push(LinkStack top, Elemtype e)\n{ //将元素 e 进链栈, 即在表头插入新的结点\n    StackNode *s;\n    s = (StackNode*)malloc(sizeof(StackNode));\n    s->data = e;\n    s->next = top;\n    top = s;\n}",
+    "aliases": []
+  },
+  {
+    "name": "链栈·出栈",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0066"
+    ],
+    "description": "若栈非空，删除栈顶结点并返回其元素值。",
+    "pseudocode": "1. 若栈空则返回ERROR 2. 取栈顶元素到e 3. 暂存栈顶结点p 4. 栈顶指针后移 5. 释放p",
+    "code": "int Pop(LinkStack top, Elemtype &e)\n{ //若栈不为空将栈顶元素出栈, 即为删除表头结点\n    StackNode *p;\n    if (StackEmpty(top)) return ERROR; //栈空\n    e = top->data;\n    p = top;\n    top = top->next;\n    free(p);\n    retrun OK;\n}",
+    "aliases": []
+  },
+  {
+    "name": "栈·数制转换",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0076",
+      "栈和队列:content:0077",
+      "栈和队列:content:0078",
+      "栈和队列:content:0079",
+      "栈和队列:content:0080",
+      "栈和队列:content:0082"
+    ],
+    "description": "将十进制整数N转换为r进制数，利用栈保存每次除以r的余数，最后依次出栈得到结果。",
+    "pseudocode": "1. 当N≠0时，重复：将N%r入栈，N=N/r。2. 将栈中内容依次出栈输出。",
+    "code": "typedef int Elemtype;\nvoid conversion(int N, int r)\n{ SqStack S;    //定义一个顺序栈S\n    Elemtype x;\n    InitStack(S);\n    while(N)\n    { Push(S, N%r);    //余数入栈\n    N=N/r;\n    }\n    while(!StackEmpty(S))\n    { Pop(S,x);\n    printf(\"%d\",x);\n    }\n}",
+    "aliases": []
+  },
+  {
+    "name": "栈·括号匹配",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0089",
+      "栈和队列:content:0090",
+      "栈和队列:content:0091",
+      "栈和队列:content:0092",
+      "栈和队列:content:0093",
+      "栈和队列:content:0094",
+      "栈和队列:content:0098"
+    ],
+    "description": "检验表达式中括号是否正确配对，利用栈保存左括号，遇到右括号时出栈并检查是否匹配。",
+    "pseudocode": "1. 依次输入表达式字符。2. 若是左括号，入栈。3. 若是右括号，若栈空则右括号多余；否则出栈左括号，若类型不匹配则交叉错误。4. 表达式结束后若栈非空则左括号多余。",
+    "aliases": [
+      "栈·括号匹配检验"
+    ],
+    "code": "int bracketmatching()\n{\n    SqStack S;\n    Elemtype ch;\n    InitStack(S);\n    while ((ch=getchar())!='\\n')\n    {\n    switch (ch)    //遇左括号入栈;遇到右括号时,分别检测匹配情况\n    {\n    case '(':\n    case '[':\n    case '{: \n    Push(S,ch);break;\n    case ')':\n    if (StackEmpty(S)) return FALSE;\n    else \n    { Pop(S,ch); if (ch != '(') return FALSE; }\n    break;\n    case ' '}':\n    if (StackEmpty(S)) return FALSE;\n    else \n    { Pop(S,ch); if (ch != '[') return FALSE; }\n    break;\n    case '}':\n    if (StackEmpty(S)) return FALSE;\n    else\n{ Pop(S,ch); if (ch!='{'}) return FALSE; }\n    break;\n    default:break;\n}\nif (StackEmpty(S)) return TRUE;\nelse return FALSE;\n}\n"
+  },
+  {
+    "name": "栈·表达式求值",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0092",
+      "栈和队列:content:0093",
+      "栈和队列:content:0094",
+      "栈和队列:content:0095",
+      "栈和队列:content:0096",
+      "栈和队列:content:0099",
+      "栈和队列:content:0100",
+      "栈和队列:content:0114"
+    ],
+    "description": "利用算符优先算法对表达式求值，使用两个栈分别存储操作数和算符",
+    "pseudocode": "1. 初始化操作数栈和算符栈 2. 读入字符 3. 操作数入栈 4. 算符比较优先级 5. 执行运算",
+    "aliases": [],
+    "code": "```c\ntypedef char Elemtype;\nint bracketmatching()\n{\n    SqStack S;\n    Elemtype ch;\n    InitStack(S);\n    while ((ch=getchar())!='\\n')\n    {\n    switch (ch)    //遇左括号入栈;遇到右括号时,分别检测匹配情况\n    {\n    case '(':\n    case '[':\n    case '{: \n    Push(S,ch);break;\n    case ')':\n    if (StackEmpty(S)) return FALSE;\n    else \n    { Pop(S,ch); if (ch != '(') return FALSE; }\n    break;\n    case ' '}':\n    if (StackEmpty(S)) return FALSE;\n    else \n    { Pop(S,ch); if (ch != '[') return FALSE; }\n    break;\n    case '}':\n    if (StackEmpty(S)) return FALSE;\n    else\n```"
+  },
+  {
+    "name": "表达式求值",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0141"
+    ],
+    "description": "使用算符优先算法对中缀表达式进行求值，利用两个栈分别存储算符和操作数。",
+    "pseudocode": "1. 初始化算符栈optr和操作数栈opnd，optr压入'#' 2. 从左到右扫描表达式字符c 3. 若c是操作数，入opnd栈 4. 若c是算符，与optr栈顶比较优先级：若栈顶优先级低，c入optr栈；若相等，脱括号；若栈顶优先级高，弹出算符和两个操作数运算，结果入opnd栈 5. 直到c为'#'且optr栈顶为'#'，返回opnd栈顶结果",
+    "code": "float CaculateExpression()\n    { //算术表达式求值的算符优先算法。设 optr 和 opnd 分别为算符栈和操作数栈，\n    //OP 为算符集合\n    InitStack(optr); Push(optr,'#');\n    InitStack(opnd); c=getchar();\n    while(c!='#' || GetTop(optr) != '#')\n    {\n    if(!In(c,OP)) {Push(opnd,c); c=getchar();} //不是算符则进栈\n    else\n    switch(Precede(GetTop(optr),c))\n    {\n    case '<': //栈顶算符优先级低\n    Push(optr,c); c=getchar();\n    break;\n    case '=': //优先级相同，脱去括号并读入下一字符\n    Pop(optr,x); c=getchar();\n    break;\n    case '>': //栈顶算符优先级高，退栈并将运算结果入栈\n    Pop(optr,theta);\n    Pop(opnd,b);Pop(opnd,a);\n    Push(opnd,Operate(a,theta,b));\n    break;\n    }\n    }\n    return GetTop(opnd);\n}",
+    "aliases": []
+  },
+  {
+    "name": "后缀表达式求值",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0161"
+    ],
+    "description": "从左到右扫描后缀表达式，遇到操作数入栈，遇到运算符则弹出两个操作数计算后结果入栈，最后栈顶即为结果。",
+    "pseudocode": "1. 初始化操作数栈 2. 从左到右扫描后缀表达式 3. 若为操作数，入栈 4. 若为运算符，弹出两个操作数，计算后将结果入栈 5. 表达式结束，栈顶元素即为结果",
+    "aliases": []
+  },
+  {
+    "name": "队列",
+    "type": "数据结构",
+    "content_ids": [
+      "栈和队列:content:0162",
+      "栈和队列:content:0163",
+      "栈和队列:content:0166"
+    ],
+    "description": "一种运算受限的线性表，插入和删除操作分别限定在表的两端进行，具有先进先出特性。",
+    "aliases": []
+  },
+  {
+    "name": "顺序队列",
+    "type": "数据结构",
+    "content_ids": [
+      "栈和队列:content:0175",
+      "栈和队列:content:0177",
+      "栈和队列:content:0182"
+    ],
+    "description": "用顺序存储结构实现的队列，通常使用一维数组存储元素，并设置队头指针和队尾指针。",
+    "aliases": []
+  },
+  {
+    "name": "循环队列",
+    "type": "数据结构",
+    "content_ids": [
+      "栈和队列:content:0189",
+      "栈和队列:content:0193",
+      "栈和队列:content:0197",
+      "栈和队列:content:0198",
+      "栈和队列:content:0200",
+      "栈和队列:content:0201",
+      "栈和队列:content:0211",
+      "栈和队列:content:0212",
+      "栈和队列:content:0215",
+      "栈和队列:content:0217",
+      "栈和队列:content:0258",
+      "栈和队列:content:0265"
+    ],
+    "description": "用顺序存储结构实现的队列，通过取模运算将存储空间逻辑上变为环状，避免假溢出。",
+    "aliases": []
+  },
+  {
+    "name": "队列·初始化",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0171",
+      "栈和队列:content:0172",
+      "栈和队列:content:0173",
+      "栈和队列:content:0174",
+      "栈和队列:content:0175",
+      "栈和队列:content:0184"
+    ],
+    "description": "构造一个空队列，设置队头指针和队尾指针为-1。",
+    "pseudocode": "1. 分配队列存储空间 2. 设置front = rear = -1",
+    "aliases": [],
+    "code": "<div class=\"mineru-algorithm\" style=\"white-space: pre-wrap; font-family:monospace;\">\nADT Queue{\n数据对象： $D=\\{a_{i}\\mid a_{i}\\in ElemSet,i=1,2,\\cdots,n,n\\geq0\\}$ \n数据关系： $R1=\\{\\langle a_{i-1},a_{i}\\rangle|a_{i-1},a_{i}\\in D,i=2,\\cdots,n\\}$ \n约定其中  $a_{1}$  端为队头， $a_{n}$  端为队尾\n基本操作：\nInitQueue(&amp;Q)\n操作结果：构造一个空队列 Q\nQueueEmpty(Q)\n初始条件：队列 Q 已存在\n操作结果：若 Q 为空队列，则返回 TRUE，否则 FALSE\nQueueLength(Q)\n初始条件：队列 Q 已存在\n操作结果：返回 Q 的元素个数，即队列的长度\nGetHead(Q,&amp;e)\n初始条件：Q 为非空队列\n操作结果：用 e 返回的队头元素\nEnQueue(&amp;Q,e)\n初始条件：队列 Q 已存在\n操作结果：插入元素 e 为 Q 的新的队尾元素\nDeQueue(&amp;Q,&amp;e)\n初始条件：Q 为非空队列\n操作结果：删除 Q 的队头元素，并用 e 返回其值\n} ADT Queue\n</div>"
+  },
+  {
+    "name": "队列·入队",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0171",
+      "栈和队列:content:0172",
+      "栈和队列:content:0173",
+      "栈和队列:content:0174",
+      "栈和队列:content:0175",
+      "栈和队列:content:0184"
+    ],
+    "description": "在队尾插入新元素，队尾指针rear增1。",
+    "pseudocode": "1. 检查队列是否已满 2. 将新元素放入rear+1位置 3. rear增1",
+    "aliases": [],
+    "code": "<div class=\"mineru-algorithm\" style=\"white-space: pre-wrap; font-family:monospace;\">\nADT Queue{\n数据对象： $D=\\{a_{i}\\mid a_{i}\\in ElemSet,i=1,2,\\cdots,n,n\\geq0\\}$ \n数据关系： $R1=\\{\\langle a_{i-1},a_{i}\\rangle|a_{i-1},a_{i}\\in D,i=2,\\cdots,n\\}$ \n约定其中  $a_{1}$  端为队头， $a_{n}$  端为队尾\n基本操作：\nInitQueue(&amp;Q)\n操作结果：构造一个空队列 Q\nQueueEmpty(Q)\n初始条件：队列 Q 已存在\n操作结果：若 Q 为空队列，则返回 TRUE，否则 FALSE\nQueueLength(Q)\n初始条件：队列 Q 已存在\n操作结果：返回 Q 的元素个数，即队列的长度\nGetHead(Q,&amp;e)\n初始条件：Q 为非空队列\n操作结果：用 e 返回的队头元素\nEnQueue(&amp;Q,e)\n初始条件：队列 Q 已存在\n操作结果：插入元素 e 为 Q 的新的队尾元素\nDeQueue(&amp;Q,&amp;e)\n初始条件：Q 为非空队列\n操作结果：删除 Q 的队头元素，并用 e 返回其值\n} ADT Queue\n</div>"
+  },
+  {
+    "name": "队列·出队",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0171",
+      "栈和队列:content:0172",
+      "栈和队列:content:0173",
+      "栈和队列:content:0174",
+      "栈和队列:content:0175",
+      "栈和队列:content:0184"
+    ],
+    "description": "删除队头元素，队头指针front增1。",
+    "pseudocode": "1. 检查队列是否为空 2. 取出front+1位置的元素 3. front增1",
+    "aliases": [],
+    "code": "<div class=\"mineru-algorithm\" style=\"white-space: pre-wrap; font-family:monospace;\">\nADT Queue{\n数据对象： $D=\\{a_{i}\\mid a_{i}\\in ElemSet,i=1,2,\\cdots,n,n\\geq0\\}$ \n数据关系： $R1=\\{\\langle a_{i-1},a_{i}\\rangle|a_{i-1},a_{i}\\in D,i=2,\\cdots,n\\}$ \n约定其中  $a_{1}$  端为队头， $a_{n}$  端为队尾\n基本操作：\nInitQueue(&amp;Q)\n操作结果：构造一个空队列 Q\nQueueEmpty(Q)\n初始条件：队列 Q 已存在\n操作结果：若 Q 为空队列，则返回 TRUE，否则 FALSE\nQueueLength(Q)\n初始条件：队列 Q 已存在\n操作结果：返回 Q 的元素个数，即队列的长度\nGetHead(Q,&amp;e)\n初始条件：Q 为非空队列\n操作结果：用 e 返回的队头元素\nEnQueue(&amp;Q,e)\n初始条件：队列 Q 已存在\n操作结果：插入元素 e 为 Q 的新的队尾元素\nDeQueue(&amp;Q,&amp;e)\n初始条件：Q 为非空队列\n操作结果：删除 Q 的队头元素，并用 e 返回其值\n} ADT Queue\n</div>"
+  },
+  {
+    "name": "队列·判空",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0171",
+      "栈和队列:content:0172",
+      "栈和队列:content:0173",
+      "栈和队列:content:0174",
+      "栈和队列:content:0175"
+    ],
+    "description": "判断队列是否为空，即front是否等于rear。",
+    "pseudocode": "1. 如果front == rear，返回TRUE 2. 否则返回FALSE",
+    "aliases": [],
+    "code": "<div class=\"mineru-algorithm\" style=\"white-space: pre-wrap; font-family:monospace;\">\nADT Queue{\n数据对象： $D=\\{a_{i}\\mid a_{i}\\in ElemSet,i=1,2,\\cdots,n,n\\geq0\\}$ \n数据关系： $R1=\\{\\langle a_{i-1},a_{i}\\rangle|a_{i-1},a_{i}\\in D,i=2,\\cdots,n\\}$ \n约定其中  $a_{1}$  端为队头， $a_{n}$  端为队尾\n基本操作：\nInitQueue(&amp;Q)\n操作结果：构造一个空队列 Q\nQueueEmpty(Q)\n初始条件：队列 Q 已存在\n操作结果：若 Q 为空队列，则返回 TRUE，否则 FALSE\nQueueLength(Q)\n初始条件：队列 Q 已存在\n操作结果：返回 Q 的元素个数，即队列的长度\nGetHead(Q,&amp;e)\n初始条件：Q 为非空队列\n操作结果：用 e 返回的队头元素\nEnQueue(&amp;Q,e)\n初始条件：队列 Q 已存在\n操作结果：插入元素 e 为 Q 的新的队尾元素\nDeQueue(&amp;Q,&amp;e)\n初始条件：Q 为非空队列\n操作结果：删除 Q 的队头元素，并用 e 返回其值\n} ADT Queue\n</div>"
+  },
+  {
+    "name": "队列·求长度",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0171",
+      "栈和队列:content:0172",
+      "栈和队列:content:0173",
+      "栈和队列:content:0174",
+      "栈和队列:content:0175"
+    ],
+    "description": "返回队列中元素个数，即rear - front。",
+    "pseudocode": "1. 返回 rear - front",
+    "aliases": [],
+    "code": "<div class=\"mineru-algorithm\" style=\"white-space: pre-wrap; font-family:monospace;\">\nADT Queue{\n数据对象： $D=\\{a_{i}\\mid a_{i}\\in ElemSet,i=1,2,\\cdots,n,n\\geq0\\}$ \n数据关系： $R1=\\{\\langle a_{i-1},a_{i}\\rangle|a_{i-1},a_{i}\\in D,i=2,\\cdots,n\\}$ \n约定其中  $a_{1}$  端为队头， $a_{n}$  端为队尾\n基本操作：\nInitQueue(&amp;Q)\n操作结果：构造一个空队列 Q\nQueueEmpty(Q)\n初始条件：队列 Q 已存在\n操作结果：若 Q 为空队列，则返回 TRUE，否则 FALSE\nQueueLength(Q)\n初始条件：队列 Q 已存在\n操作结果：返回 Q 的元素个数，即队列的长度\nGetHead(Q,&amp;e)\n初始条件：Q 为非空队列\n操作结果：用 e 返回的队头元素\nEnQueue(&amp;Q,e)\n初始条件：队列 Q 已存在\n操作结果：插入元素 e 为 Q 的新的队尾元素\nDeQueue(&amp;Q,&amp;e)\n初始条件：Q 为非空队列\n操作结果：删除 Q 的队头元素，并用 e 返回其值\n} ADT Queue\n</div>"
+  },
+  {
+    "name": "队列·取队头",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0171",
+      "栈和队列:content:0172",
+      "栈和队列:content:0173",
+      "栈和队列:content:0174",
+      "栈和队列:content:0175"
+    ],
+    "description": "获取队头元素的值，但不删除。",
+    "pseudocode": "1. 检查队列非空 2. 返回front+1位置的元素",
+    "aliases": [],
+    "code": "<div class=\"mineru-algorithm\" style=\"white-space: pre-wrap; font-family:monospace;\">\nADT Queue{\n数据对象： $D=\\{a_{i}\\mid a_{i}\\in ElemSet,i=1,2,\\cdots,n,n\\geq0\\}$ \n数据关系： $R1=\\{\\langle a_{i-1},a_{i}\\rangle|a_{i-1},a_{i}\\in D,i=2,\\cdots,n\\}$ \n约定其中  $a_{1}$  端为队头， $a_{n}$  端为队尾\n基本操作：\nInitQueue(&amp;Q)\n操作结果：构造一个空队列 Q\nQueueEmpty(Q)\n初始条件：队列 Q 已存在\n操作结果：若 Q 为空队列，则返回 TRUE，否则 FALSE\nQueueLength(Q)\n初始条件：队列 Q 已存在\n操作结果：返回 Q 的元素个数，即队列的长度\nGetHead(Q,&amp;e)\n初始条件：Q 为非空队列\n操作结果：用 e 返回的队头元素\nEnQueue(&amp;Q,e)\n初始条件：队列 Q 已存在\n操作结果：插入元素 e 为 Q 的新的队尾元素\nDeQueue(&amp;Q,&amp;e)\n初始条件：Q 为非空队列\n操作结果：删除 Q 的队头元素，并用 e 返回其值\n} ADT Queue\n</div>"
+  },
+  {
+    "name": "循环队列·入队",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0200",
+      "栈和队列:content:0221",
+      "栈和队列:content:0266"
+    ],
+    "description": "在循环队列队尾插入新元素，通过 rear=(rear+1)%MAXSIZE 移动尾指针。",
+    "pseudocode": "1. 如果队满则返回错误 2. rear = (rear+1)%MAXSIZE 3. 将e存入data[rear] 4. 返回成功",
+    "code": "int EnQueue(SqQueue &Q, Elemtype e)\n{\n    if(QueueFull(Q)) return ERROR;    //队满\n    Q.rear=(Q.rear+1)%MAXSIZE;    //rear加1,队尾位置上移\n    Q.data[Q.rear]=e;    //数据e存入当前队尾\n    return OK;\n}",
+    "aliases": [
+      "循环队列·进队"
+    ]
+  },
+  {
+    "name": "循环队列·出队",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0200",
+      "栈和队列:content:0221",
+      "栈和队列:content:0224",
+      "栈和队列:content:0225",
+      "栈和队列:content:0266"
+    ],
+    "description": "删除循环队列队头元素，通过 front=(front+1)%MAXSIZE 移动头指针。",
+    "pseudocode": "1. 判断队空 2. 取出front位置元素 3. front=(front+1)%MAXSIZE",
+    "code": "int DeQueue(SqQueue &Q,Elemtype &e)\n{\n    if(QueueEmpty(Q)) return ERROR;    //队空\n    Q.front=(Q.front+1)%MAXSIZE;    //front加1,队头位置上移\n    e=Q.data[Q.front];\n    return OK;\n}",
+    "aliases": []
+  },
+  {
+    "name": "循环队列·判空",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0203",
+      "栈和队列:content:0209",
+      "栈和队列:content:0210",
+      "栈和队列:content:0221",
+      "栈和队列:content:0266"
+    ],
+    "description": "判断循环队列是否为空，常用条件为 rear==front 或 len==0。",
+    "pseudocode": "1. 如果 Q.front == Q.rear 则返回真 2. 否则返回假",
+    "code": "int QueueEmpty(SqQueue Q)\n//队空时返回值为真,反之为假\n{\n    return(Q.front==Q.rear? TRUE:FALSE);\n}",
+    "aliases": [
+      "循环队列·判队空"
+    ]
+  },
+  {
+    "name": "循环队列·判满",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0203",
+      "栈和队列:content:0209",
+      "栈和队列:content:0210",
+      "栈和队列:content:0221"
+    ],
+    "description": "判断循环队列是否已满，常用条件为 (rear+1)%MAXSIZE==front 或 len==MAXSIZE。",
+    "pseudocode": "1. 若(rear+1)%MAXSIZE==front或len==MAXSIZE则队满 2. 否则未满",
+    "aliases": [
+      "循环队列·判队满"
+    ],
+    "code": "int QueueFull(SqQueue Q)\n//队满时返回值为真,反之为假\n{\n    return((Q.rear+1)%MAXSIZE==Q.front?TRUE:FALSE);\n}"
+  },
+  {
+    "name": "循环队列·求队列长度",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0211",
+      "栈和队列:content:0217",
+      "栈和队列:content:0228",
+      "栈和队列:content:0229"
+    ],
+    "description": "计算循环队列中当前元素个数，公式为 (rear-front+MAXSIZE)%MAXSIZE。",
+    "pseudocode": "1. 计算 (Q.rear - Q.front + MAXSIZE) % MAXSIZE 2. 返回结果",
+    "code": "int QueueLength(SqQueue Q)\n{\n    return (Q.rear-Q.front+MAXSIZE)%MAXSIZE;\n}",
+    "aliases": []
+  },
+  {
+    "name": "循环队列·初始化",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0219",
+      "栈和队列:content:0220",
+      "栈和队列:content:0221",
+      "栈和队列:content:0266"
+    ],
+    "description": "将循环队列置为空队列，设置队头和队尾指针初始值。",
+    "pseudocode": "1. 设置 Q.front = Q.rear = 0 2. 返回成功",
+    "code": "int InitQueue(SqQueue &Q)\n{\n    //构造一个空队列\n    Q.front=Q.rear=0;\n    return OK;\n}",
+    "aliases": []
+  },
+  {
+    "name": "循环队列·取队头",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0226",
+      "栈和队列:content:0227"
+    ],
+    "description": "获取队头元素的值但不删除，先判断队空，然后取出队头数据。",
+    "pseudocode": "1. 如果队空则返回错误 2. 取出 data[(front+1)%MAXSIZE] 存入 e 3. 返回成功",
+    "code": "int QueueFront(SqQueue Q, Elemtype &e)\n{\n    if(QueueEmpty(Q)) return ERROR; // 队空\n    e = Q.data[(Q.front + 1) % MAXSIZE]; // 取出队头数据\n    return OK;\n}",
+    "aliases": []
+  },
+  {
+    "name": "链队列",
+    "type": "数据结构",
+    "content_ids": [
+      "栈和队列:content:0230",
+      "栈和队列:content:0231",
+      "栈和队列:content:0233",
+      "栈和队列:content:0234",
+      "栈和队列:content:0235",
+      "栈和队列:content:0236",
+      "栈和队列:content:0238"
+    ],
+    "description": "用链表实现的队列，通常带头结点，队头指针指向头结点，队尾指针指向尾结点。",
+    "aliases": []
+  },
+  {
+    "name": "链队列·初始化",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0245"
+    ],
+    "description": "创建带头结点的空链队列，分配头尾指针结点和头结点，头尾指针均指向头结点。",
+    "pseudocode": "1. 分配头尾指针结点q 2. 分配头结点p 3. p->next=NULL 4. q->front=q->rear=p 5. 返回q",
+    "code": "LinkQueue* InitQueue()\n//创建一个带头结点的空队\n{\n    LinkQueue *q;\n    QueueNode *p;\n    q=(LinkQueue*)malloc(sizeof(LinkQueue)); //申请头尾指针结点\n    p=(QueueNode*)malloc(sizeof(QueueNode)); //申请链队列头结点\n    p->next=NULL;\n    q->front=q->rear=p;\n    return q;\n}",
+    "aliases": []
+  },
+  {
+    "name": "链队列·判队空",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0247"
+    ],
+    "description": "判断链队列是否为空，即头指针和尾指针是否相等。",
+    "pseudocode": "1. 返回 q->front==q->rear 的结果",
+    "code": "int QueueEmpty(LinkQueue *q)\n//链队列为空时返回值为真，反之为假\n{ return(q->front==q->rear?TRUE:FALSE); }",
+    "aliases": []
+  },
+  {
+    "name": "链队列·进队",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0249"
+    ],
+    "description": "在链队列尾部插入新结点，更新尾指针。",
+    "pseudocode": "1. 分配新结点s 2. s->data=e; s->next=NULL 3. q->rear->next=s 4. q->rear=s",
+    "code": "void EnQueue(LinkQueue *q, Elemtype e)\n{\n    // 将元素 e 进队，即在表尾插入新的结点\n    QueueNode *s;\n    s = (QueueNode*)malloc(sizeof(QueueNode));\n    s->data = e;\n    s->next = NULL;\n    q->rear->next = s;\n    q->rear = s;\n}",
+    "aliases": []
+  },
+  {
+    "name": "链队列·出队",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0254"
+    ],
+    "description": "删除链队列头结点，若队列变空则修改尾指针。",
+    "pseudocode": "1. 若队空返回ERROR 2. p指向头结点后继 3. e=p->data 4. 删除p 5. 若删除后队空，尾指针指向头结点",
+    "code": "int DeQueue(LinkQueue *q, Elemtype &e)\n{\n    //若队列不为空将出队，即为删除队头结点\n    QueueNode *p;\n    if(QueueEmpty(q)) return ERROR;    //队空\n    p=q->front->next;\n    e=p->data;\n    q->front->next=p->next;\n    free(p);\n    if(q->front->next==NULL) q->rear=q->front;\n    return OK;\n}",
+    "aliases": []
+  },
+  {
+    "name": "链队列·求队列长度",
+    "type": "操作",
+    "content_ids": [
+      "栈和队列:content:0254"
+    ],
+    "description": "遍历链队列结点，统计结点个数。",
+    "pseudocode": "1. p指向第一个数据结点 2. len=0 3. 当p非空: len++; p=p->next 4. 返回len",
+    "code": "int QueueLength(LinkQueue *q)\n{\n    QueueNode *p; int len=0;\n    p=q->front->next;\n    while(p)\n    { len++;\n    p=p->next;\n    }\n    return len;\n}",
+    "aliases": []
+  },
+  {
+    "name": "O(n)",
+    "type": "复杂度",
+    "content_ids": [
+      "栈和队列:content:0254",
+      "线性表:content:0056",
+      "线性表:content:0070",
+      "线性表:content:0091",
+      "线性表:content:0100",
+      "线性表:content:0154",
+      "线性表:content:0172",
+      "线性表:content:0178",
+      "线性表:content:0192",
+      "线性表:content:0214",
+      "线性表:content:0222",
+      "线性表:content:0244",
+      "线性表:content:0249",
+      "线性表:content:0270",
+      "线性表:content:0272",
+      "线性表:content:0294"
+    ],
+    "aliases": []
+  },
+  {
+    "name": "线性表",
+    "type": "数据结构",
+    "content_ids": [
+      "线性表:content:0012"
+    ],
+    "description": "由n个数据元素组成的有限序列，元素间存在线性关系，同一表中元素类型一致。",
+    "aliases": []
+  },
+  {
+    "name": "顺序表",
+    "type": "数据结构",
+    "content_ids": [
+      "线性表:content:0006",
+      "线性表:content:0008",
+      "线性表:content:0029",
+      "线性表:content:0032",
+      "线性表:content:0055",
+      "线性表:content:0056",
+      "线性表:content:0057",
+      "线性表:content:0058",
+      "线性表:content:0059",
+      "线性表:content:0060",
+      "线性表:content:0061",
+      "线性表:content:0062",
+      "线性表:content:0089",
+      "线性表:content:0091",
+      "线性表:content:0093",
+      "线性表:content:0098",
+      "线性表:content:0100",
+      "线性表:content:0102",
+      "线性表:content:0106",
+      "线性表:content:0108",
+      "线性表:content:0116",
+      "线性表:content:0298",
+      "线性表:content:0300",
+      "线性表:content:0304"
+    ],
+    "description": "用一组地址连续的存储单元依次存储线性表数据元素的存储结构，逻辑顺序与物理顺序一致。",
+    "aliases": []
+  },
+  {
+    "name": "单链表",
+    "type": "数据结构",
+    "content_ids": [
+      "线性表:content:0006",
+      "线性表:content:0121",
+      "线性表:content:0122",
+      "线性表:content:0127",
+      "线性表:content:0161",
+      "线性表:content:0162",
+      "线性表:content:0185",
+      "线性表:content:0189",
+      "线性表:content:0218",
+      "线性表:content:0229",
+      "线性表:content:0311",
+      "线性表:content:0319"
+    ],
+    "description": "用一组任意的存储单元存储线性表的数据元素，每个节点包含数据域和指针域，通过指针链接成链式结构",
+    "aliases": []
+  },
+  {
+    "name": "循环链表",
+    "type": "数据结构",
+    "content_ids": [
+      "线性表:content:0006"
+    ],
+    "description": "链式存储结构，表中最后一个节点的指针指向头节点，形成环。",
+    "aliases": []
+  },
+  {
+    "name": "双向链表",
+    "type": "数据结构",
+    "content_ids": [
+      "线性表:content:0006",
+      "线性表:content:0249",
+      "线性表:content:0253",
+      "线性表:content:0254"
+    ],
+    "description": "每个节点含有两个指针域，分别指向前驱节点和后继节点的线性链表存储结构",
+    "aliases": []
+  },
+  {
+    "name": "顺序表·初始化",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0041",
+      "线性表:content:0043",
+      "线性表:content:0298"
+    ],
+    "description": "为顺序表分配初始存储空间，设置长度为0，初始容量为INIT_SIZE。",
+    "pseudocode": "1. 动态分配存储空间 2. 检查分配是否成功 3. 设置当前长度为0 4. 设置当前存储容量为初始值",
+    "code": "int InitList_Sq(SqList *L)\n/*初始化顺序表，成功返回1，失败返回-1*/\n{\n    L->elem=(ElemType *)malloc(INIT_SIZE*sizeof(ElemType)); /*分配存储空间*/\n    if(!L->elem) return -1;    /*初始化失败*/\n    L->length=0;\n    L->listsize=INIT_SIZE;\n    return 1;    /*初始化成功*/\n}",
+    "aliases": []
+  },
+  {
+    "name": "顺序表·插入",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0046",
+      "线性表:content:0048",
+      "线性表:content:0049",
+      "线性表:content:0050",
+      "线性表:content:0055",
+      "线性表:content:0056",
+      "线性表:content:0057",
+      "线性表:content:0058",
+      "线性表:content:0059",
+      "线性表:content:0060",
+      "线性表:content:0061",
+      "线性表:content:0063",
+      "线性表:content:0066",
+      "线性表:content:0300"
+    ],
+    "description": "在顺序表第i个位置前插入新元素e，将第i到第n-1个元素后移一位，表长+1",
+    "pseudocode": "1. 检查插入位置i的有效性(0≤i≤n) 2. 检查表是否已满 3. 元素从后向前后移 4. 新元素放入第i位 5. 表长+1",
+    "code": "int ListInsert_Sq(SqList *L, int i, ElemType e)\n/*在顺序表 L 的第 i 个位置之前插入新的元素 e，若插入成功，则返回 1，否则返回 -1*/\n{\n    int j;\n    ElemType *newbase;\n    if (i < 0 || i > L->length) return -1;    /*插入位置不合法，插入失败*/\n    if (L->length >= L->listsize)    /*当前存储空间已满，增加分配*/\n    {\n    newbase = (ElemType *)realloc(L->elem, (L->listsize + INCREMENT) * sizeof(ElemType));\n    if (!newbase) return -1;    /*存储分配失败，插入失败*/\n    L->elem = newbase;\n    L->listsize += INCREMENT;\n    }\n    for (j = L->length - 1; j >= i; j--)\n    L->elem[j + 1] = L->elem[j];    /*插入位置及之后的元素从后开始向后移动*/\n    L->elem[i] = e;    /*插入 e*/\n    ++L->length;    /*表长增 1*/\n    return 1;    /*插入成功*/\n}",
+    "aliases": []
+  },
+  {
+    "name": "顺序表·删除",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0072",
+      "线性表:content:0080",
+      "线性表:content:0083",
+      "线性表:content:0085",
+      "线性表:content:0089",
+      "线性表:content:0090",
+      "线性表:content:0091",
+      "线性表:content:0300"
+    ],
+    "description": "删除顺序表第i个元素，用e返回其值，将第i+1到第n个元素前移一位，表长-1。",
+    "pseudocode": "1. 检查i合法性(0≤i≤n-1) 2. 保存被删元素值 3. 元素从前向后前移 4. 表长-1",
+    "code": "int ListDelete_Sq(SqList *L, int i, ElemType *e)\n/*在顺序表 L 中删除第 i 个元素，并用 e 返回其值，成功返回 1，失败返回 -1*/\n{\n    int j;\n    if (i < 0 || i > L->length - 1) return -1;    /*i 值不合法，删除失败*/\n    *e = L->elem[i];    /*将被删除元素的值赋给 e*/\n    for (j = i + 1; j <= L->length - 1; j++)\n    L->elem[j - 1] = L->elem[j];    /*被删元素之后的元素从前开始向前移动*/\n    --L->length;\n    return 1;    /*删除成功*/\n}",
+    "aliases": []
+  },
+  {
+    "name": "顺序表·按值查找",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0093",
+      "线性表:content:0095",
+      "线性表:content:0098",
+      "线性表:content:0100",
+      "线性表:content:0300",
+      "线性表:content:0304"
+    ],
+    "description": "在顺序表中查找第一个与给定值e相等的元素，返回其位序，若不存在则返回-1",
+    "pseudocode": "1. 从第一个元素开始 2. 依次与e比较 3. 若相等则返回位序 4. 若遍历完未找到则返回-1",
+    "code": "int LocateElem_Sq(SqList L, ElemType e)\n/*在顺序线性表 L 中查找第 1 个值与 e 相等的元素的位序，若找到，则返回其在 L 中的位序，否则返回 -1*/\n{ int i=0;    /*i 的初值为最前面一个元素的位序*/\n    while(i<L.length&&L.elem[i]!=e) i++;    /*从前向后逐一比较*/\n    if(L.elem[i]==e) return i;    /*查找成功，i 为与 e 相等的第一个元素的位序*/\n    else return -1;    /*查找失败*/\n}",
+    "aliases": []
+  },
+  {
+    "name": "顺序表·取元素",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0102",
+      "线性表:content:0104",
+      "线性表:content:0106",
+      "线性表:content:0108",
+      "线性表:content:0304"
+    ],
+    "description": "根据序号i获取顺序表中对应元素的值，若序号合法则返回元素值，否则操作失败",
+    "pseudocode": "1. 检查i合法性(0≤i≤n-1) 2. 若合法则返回第i个元素 3. 否则返回失败",
+    "code": "int Get_SqList(SqList L, int i, ElemType *e)\n/*在顺序线性表 L 中取第 i 个元素存入 e 中，若成功，则返回 1，否则返回 -1*/\n{\n    if (i < 0 || i > L.length - 1) return -1;    /*没有第 i 个元素，读取失败*/\n    *e = L.elem[i];\n    return 1;    /*读取成功*/\n}",
+    "aliases": []
+  },
+  {
+    "name": "顺序表·合并",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0116"
+    ],
+    "description": "将两个非递减顺序表LA和LB合并为一个新的非递减顺序表LC",
+    "pseudocode": "1. 分配LC存储空间 2. 同时遍历LA和LB，比较当前元素，将较小者放入LC 3. 将剩余元素放入LC 4. 更新LC长度",
+    "code": "int MergeList_Sq(SqList LA,SqList LB,SqList *LC)\n/*已知顺序线性表 LA 和 LB 的元素按值非递减排列，合并 LA 和 LB 得到新的顺序线性表 LC，LC 的元素也按值非递减排列，若成功，则返回 1，否则返回 -1*/\n{\n    int i=0,j=0,k=0;\n    LC->listsize = LA.length + LB.length;\n    LC->elem=(ElemType *)malloc(LC->listsize* sizeof(ElemType));\n    if(!LC->elem) return -1;\n    while(i<LA.length&&j<LB.length)\n    {\n    if(LA.elem[i]<=LB.elem[j]) LC->elem[k++] =LA.elem[i++];\n    else LC->elem[k++] =LB.elem[j++];\n    }\n    while(i<LA.length) LC->elem[k++] =LA.elem[i++];\n    while(j<LB.length) LC->elem[k++] =LB.elem[j++];\n    LC->length=k;\n    return 1;\n}",
+    "aliases": []
+  },
+  {
+    "name": "O(LA.length+LB.length)",
+    "type": "复杂度",
+    "content_ids": [
+      "线性表:content:0118"
+    ],
+    "aliases": []
+  },
+  {
+    "name": "单链表·建立",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0141",
+      "线性表:content:0142",
+      "线性表:content:0144",
+      "线性表:content:0145",
+      "线性表:content:0341"
+    ],
+    "description": "从空表开始，每读入一个数据元素则申请新节点，将其插入链表头部，读入顺序与逻辑顺序相反。",
+    "pseudocode": "1. 动态生成头节点 2. 尾指针指向头节点 3. 循环输入节点数据 4. 新节点连接为尾节点后继 5. 尾节点后移 6. 最后一个节点指针域置NULL",
+    "code": "LinkList CreateList(void)\n{\n    LinkList head=(ListNode *)malloc(sizeof(ListNode));/*动态生成头节点*/\n    ListNode *p,*rear;\n    int flag=0;    /*定义录入结束符*/\n    rear=head;    /*尾指针初始化，指向头节点*/\n    while(flag==0)    /*只要录入不为0，则不停地通过尾插法建立链表*/\n    {\n    p=(ListNode *)malloc(sizeof(ListNode));\n    printf(\"编号    姓名    性别    联系电话    地址\\n\");\n    printf(\"----\\n\");\n    scanf(\"%s%s%s%s%s\",p->data.num,p->data.name,p->data.sex, p->data.phone,p->data.addr);\n    rear->next=p;    /*新节点连接为尾节点的后继节点*/\n    rear=p;    /*尾节点移到新建节点的位置*/\n    printf(\"结束建表吗？(1/0): \");\n    scanf(\"%d\",&flag);    /*读入一个标志位到flag*/\n    }\n    rear->next=NULL;    /*建表结束，最后一个节点的指针域置为NULL*/\n    return head;    /*返回链表的头指针*/\n}",
+    "aliases": [
+      "单链表·头插入法建表"
+    ]
+  },
+  {
+    "name": "单链表·尾插入法建表",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0146",
+      "线性表:content:0147",
+      "线性表:content:0152",
+      "线性表:content:0168",
+      "线性表:content:0171",
+      "线性表:content:0311"
+    ],
+    "description": "从空表开始，每读入一个数据元素则申请新节点，将其插入链表尾部，使用尾指针p始终指向当前尾节点。",
+    "pseudocode": "1. 初始化空链表L=NULL，尾指针p=NULL 2. 循环n次：生成新节点s，输入数据，若L为空则L=s，否则p->next=s，p=s 3. 若链表非空，尾节点指针域置NULL 4. 返回L",
+    "code": "LinkList CreatRear_LinkList(int n)\n/*建立一个单链表 L，输入 n 个元素的值*/\n{\n    LinkList L=NULL;    /*定义一个空表*/\n    LNode *s,*p=NULL;    /*定义新节点指针和尾指针*/\n    int i;\n    for(i=0; i<=n-1; i++)\n    {\n    s=(LNode *)malloc(sizeof(LNode));    /*生成新节点*/\n    printf(\"请输入第%d 个元素的值:\",i);\n    scanf(\"%d\",&s->data);    /*输入元素值*/\n    if(L==NULL) L=s;    /*插入的节点是最前面的节点*/\n    else p->next=s;    /*插入的节点是第一个以外的节点*/\n    p=s;    /*p 恒指向插入后的链表尾节点*/\n    }\n    if(p!=NULL)p->next=NULL;    /*如果链表非空，则尾节点的指针域置为空*/\n    return L;\n}",
+    "aliases": [
+      "单链表·尾插法建表"
+    ]
+  },
+  {
+    "name": "带头节点的单链表",
+    "type": "数据结构",
+    "content_ids": [
+      "线性表:content:0161",
+      "线性表:content:0162"
+    ],
+    "description": "在单链表的头部加入一个特殊的头节点，其数据域不存放有效值，指针域指向第一个数据节点，使得空表和非空表的处理一致。",
+    "aliases": []
+  },
+  {
+    "name": "单链表·初始化",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0167"
+    ],
+    "description": "构建一个带头节点的空单链表，分配头节点并设置其指针域为空。",
+    "pseudocode": "1. 分配头节点内存 2. 若分配失败返回-1 3. 设置头节点指针域为NULL 4. 返回头指针",
+    "code": "LinkList Init_LinkList(LinkList L)\n/*构建一个带头节点的空链表，用 L 返回其头指针，若失败则返回 -1*/\n{    L=(LNode *)malloc(sizeof(LNode));    /*分配一个头节点*/\n    if(!L) return -1;    /*分配失败*/\n    L->next = NULL;    /*头节点的指针域为空*/\n    return L;\n}",
+    "aliases": []
+  },
+  {
+    "name": "单链表·求表长（带头节点）",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0175"
+    ],
+    "description": "遍历带头节点的单链表，统计除头节点外的节点个数。",
+    "pseudocode": "1. p指向头节点，计数器i=0 2. 当p->next不为空时，p后移，i++ 3. 返回i",
+    "code": "int Length_LinkList1(LinkList L)    /*当链表带头节点时*/\n{    LNode *p=L;    /*p指向头节点*/\n    int i=0;    /*设计数器变量i*/\n    while(p->next)\n    {    p=p->next;i++; }    /*p指针依次后移*/\n    return i;\n}",
+    "aliases": []
+  },
+  {
+    "name": "单链表·求表长（不带头节点）",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0176"
+    ],
+    "description": "遍历不带头节点的单链表，统计节点个数，需单独处理空表。",
+    "pseudocode": "1. 若链表为空返回0 2. 否则p指向第一个节点，i=1 3. 当p->next不为空时，p后移，i++ 4. 返回i",
+    "code": "int Length_LinkList2(LinkList L)    /*当链表不带头节点时*/\n{    LNode *p=L;\n    int i;    /*设计数器变量 i*/\n    if(p==NULL) return 0;    /*为空表，返回 0*/\n    i=1;    /*为非空表，p 指向最前面的节点*/\n    while(p->next)\n    {    p=p->next;i++;    }\n    return i;\n}",
+    "aliases": []
+  },
+  {
+    "name": "单链表·按序号查找",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0185",
+      "线性表:content:0186",
+      "线性表:content:0187"
+    ],
+    "description": "从单链表头节点开始，沿指针域依次查找第i个节点，找到返回节点指针，否则返回空",
+    "pseudocode": "1. 初始化指针p指向头节点，计数器j=-1 2. 当p->next非空且j<i时，p后移，j++ 3. 若j==i返回p，否则返回NULL",
+    "code": "LNode *Get_LinkList(LinkList L, int i)\n/*在带头节点的单链表 L 中查找第 i 个元素，若成功则返回该节点，否则返回空*/\n{\n    LNode *p = L; /*p 指向单链表 L 的头节点*/\n    int j = -1; /*从表头开始找，初始位置为 -1*/\n    while (p->next != NULL && j < i)\n    {\n    p = p->next; j++; }\n    if (j == i) return p;\n    else return NULL;\n}",
+    "aliases": []
+  },
+  {
+    "name": "单链表·查询",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0189",
+      "线性表:content:0190",
+      "线性表:content:0191",
+      "线性表:content:0315",
+      "线性表:content:0331"
+    ],
+    "description": "从单链表头节点开始，依次比较节点数据域与给定值e，若相等则返回位序，否则继续查找，直到表尾，未找到返回-1。",
+    "pseudocode": "1. 初始化指针p指向首元节点，位序i=0 2. 循环：当p非空且p->data不等于e时，p后移，i++ 3. 若p->data等于e，返回i，否则返回-1",
+    "code": "int Locate_LinkList(LinkList L, ElemType e)\n/*在带头节点的单链表 L 中查找与给定值相同的元素的位序，若成功则返回该节点，否则返回-1*/\n{\n    LNode *p = L->next; /*p 指向单链表 L 的最前面的节点*/\n    int i = 0; /*p 指向最前面的节点，初始位置为 0*/\n    while (p->next != NULL && p->data != e)\n    {\n    p = p->next; i++; }\n    if (p->data == e) return i;\n    else return -1;\n}",
+    "aliases": [
+      "单链表·按值查找"
+    ]
+  },
+  {
+    "name": "单链表·插入",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0208",
+      "线性表:content:0209",
+      "线性表:content:0213",
+      "线性表:content:0315",
+      "线性表:content:0341"
+    ],
+    "description": "在单链表第i个位置之前插入新元素e，先找到第i-1个节点，然后修改指针将新节点插入其后。",
+    "pseudocode": "1. 初始化指针p指向头节点，j=-1 2. 循环寻找第i-1个节点 3. 若i不合法返回-1 4. 创建新节点s，赋值e 5. 将s插入p之后：s->next=p->next; p->next=s; 返回1",
+    "code": "int Insert_LinkList (LinkList L, int i, ElemType e)\n/*在带头节点的单链表L中的第i个位置之前插入元素e，若插入成功，则返回1，否则返回-1*/\n{\n    LNode *p, *s;\n    int j;\n    p=L; j=-1; /*从表头开始找前驱节点 p，初始位置为-1*/\n    while(p->next &&j<i-1) {p=p->next; j++;}    /*寻找第 i-1 个节点*/\n    if(!p->next || j>i-1) return -1;    /*i 值不合法*/\n    s=(LNode *)malloc(sizeof(LNode));    /*生成新节点*/\n    s->data=e;\n    s->next=p->next; p->next=s;    /*实现插入*/\n    return 1;\n}",
+    "aliases": []
+  },
+  {
+    "name": "单链表·删除指定节点",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0229",
+      "线性表:content:0315",
+      "线性表:content:0332"
+    ],
+    "description": "删除单链表中第i个节点，需先找到其前驱节点p，修改p的指针指向被删节点的后继，再释放被删节点。",
+    "pseudocode": "1. 寻找第i个节点的前驱p 2. 若删除位置不合理返回-1 3. 令q指向被删节点，用e保存数据 4. 修改p的next指针，释放q 5. 返回1",
+    "code": "int Delete_LinkList (LinkList L, int i, ElemType *e)\n/*在带头节点的单链表L中，删除第i个元素，并由e返回其值，若删除成功，则返回1，否则返回-1*/\n{\n    LNode *p, *q;\n    int j;\n    p = L; j = -1; /*从表头开始找前驱节点p，初始位置为-1*/\n    while (p->next && j < i - 1)    /*寻找第i个节点的前驱节点p*/\n    {    p = p->next; j++;    }\n    if (!(p->next) || j > i - 1)    return -1;    /*删除位置不合理*/\n    q = p->next;    /*q表示被删节点*/\n    *e = q->data;    /*用e返回被删节点数据域的值*/\n    p->next = q->next; free(q);    /*删除并释放节点*/\n    return 1;\n}",
+    "aliases": [
+      "单链表·删除"
+    ]
+  },
+  {
+    "name": "单链表·删除后继节点",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0225"
+    ],
+    "description": "删除指定节点p的直接后继节点，修改p的指针指向后继的后继，再释放后继节点。",
+    "pseudocode": "1. 令s指向p的后继节点 2. 修改p->next指向s->next 3. 释放s",
+    "code": "s=p->next;\np->next=s->next;\nfree(s);",
+    "aliases": []
+  },
+  {
+    "name": "单向循环链表",
+    "type": "数据结构",
+    "content_ids": [
+      "线性表:content:0242"
+    ],
+    "description": "一种链式存储结构，链尾节点的指针域指向头节点，形成循环。",
+    "aliases": []
+  },
+  {
+    "name": "单向循环链表·连接",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0247"
+    ],
+    "description": "将两个单向循环链表L1和L2连接，即将L2的第一个数据节点链接到L1的尾节点之后。",
+    "pseudocode": "1. 保存L1头节点指针 2. L1尾节点指向L2第一个数据节点 3. 释放L2头节点 4. L2尾节点指向L1头节点",
+    "code": "q=r1->next;    /*保存 L1 的头节点指针*/\nr1->next=r2->next->next;    /*L1 和 L2 的尾头相连接*/\nfree(r2->next);    /*释放 L2 的头节点*/\nr2->next=q;    /*组成大的循环链表*/",
+    "aliases": []
+  },
+  {
+    "name": "双向循环链表",
+    "type": "数据结构",
+    "content_ids": [
+      "线性表:content:0262",
+      "线性表:content:0263",
+      "线性表:content:0283",
+      "线性表:content:0284",
+      "线性表:content:0285",
+      "线性表:content:0286",
+      "线性表:content:0288",
+      "线性表:content:0289",
+      "线性表:content:0293",
+      "线性表:content:0294"
+    ],
+    "description": "一种链式存储结构，每个节点有两个指针域，分别指向前驱和后继，且头尾相连形成循环。",
+    "aliases": []
+  },
+  {
+    "name": "双向链表·插入",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0273",
+      "线性表:content:0278"
+    ],
+    "description": "在双向链表的指定节点之后或之前插入新节点，修改相关节点的prior和next指针",
+    "pseudocode": "1. 创建新节点s并赋值 2. 若在p之后插入：s->next=p->next; p->next->prior=s; s->prior=p; p->next=s 3. 若在p之前插入：通过p->prior找到前驱，类似操作",
+    "code": "void inselem(DuLinkList L, ElemType e, DuLNode *p)\n/*设 L 为双向循环链表的头节点，在地址为 p 的节点之后插入地址为 s 的新节点*/\n{ DuLNode *s, *r;\n    s = (DuLNode*)malloc(sizeof(DuLNode));\n    s->data = e;    /*建立一个新节点 s*/\n    r = p->next;\n    s->next = r;\n    r->prior = s;    /*插入在节点 p 之后*/\n    p->next = s;\n    s->prior = p;\n}",
+    "aliases": []
+  },
+  {
+    "name": "双向循环链表·插入",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0283",
+      "线性表:content:0284"
+    ],
+    "description": "在双向循环链表中指定节点之前插入一个新节点，修改四个指针。",
+    "pseudocode": "1. 创建新节点s并赋值 2. 获取p的前驱r 3. 修改s的next指向p 4. 修改r的next指向s 5. 修改p的prior指向s 6. 修改s的prior指向r",
+    "code": "void inselem(DuLinkList L, ElemType e, DuLNode *p)\n/*设 L 为双向循环链表的头节点，在地址为 p 的节点之前插入地址为 s 的新节点*/\n{ DuLNode *s,*r;\n    s=(DuLNode*)malloc(sizeof(DuLNode));\n    s->data=e;    /*建立一个新节点 s*/\n    r=p->prior;\n    s->next=p;\n    r->next=s;    /*在节点 p 之前插入*/\n    p->prior=s;\n    s->prior=r;\n}",
+    "aliases": []
+  },
+  {
+    "name": "双向循环链表·删除",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0285",
+      "线性表:content:0286",
+      "线性表:content:0288",
+      "线性表:content:0289",
+      "线性表:content:0293"
+    ],
+    "description": "删除双向循环链表中指定节点，修改两个指针并释放节点。",
+    "pseudocode": "1. 获取p的前驱q和后继r 2. 修改q的next指向r 3. 修改r的prior指向q 4. 取出p的数据 5. 释放p",
+    "code": "void delelm(DuLinkList L, ElemType* e, DuLNode *p)\n/*设 L 为双向循环链表的头节点，删除地址为 p 的节点*/\n{ DuLNode *q,*r;\n    q=p->prior;\n    r=p->next;\n    q->next=r;\n    r->prior=q;\n    e=p->data;\n    free(p);\n}",
+    "aliases": []
+  },
+  {
+    "name": "单链表·打印",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0315",
+      "线性表:content:0333"
+    ],
+    "description": "依次输出单链表中各元素的值。",
+    "pseudocode": "1. 从首元节点开始遍历 2. 输出每个节点的数据域 3. 直到链表结束",
+    "code": "void Print_LinkList(LinkList L)\n{\n    LNode *p;\n    p=L->next;\n    printf(\"\\n 单链表中各元素值为：\");\n    while(p){ printf(\"%d \",p->data); p=p->next; }\n}",
+    "aliases": [
+      "单链表·输出"
+    ]
+  },
+  {
+    "name": "链表",
+    "type": "数据结构",
+    "content_ids": [
+      "线性表:content:0345",
+      "线性表:content:0347",
+      "线性表:content:0350"
+    ],
+    "description": "用一组任意的存储单元存储线性表的数据元素，通过指针链接各节点。",
+    "aliases": []
+  },
+  {
+    "name": "链表·查找",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0345"
+    ],
+    "description": "在链表中按编号或姓名查找通讯者节点，返回指向该节点的指针。",
+    "pseudocode": "1. 选择查找方式(编号/姓名) 2. 输入查找值 3. 遍历链表比较 4. 返回找到的节点指针或NULL",
+    "code": "ListNode * ListFind(LinkList head)\n{\n    ListNode *p;\n    char num[5];\n    char name[9];\n    int xz;\n    printf(\"--------\\n\");\n    printf(\"1. 按编号查询 \\n\");\n    printf(\"2. 按姓名查询 \\n\");\n    printf(\"--------\\n\");\n    printf(\"请选择 \");\n    p=head->next;\n    scanf(\"%d\",&xz);\n    if(xz=1)\n    {\n    printf(\"请输入要查找通讯者的编号：\");\n    scanf(\"%s\",num);\n    while(p && strcmp(p->data.num,num)<0) p=p->next;\n    if(p==NULL || strcmp(p->data.num,num)>0) p=NULL;\n    }\n    else\n    if(xz=2)\n    {\n    printf(\"请输入要查找者的姓名：\");\n    scanf(\"%s\",name);\n    while(p && strcmp(p->data.name,name)!=0) p=p->next;\n    }\n    return p;\n}",
+    "aliases": []
+  },
+  {
+    "name": "链表·删除",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0345"
+    ],
+    "description": "调用查找函数定位节点，确认后从链表中删除该节点并释放内存。",
+    "pseudocode": "1. 调用查找函数定位节点 2. 若未找到则返回 3. 确认删除 4. 找到前驱节点 5. 修改指针并释放节点",
+    "code": "void DelNode(LinkList head)\n{\n    char jx;\n    ListNode *p,*q;\n    p=ListFind(head);    /*调用查找函数*/\n    if(p==NULL){printf(\"没有查找到要删除的通讯者！\\n\");return;}\n    printf(\"确定要删除该通讯者？(y/n): \");\n    scanf(\"%c\",&jx);\n    if(jx='y'||jx='Y')\n    {\n    q=head;\n    while(q!=NULL && q->next!=p) q=q->next;\n    q->next=p->next;    /*删除节点*/\n    free(p);    /*释放被删除的节点*/\n    printf(\"通讯者已经被删除！\\n\");\n    }\n}",
+    "aliases": []
+  },
+  {
+    "name": "链表·输出",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0347"
+    ],
+    "description": "遍历链表，依次输出每个节点的数据域内容。",
+    "pseudocode": "1. 指针指向首节点 2. 打印表头 3. 循环输出节点数据 4. 指针后移 5. 直到链表尾",
+    "code": "void PrintList(LinkList head)\n{\n    ListNode *p;\n    p=head->next;    /*使 p 指向最前面的节点*/\n    printf(\"编号    姓名    性别    联系电话    地址\\n\");\n    printf(\"----\\n\");\n    while (p!=NULL)\n    {\n    printf(\"%s%s%s%s%s\",p->data.num,p->data.name,p->data.sex, p->data.phone,p->data.addr);\n    printf(\"----\\n\");\n    p=p->next;    /*后移一个节点*/\n    }\n}",
+    "aliases": []
+  },
+  {
+    "name": "链表·插入",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0347"
+    ],
+    "description": "将新节点插入到链表中，保持按编号有序。",
+    "pseudocode": "1. 创建新节点 2. 输入数据 3. 调用插入函数按编号插入",
+    "code": "p=(ListNode *)malloc(sizeof(ListNode));\nscanf(\"%s%s%s%s%s\",p->data.num,p->data.name,p->data.sex, p->data.phone,p->data.addr);\nInsertNode(head,p);",
+    "aliases": []
+  },
+  {
+    "name": "链表·建立",
+    "type": "操作",
+    "content_ids": [
+      "线性表:content:0347"
+    ],
+    "description": "建立通讯录链表，通过调用CreateList函数实现。",
+    "pseudocode": "1. 调用CreateList函数 2. 返回链表头指针",
+    "code": "head=CreateList();",
+    "aliases": []
+  }
+]

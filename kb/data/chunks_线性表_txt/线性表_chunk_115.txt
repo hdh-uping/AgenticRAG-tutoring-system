@@ -1,0 +1,15 @@
+# ## 1. 实现顺序表常用操作的代码 › ## 2. 顺序表常用操作的程序运行结果 › ## 2.4.2 单链表的常用操作
+
+else {printf("\n插入失败！"); return 0;}
+    printf("请输入删除位置:");
+    scanf("%d", &i);
+    status=ListDelete_Sq(&L, i, &e);    /*删除线性表的第i个元素，用e返回其值*/
+    if(status==1)
+    {
+    printf("\n被删除元素的值为：%d", e);
+    printf("\n进行删除操作后");
+    PrintSqList(L);
+    }
+    else {printf("\n删除失败！"); return 0;}
+    i=LocateElem_Sq(L, 15);
+/*在顺序表L中查找第1个值与15相等的元素的位序*/

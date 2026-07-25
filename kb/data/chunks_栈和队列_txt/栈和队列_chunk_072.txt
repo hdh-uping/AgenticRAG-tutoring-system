@@ -1,0 +1,5 @@
+# ## (1) 循环队列中队满与队空的判定
+
+。当 len 为 0 时队空，当 len 为 MAXSIZE 时队满。
+
+\- 队空条件为 rear==front；当 $(\text{rear}+1)\%$ MAXSIZE==front 时队满，即牺牲一个存储空间，当 rear 只差一步就追上 front 时则认为队满，如图 3.10(d) 所示。

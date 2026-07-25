@@ -1,0 +1,1201 @@
+[
+  {
+    "type": "text",
+    "text": "主机将要输出的数据依次写入该缓冲区，而打印机则依次从该缓冲区中取出数据。再如，操作系统中多用户引起的资源竞争问题，需要时可查阅相关资料，这里仅简要提及，不再赘述。",
+    "bbox": [
+      118,
+      106,
+      879,
+      144
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "2）队列在树的层次遍历和在图的搜索中的应用",
+    "bbox": [
+      155,
+      148,
+      558,
+      164
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "队列在树的层次遍历和在图的搜索中均有应用,可参见后续树和图相关章节的具体内容,这里不再赘述。",
+    "bbox": [
+      116,
+      169,
+      879,
+      207
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "3.3.3 数组和特殊矩阵",
+    "text_level": 2,
+    "bbox": [
+      116,
+      220,
+      349,
+      237
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "1. 数组",
+    "text_level": 2,
+    "bbox": [
+      157,
+      252,
+      223,
+      269
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "image",
+    "img_path": "images/f7783fadbca1579a290d255599fa7b9a93ec309858d3fcbad818aebc809ae365.jpg",
+    "image_caption": [
+      "3.3.3 数组"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      443,
+      274,
+      552,
+      351
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "矩阵是在科学工程计算中较常见的数学模型之一,数据结构中经常考虑如何使用较小的存储空间存放一组数据,如将 $m \\times n$ 矩阵 (m 行 n 列) 更有效地存储在内存中,并且能够方便地获取元素。由于计算机的存储空间是线性的,因此通常程序设计语言使用一维数组存放二维的矩阵。这里,数组的概念可查阅相关程序设计语言教材,这里不再赘述。本部分主要关注数组的存储。",
+    "bbox": [
+      116,
+      375,
+      881,
+      475
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "数组类型不做插入和删除的操作,因此只需通过顺序映像得到它的存储结构,可以借助数据元素在存储器中的相对位置来表示数据元素之间的逻辑关系。",
+    "bbox": [
+      116,
+      480,
+      879,
+      517
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "一个数组的所有元素在内存中占用一段连续的存储空间，一维数组的存储结构关系以 $a[n]$ 为例： $\\mathrm{loc}(a_i) = \\mathrm{loc}(a_0) + i\\times$ sizeof(ElemType) $(n > i\\geqslant 0)$ 。",
+    "bbox": [
+      116,
+      521,
+      879,
+      559
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "注意数组的下标范围为 $n > i \\geqslant 0$ , ElemType 为数组元素类型, sizeof(ElemType) 为数组元素所占用的存储单元。",
+    "bbox": [
+      116,
+      563,
+      879,
+      600
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "1）多维数组的存储",
+    "text_level": 2,
+    "bbox": [
+      157,
+      605,
+      325,
+      621
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "通常有两种映像方法，即“按行优先”展开的映像方法和“按列优先”展开的映像方法。以下以二维数组为例说明两种方法。",
+    "bbox": [
+      116,
+      626,
+      879,
+      662
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "（1）按行优先。行为主序，先行后列，将数组元素按行优先关系排列，先存储行号较小的元素，行号相等时先存储列号较小的元素，即同一行中的元素以列下标次序排列，如图3-13所示，第 $i+1$ 行的元素紧跟在第i行元素的后面。",
+    "bbox": [
+      116,
+      667,
+      879,
+      726
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "image",
+    "img_path": "images/73e4adcdebb2a8d75dd88aa9a3d57688a1b271847bc85d57deeff462c7bf3ad2.jpg",
+    "image_caption": [
+      "图 3-13 按行优先"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      314,
+      730,
+      683,
+      775
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "（2）按列优先。列为主序，先列后行，将数组元素按列优先关系排列，先存储列号较小的元素，列号相等的时候先存储行号较小的元素，即同一列中的元素以行下标次序排列，如图3-14所示，第 $i+1$ 列的元素紧跟在第i列元素的后面。",
+    "bbox": [
+      116,
+      798,
+      881,
+      857
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "image",
+    "img_path": "images/dc8ef7658369c7029d570bff8995ab2462a06c75043cfb9cde136635ead9d2ef.jpg",
+    "image_caption": [
+      "图 3-14 按列优先"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      312,
+      861,
+      683,
+      905
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "header",
+    "text": "第 3 章 栈、队列、数组",
+    "bbox": [
+      707,
+      61,
+      878,
+      75
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "page_number",
+    "text": "83",
+    "bbox": [
+      909,
+      66,
+      935,
+      81
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "2）多维数组存储地址的计算",
+    "text_level": 2,
+    "bbox": [
+      155,
+      106,
+      402,
+      122
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "设每个数组元素需要 sizeof(ElemType) 个存储单元存放；并记第一个数组元素的存储地址为 $\\mathrm{loc}(a_{11})$ ，即存储区间的起始地址，也称为数组的基地址。",
+    "bbox": [
+      116,
+      127,
+      879,
+      164
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "（1）行为主序优先存储。 $a_{ij}$ 是第i行第j列的数组元素，其前面已存放i-1行共 $(i-1)\\times n$ 个元素，在第j行中前面已经存放了j-1个元素。",
+    "bbox": [
+      116,
+      169,
+      878,
+      207
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "地址计算公式为",
+    "bbox": [
+      155,
+      211,
+      299,
+      225
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "equation",
+    "text": "$$\n\\operatorname{loc} \\left(a _ {i j}\\right) = \\operatorname{loc} \\left(a _ {1 1}\\right) + ((i - 1) \\times n + j - 1) \\times \\text { sizeof   (ElemType) }\n$$",
+    "text_format": "latex",
+    "bbox": [
+      240,
+      231,
+      754,
+      248
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "或者按照 C 语言数组下标, 即",
+    "bbox": [
+      118,
+      252,
+      369,
+      269
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "equation",
+    "text": "$$\n\\operatorname{loc} \\left(a _ {i j}\\right) = \\operatorname{loc} \\left(a _ {0 0}\\right) + (i \\times n + j) \\times \\text { sizeof   (ElemType) }\n$$",
+    "text_format": "latex",
+    "bbox": [
+      277,
+      273,
+      715,
+      290
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "(2) 列为主序优先存储。以列为主序优先存储的地址计算公式为",
+    "bbox": [
+      155,
+      294,
+      702,
+      310
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "equation",
+    "text": "$$\n\\operatorname{loc} \\left(a _ {i j}\\right) = \\operatorname{loc} \\left(a _ {1 1}\\right) + ((j - 1) \\times m + i - 1) \\times \\text { sizeof   (ElemType) }\n$$",
+    "text_format": "latex",
+    "bbox": [
+      236,
+      314,
+      757,
+      330
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "或者按照 C 语言数组下标, 即",
+    "bbox": [
+      155,
+      335,
+      408,
+      351
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "equation",
+    "text": "$$\n\\operatorname{loc} \\left(a _ {i j}\\right) = \\operatorname{loc} \\left(a _ {0 0}\\right) + (j \\times m + i) \\times \\text { sizeof   (ElemType) }\n$$",
+    "text_format": "latex",
+    "bbox": [
+      275,
+      357,
+      719,
+      373
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "2. 特殊矩阵的压缩存储",
+    "text_level": 2,
+    "bbox": [
+      155,
+      378,
+      358,
+      393
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "image",
+    "img_path": "images/2ad266fa2edcee696a3c1494897b04661bebe91c3554d5ba17cb9ca60b68bf4e.jpg",
+    "image_caption": [
+      "3.3.3 特殊矩阵的压缩存储"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      443,
+      399,
+      552,
+      476
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "对于 $m \\times n$ 阶矩阵，当 m 和 n 较大时，需要占用大量的连续存储空间。通常用二维数组表示矩阵，则矩阵中的元素均可在二维数组中找到对应的存储位置。一些有下列特性的高阶矩阵，其元素值的分布具有规律性，矩阵中有很多值相同的元素或零值元素，为了节省存储空间，需要对它们进行“压缩存储”，不存或者少存这些值相同的元或零值元素，以降低矩阵对存储容量的需求。",
+    "bbox": [
+      114,
+      500,
+      881,
+      601
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "常见的特殊矩阵包括对称矩阵、三角矩阵(上三角矩阵和下三角矩阵)和三对角矩阵(带状矩阵)等。",
+    "bbox": [
+      116,
+      605,
+      879,
+      642
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "1）对称矩阵",
+    "text_level": 2,
+    "bbox": [
+      158,
+      646,
+      268,
+      662
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "n 阶方阵，满足 $a_{ij}=a_{ji}$ ，其中 $n\\geqslant i\\geqslant1, n\\geqslant j\\geqslant1$ ，存储于二维数组 $a[n][n]$ 中，这种方",
+    "bbox": [
+      155,
+      667,
+      879,
+      683
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "阵被称为对称矩阵。可以将方阵划分为 3 个区域，分别为上三角区、主对角线和下三角区。如图 3-15 所示，以虚线为界分为 3 个区域。",
+    "bbox": [
+      116,
+      687,
+      606,
+      746
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "上三角区",
+    "bbox": [
+      796,
+      691,
+      861,
+      706
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "其中，上三角区元素 $i < j$ ，主对角线上元素 $i = j$ ，下三角区元素 $i > j$ 。因对称矩阵的上三角区元素与下三角区元素相同，因此可只存放上三角区和主对角元素或者下三角区和主对角元素在长度为 $n(n + 1) / 2$ 的一维数组中。",
+    "bbox": [
+      116,
+      750,
+      608,
+      830
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "image",
+    "img_path": "images/eb62fbf06d3205377e6889420fcc66aa3b8173878a3743d532aefa13a93fddbe.jpg",
+    "image_caption": [
+      "下三角区 主对角线\n图 3-15 矩阵示意图"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      621,
+      689,
+      780,
+      810
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "以只存放下三角部分为例：第一行存放 1 个元素，第",
+    "bbox": [
+      155,
+      833,
+      606,
+      849
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "二行 2 个元素，…，第 i-1 行 i-1 个元素，第 i 行 j-1 个元素，则假设 $a_{ij}$ 在一维数组中的下标为 k（下标从 0 开始），则 $k=1+2+\\cdots+i-1+j-1=i(i-1)/2+j-1$ 。",
+    "bbox": [
+      116,
+      855,
+      879,
+      893
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "得到下标对应关系如下：",
+    "bbox": [
+      155,
+      897,
+      367,
+      915
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "page_number",
+    "text": "84",
+    "bbox": [
+      62,
+      66,
+      88,
+      79
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "header",
+    "text": "数据结构知识点与习题精讲(微课版)——专业课学习与考研辅导",
+    "bbox": [
+      118,
+      61,
+      585,
+      75
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "equation",
+    "text": "$$\nk = \\left\\{ \\begin{array}{l l} i \\times (i - 1) / 2 + j - 1 & (i \\geqslant j) \\text {下三角区和主对角线元素} \\\\ j \\times (j - 1) / 2 + i - 1 & (i <   j) \\text {上三角区元素} \\end{array} \\right.\n$$",
+    "text_format": "latex",
+    "bbox": [
+      243,
+      106,
+      748,
+      144
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "2）三角矩阵",
+    "text_level": 2,
+    "bbox": [
+      155,
+      148,
+      269,
+      164
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "上三角矩阵,指矩阵的主对角线及以下的所有元素均为同一常数或 0 的 n 阶矩阵。",
+    "bbox": [
+      155,
+      168,
+      842,
+      185
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "上三角矩阵的压缩存储方法。如图 3-16 所示，对处于下三角（不含主对角线）的常数，为其在最后分配一个存储空间；对含主对角线的处于上三角的每个元素按行为主序优先存储方法依次顺序存储分配空间，需要 $n \\times (n+1)/2$ 个元素空间，加上最后分配的存储空间，共需要 $n \\times (n+1)/2 + 1$ 个元素空间。",
+    "bbox": [
+      114,
+      189,
+      881,
+      270
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "image",
+    "img_path": "images/13a82fbdcee60c528d89a813c9d32746ea04193b89eb8a146c8bdf5facfa9da3.jpg",
+    "image_caption": [
+      "图 3-16 上三角矩阵的压缩存储示意图"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      329,
+      274,
+      667,
+      395
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "得到下标对应关系如下：",
+    "bbox": [
+      155,
+      420,
+      367,
+      438
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "equation",
+    "text": "$$\nk = \\left\\{ \\begin{array}{l l} (i - 1) \\times (2 n - i + 2) / 2 + j - i & (i \\leqslant j) \\text {上三角区和主对角线元素} \\\\ n \\times (n + 1) / 2 & (i > j) \\text {下三角区元素} \\end{array} \\right.\n$$",
+    "text_format": "latex",
+    "bbox": [
+      201,
+      440,
+      791,
+      480
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "注意,下标从 0 开始。",
+    "bbox": [
+      155,
+      484,
+      338,
+      500
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "下三角矩阵,矩阵的主对角线以上的所有元素均为同一常数或0的n阶矩阵。",
+    "bbox": [
+      155,
+      505,
+      804,
+      521
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "下三角矩阵的压缩存储方法。如图3-17所示，处在下三角的元素 $a_{ij}$ ，其前 $i - 1$ 行共有 $i \\times (i - 1) / 2$ 个元素，在第 $i$ 行它处于第 $j$ 个位置，则 $a_{ij}$ 处于存储分配区的第 $i \\times (i - 1) / 2 + j$ 个。",
+    "bbox": [
+      114,
+      525,
+      879,
+      585
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "image",
+    "img_path": "images/2e790eff35f235c092742efcebbf2ce9334a8b3af0fe5c9285aa9e57690bbae8.jpg",
+    "image_caption": [
+      "图 3-17 下三角矩阵的压缩存储示意图"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      329,
+      589,
+      667,
+      711
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "有",
+    "bbox": [
+      155,
+      735,
+      182,
+      752
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "equation",
+    "text": "$$\nk = \\left\\{ \\begin{array}{l l} i \\times (i - 1) / 2 + j - 1 & (i \\geqslant j) \\text {下三角区和主对角线元素} \\\\ n \\times (n + 1) / 2 & (i <   j) \\text {上三角区元素} \\end{array} \\right.\n$$",
+    "text_format": "latex",
+    "bbox": [
+      245,
+      756,
+      748,
+      796
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "注意,下标从 0 开始。",
+    "bbox": [
+      155,
+      799,
+      338,
+      816
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "3）三对角矩阵(带状矩阵)",
+    "text_level": 2,
+    "bbox": [
+      155,
+      820,
+      382,
+      836
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "三对角矩阵是除主对角线及主对角线上下各一个元素外，其余元素都为零的矩阵。",
+    "bbox": [
+      155,
+      841,
+      841,
+      857
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "对三对角矩阵的压缩存储方法是,按行为主序优先存储方法把非零区的三对角元素依次顺序存储到一片连续的存储空间中,如图 3-18 所示。",
+    "bbox": [
+      116,
+      861,
+      879,
+      900
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "header",
+    "text": "第 3 章 栈、队列、数组",
+    "bbox": [
+      707,
+      61,
+      878,
+      75
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "page_number",
+    "text": "85",
+    "bbox": [
+      909,
+      66,
+      935,
+      81
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "image",
+    "img_path": "images/c9a3755c1d7704e74434c8d86bbcd5c9a3b294173d63d70bdf1e6dd343625f7f.jpg",
+    "image_caption": [
+      "图 3-18 三对角矩阵的压缩存储示意图"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      306,
+      107,
+      689,
+      253
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "由此可计算三条对角线上的元素 $a_{ij}, n \\geqslant i \\geqslant 1, n \\geqslant j \\geqslant 1$ ，在一维数组中存放的下标 $k = 2i + j - 3, |i - j| \\leqslant 1$ 。注意，下标从 0 开始。",
+    "bbox": [
+      114,
+      278,
+      878,
+      317
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "3. 稀疏矩阵",
+    "text_level": 2,
+    "bbox": [
+      155,
+      320,
+      264,
+      335
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "image",
+    "img_path": "images/8155d4adb71b11581e0ca547e050585f48b9079de1e96fd91429f6ca1d8c1847.jpg",
+    "image_caption": [
+      "3.3.3 稀疏矩阵"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      443,
+      341,
+      552,
+      420
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "矩阵中非零元素的个数相对于矩阵元素的个数来说非常少，则该矩阵被称为稀疏矩阵。假设一个 $m \\times n$ 的稀疏矩阵，非零元素值较少，且零元素的分布无规律，用常规方法存储稀疏矩阵将浪费较多空间。可采用三元组的形式存储非零元素，三元组为“行标，列标，元素值”。三元组可以与稀疏矩阵中的非零值元一一对应，因此可用三元组顺序表来表示稀疏矩阵，并且三元组在顺序表中的元素为“以行为主”有序排列。",
+    "bbox": [
+      116,
+      443,
+      879,
+      544
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "假设在 $m \\times n$ 的矩阵中有 t 个非零值元, 令",
+    "bbox": [
+      155,
+      547,
+      517,
+      564
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "equation",
+    "text": "$$\n\\delta = \\frac {t}{m \\times n}\n$$",
+    "text_format": "latex",
+    "bbox": [
+      295,
+      572,
+      380,
+      602
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "称 $\\delta$ 为矩阵的稀疏因子, 则通常认定 $\\delta \\leqslant 0.05$ 的矩阵为稀疏矩阵。",
+    "bbox": [
+      116,
+      606,
+      560,
+      644
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "image",
+    "img_path": "images/3e39647c9e8799f3c6b587072fa41b22abe63745ae0055fb3b89f611665f0bba.jpg",
+    "image_caption": [],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      571,
+      548,
+      859,
+      654
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "如图 3-19 所示,为三元组举例。",
+    "bbox": [
+      155,
+      649,
+      425,
+      665
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "需要注意的是,稀疏矩阵压缩存储后失去了随机存取特性。",
+    "bbox": [
+      116,
+      669,
+      560,
+      706
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "图 3-19 三元组示意图",
+    "bbox": [
+      628,
+      658,
+      802,
+      671
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "三元组顺序表的结构定义如下。",
+    "bbox": [
+      157,
+      711,
+      423,
+      727
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```c\n#define MaxSize 100;\n//假设非零元个数的最大值为100\ntypedef struct {\n    int i, j;\n    ElemType e;\n} Triple;\ntypedef struct {\n    Triple data[MaxSize+1];\n    int mu, nu, tu;\n} TSMatrix;\n```",
+    "bbox": [
+      155,
+      735,
+      412,
+      895
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "//三元组结点结构\n//非零元的行号和列号\n//非零元的值",
+    "bbox": [
+      556,
+      766,
+      730,
+      814
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "//非零元三元组表, data[0]未用\n//矩阵的行数、列数和非零元的个数\n//三元组顺序表",
+    "bbox": [
+      556,
+      845,
+      822,
+      893
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "page_number",
+    "text": "86",
+    "bbox": [
+      62,
+      66,
+      88,
+      81
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "header",
+    "text": "数据结构知识点与习题精讲(微课版)——专业课学习与考研辅导",
+    "bbox": [
+      118,
+      61,
+      585,
+      75
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "image",
+    "img_path": "images/1becea2e974bdbb6ab0d193384e32dc6d49ade495cf6435845fca31842572351.jpg",
+    "image_caption": [],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      319,
+      123,
+      354,
+      147
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "3.4 重点和难点知识点详解",
+    "text_level": 2,
+    "bbox": [
+      351,
+      124,
+      680,
+      147
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "1. $n$ 个不同元素进栈、出栈不同序列的个数计算",
+    "text_level": 2,
+    "bbox": [
+      155,
+      169,
+      561,
+      185
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "n 个不同元素进栈、出栈不同序列的个数为 $\\frac{1}{n+1}C_{2n}^{n}$ ，卡特兰(Catalan)数公式，请自行查阅证明方法。一般考查栈的出栈序列的合法性及出栈过程。",
+    "bbox": [
+      116,
+      193,
+      879,
+      245
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "2. 链队列和链栈的优点",
+    "text_level": 2,
+    "bbox": [
+      155,
+      250,
+      360,
+      265
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "链队列和链栈不存在溢出问题,同时适合当存在多个队列和栈的情况,空间利用率较高。",
+    "bbox": [
+      116,
+      270,
+      879,
+      308
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "3. 本章常见错误",
+    "text_level": 2,
+    "bbox": [
+      155,
+      312,
+      304,
+      328
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "（1）需要特别说明的是，上述栈的基本操作假定栈顶指针指向栈顶元素，要注意栈顶指针是指向栈顶元素还是栈顶元素的下一个位置。在审题时需注意栈顶的设定，并随之更改栈的判空条件、判满条件、入栈具体操作、出栈具体操作。",
+    "bbox": [
+      116,
+      333,
+      881,
+      391
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "(2) 链栈可以带头结点也可以不带头结点,审题时需要注意。",
+    "bbox": [
+      155,
+      395,
+      663,
+      413
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "(3) 不带头结点的链队列注意事项。当链队列不带头结点时，判空条件为“Q.front==NULL&Q.rear==NULL；”。出队操作时，判断队列是否为空，若非空，则 Q.front 指向下一个结点，同时还需判断当前出队结点是否为最后一个结点，若是，则还需做 Q.rear=NULL 操作。入队操作时，Q.rear 指向新结点，同时还需要判断这个结点是否为当前队列中的第一个结点，若是，则还需做 Q.front 指向新结点的操作。",
+    "bbox": [
+      116,
+      416,
+      879,
+      517
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "（4）顺序队列的队头和队尾指向问题。队头指针指向队头，队尾指针指向队尾的下一个位置；也可队头指针指向队头，队尾指针指向队尾。二者会影响算法的设计，因此需要注意审题。",
+    "bbox": [
+      116,
+      521,
+      881,
+      581
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "3.5 习题题目",
+    "text_level": 2,
+    "bbox": [
+      382,
+      601,
+      615,
+      625
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "本部分习题形式包括单项选择题、综合应用题等题型，是专业课学习和考研的常见题型。知识点覆盖专业课程学习和考研知识点，因此本部分知识点相关习题设置较全面。",
+    "bbox": [
+      116,
+      646,
+      879,
+      685
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "题目难度方面设置基础习题、进阶习题、考研真题，这样读者可根据自身情况合理安排学习规划，有针对性地逐步提升专业知识、解题能力和应试能力。",
+    "bbox": [
+      116,
+      689,
+      879,
+      727
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "3.5.1 基础习题",
+    "text_level": 2,
+    "bbox": [
+      116,
+      739,
+      284,
+      759
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "一、单项选择题",
+    "text_level": 2,
+    "bbox": [
+      155,
+      772,
+      297,
+      788
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "1. 队列操作数据的原则是( ), 栈操作数据的原则是( )。\nA. 先进先出    B. 后进先出    C. 后进后出    D. 无顺序",
+    "bbox": [
+      155,
+      792,
+      794,
+      832
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "2. 栈的操作, 入栈时需要判断栈是否为( ), 出栈时需要判断栈是否为( )。\nA. 满    B. 空    C. 下溢出    D. 上溢出",
+    "bbox": [
+      155,
+      835,
+      833,
+      873
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "3. 为解决计算机与打印机之间速度的不匹配问题,一般设置打印数据的缓冲区,主机可将要输出的数据先放入缓冲区,打印机再依次从缓冲区取出数据打印,则缓冲区的逻辑结",
+    "bbox": [
+      116,
+      877,
+      881,
+      916
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "header",
+    "text": "第 3 章 栈、队列、数组",
+    "bbox": [
+      707,
+      61,
+      878,
+      75
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "page_number",
+    "text": "87",
+    "bbox": [
+      909,
+      66,
+      935,
+      81
+    ],
+    "page_idx": 4
+  }
+]

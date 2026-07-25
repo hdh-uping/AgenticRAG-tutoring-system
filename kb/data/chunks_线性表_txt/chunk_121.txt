@@ -1,0 +1,21 @@
+# ## 1. 实现单链表常用操作的代码
+
+```c
+}
+return L;
+}
+/*打印链表中各元素的值*/
+void Print_LinkList(LinkList L)
+{
+    LNode *p;
+    p=L->next;
+    printf("\n 单链表中各元素值为：");
+    while(p){ printf("%d ",p->data); p=p->next; }
+}
+/*【算法 2.14 单链表的插入】*/
+/*在带头节点的单链表 L 中的第 i 个位置之前插入元素 e，若插入成功，则返回 1，否则返回 -1*/
+int Insert_LinkList(LinkList L, int i, ElemType e)
+{
+    LNode *p, *s;
+    int j;
+    p=L; j=-1;

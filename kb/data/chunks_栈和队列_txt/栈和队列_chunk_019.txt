@@ -1,0 +1,22 @@
+# ## 2. 链栈的算法实现 › ## 3.2 栈的应用举例
+
+s->data = e;
+    s->next = top;
+    top = s;
+}
+(4) 出栈。
+int Pop(LinkStack top, Elemtype &e)
+{ //若栈不为空将栈顶元素出栈, 即为删除表头结点
+    StackNode *p;
+    if (StackEmpty(top)) return ERROR; //栈空
+    e = top->data;
+    p = top;
+    top = top->next;
+    free(p);
+    retrun OK;
+}
+```
+
+## 3.2 栈的应用举例
+
+根据栈的运算特点，在很多实际问题中都利用栈作为一个辅助的数据结构来进行求解，下面通过几个例子进行说明。

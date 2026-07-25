@@ -1,0 +1,19 @@
+# ## 2. 链队列的算法实现 › ## 3.4 队列应用举例
+
+(b) 所示。唯一的元素一旦出队，则队列为空，此时就需要修改队尾指针。
+
+```c
+int DeQueue(LinkQueue *q, Elemtype &e)
+{
+    //若队列不为空将出队，即为删除队头结点
+    QueueNode *p;
+    if(QueueEmpty(q)) return ERROR;    //队空
+    p=q->front->next;
+    e=p->data;
+    q->front->next=p->next;
+    free(p);
+    if(q->front->next==NULL) q->rear=q->front;
+    return OK;
+}
+
+(5) 求队列长度。

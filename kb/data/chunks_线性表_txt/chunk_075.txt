@@ -1,0 +1,20 @@
+# ## 2）在指定节点前面插入新节点 › ## 算法 2.14 单链表的插入 › ## 8. 删除操作
+
+之后插入节点 s 即可。设单链表的头指针为 L，插入节点的代码如下：
+
+```gitattributes
+p=L;
+while(p->next!=q)
+    p=p->next;    /*查找*q的直接前驱节点p*/
+s->next=p->next;
+p->next=s;
+```
+
+## 算法 2.14 单链表的插入
+
+```c
+int Insert_LinkList (LinkList L, int i, ElemType e)
+/*在带头节点的单链表L中的第i个位置之前插入元素e，若插入成功，则返回1，否则返回-1*/
+{
+    LNode *p, *s;
+```

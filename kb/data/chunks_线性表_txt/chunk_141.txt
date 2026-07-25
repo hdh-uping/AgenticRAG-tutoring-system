@@ -1,0 +1,18 @@
+# ## 2. 程序实现代码 › ## 3. 程序的运行结果
+
+{
+    printf("请输入要查找通讯者的编号：");
+    scanf("%s",num);
+    while(p && strcmp(p->data.num,num)<0) p=p->next;
+    if(p==NULL || strcmp(p->data.num,num)>0) p=NULL;
+    }
+    else
+    if(xz=2)
+    {
+    printf("请输入要查找者的姓名：");
+    scanf("%s",name);
+    while(p && strcmp(p->data.name,name)!=0) p=p->next;
+    }
+    return p;
+}
+/**********/

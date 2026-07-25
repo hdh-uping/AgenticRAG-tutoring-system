@@ -1,0 +1,19 @@
+# ## 5. 求单链表的表长 › ## 6. 查找操作 › ## 1) 按序号查找
+
+/*p指针依次后移*/
+    return i;
+}
+```
+
+算法 2.11 求不带头节点的表长  
+```c
+int Length_LinkList2(LinkList L)    /*当链表不带头节点时*/
+{    LNode *p=L;
+    int i;    /*设计数器变量 i*/
+    if(p==NULL) return 0;    /*为空表，返回 0*/
+    i=1;    /*为非空表，p 指向最前面的节点*/
+    while(p->next)
+    {    p=p->next;i++;    }
+    return i;
+}
+```

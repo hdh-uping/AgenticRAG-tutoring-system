@@ -1,0 +1,11 @@
+# ## 2. 程序实现代码 › ## 3. 程序的运行结果
+
+电话    地址\n");
+    printf("----\n");
+    scanf("%s%s%s%s%s",p->data.num,p->data.name,p->data.sex, p->data.phone,p->data.addr);
+    rear->next=p;    /*新节点连接为尾节点的后继节点*/
+    rear=p;    /*尾节点移到新建节点的位置*/
+    printf("结束建表吗？(1/0): ");
+    scanf("%d",&flag);    /*读入一个标志位到 flag*/
+    }
+    rear->next=NULL;    /*建表结束，最后一个节点的指针域置为 NULL*/

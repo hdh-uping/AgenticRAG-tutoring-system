@@ -1,0 +1,17 @@
+# ## 算法2.13 单链表的按值查找
+
+## 算法2.13 单链表的按值查找
+
+```c
+int Locate_LinkList(LinkList L, ElemType e)
+/*在带头节点的单链表 L 中查找与给定值相同的元素的位序，若成功则返回该节点，否则返回-1*/
+{
+    LNode *p = L->next; /*p 指向单链表 L 的最前面的节点*/
+    int i = 0; /*p 指向最前面的节点，初始位置为 0*/
+    while (p->next != NULL && p->data != e)
+    {
+    p = p->next; i++; }
+    if (p->data == e) return i;
+    else return -1;
+}
+```

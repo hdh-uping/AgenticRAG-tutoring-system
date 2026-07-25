@@ -1,0 +1,19 @@
+# ## 算法 2.17 双向循环链表的插入(2) › ## 2) 双向循环链表的删除操作
+
+## 算法 2.17 双向循环链表的插入(2)
+
+```c
+void inselem(DuLinkList L, ElemType e, DuLNode *p)
+/*设 L 为双向循环链表的头节点，在地址为 p 的节点之前插入地址为 s 的新节点*/
+{ DuLNode *s,*r;
+    s=(DuLNode*)malloc(sizeof(DuLNode));
+    s->data=e;    /*建立一个新节点 s*/
+    r=p->prior;
+    s->next=p;
+    r->next=s;    /*在节点 p 之前插入*/
+    p->prior=s;
+    s->prior=r;
+}
+```
+
+## 2) 双向循环链表的删除操作

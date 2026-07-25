@@ -1,0 +1,10 @@
+# ## 2）多维数组存储地址的计算
+
+(ElemType) }
+$$
+
+或者按照 C 语言数组下标, 即
+
+$$
+\operatorname{loc} \left(a _ {i j}\right) = \operatorname{loc} \left(a _ {0 0}\right) + (j \times m + i) \times \text { sizeof   (ElemType) }
+$$

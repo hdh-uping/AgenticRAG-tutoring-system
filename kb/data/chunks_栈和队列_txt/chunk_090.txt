@@ -1,0 +1,15 @@
+# ## 2. 具体实现
+
+f==ERROR)
+    { printf("循环队列已满\n");
+    break; //循环队列满时，强制中断第一个进程
+    }
+    }
+    if(ch1=='';'||ch1==',')
+    break; //第一个进程正常结束
+    }
+    while (!QueueEmpty(Q)) //第二个进程
+    {
+    DeQueue(Q,ch2);
+    putchar(ch2); //显示输入缓冲区的内容
+```

@@ -1,0 +1,5 @@
+# ## 3. 算法思路
+
+d>)</td><td>&gt;</td><td>&gt;</td>< d>)</td><td>&gt;</td><td>&gt;</td><td>&gt;</td><td>&gt;</td><td>E</td><td>&gt;</td><td>&gt;</td></tr><tr><td>#</td><td>&lt;</td><td>&lt;</td><td>&lt;</td><td>&lt;</td><td>&lt;</td><td>E</td><td>=</td></tr></table>
+
+\- $\theta_{1}$ 是 “+” 和 “-” 时，当 $\theta_{2}$ 是 “\*”、“/” 和 “(” 时，它们的优先级关系应该是 “<”，其余时候它们之间的优先关系是 “>”；

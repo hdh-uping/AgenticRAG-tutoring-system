@@ -1,0 +1,24 @@
+# ## 3. 循环队列的算法实现 › ## 3.3.3 队列的链式存储结构
+
+t==Q.rear? TRUE:FALSE);
+}
+
+(3) 判队满。
+
+int QueueFull(SqQueue Q)
+//队满时返回值为真,反之为假
+{
+    return((Q.rear+1)%MAXSIZE==Q.front?TRUE:FALSE);
+}
+
+(4) 进队。
+
+int EnQueue(SqQueue &Q, Elemtype e)
+{
+    if(QueueFull(Q)) return ERROR;    //队满
+    Q.rear=(Q.rear+1)%MAXSIZE;    //rear加1,队尾位置上移
+    Q.data[Q.rear]=e;    //数据e存入当前队尾
+    return OK;
+}
+
+(5) 出队。

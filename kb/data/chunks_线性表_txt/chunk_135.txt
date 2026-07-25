@@ -1,0 +1,11 @@
+# ## 2. 程序实现代码 › ## 3. 程序的运行结果
+
+alloc(sizeof(ListNode));/*动态生成头节点*/
+    ListNode *p,*rear;
+    int flag=0;    /*定义录入结束符*/
+    rear=head;    /*尾指针初始化，指向头节点*/
+    while(flag==0)    /*只要录入不为 0，则不停地通过尾插法建立链表*/
+    {
+    p=(ListNode *)malloc(sizeof(ListNode));
+    printf("编号    姓名    性别    联系电话    地址\n");
+    printf("----\n");

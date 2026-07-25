@@ -1,0 +1,15 @@
+# ## 2. 程序实现代码 › ## 3. 程序的运行结果
+
+/*编号*/
+    char name[9];    /*姓名*/
+    char sex[3];    /*性别*/
+    char phone[13];    /*电话*/
+    char addr[3];    /*地址*/
+}ElemType;
+typedef struct node    /*定义节点的类型*/
+{    ElemType data;    /*定义节点的数据域*/
+    struct node *next;    /*定义节点的指针域*/
+}ListNode;
+typedef ListNode *LinkedList;
+LinkedList head;
+ListNode *p;

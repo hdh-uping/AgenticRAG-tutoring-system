@@ -1,0 +1,14 @@
+# ## 1. 实现单链表常用操作的代码
+
+个元素，并由 e 返回其值，若删除成功，则返回 1，否则返回 -1*/
+int Delete_LinkList(LinkList L, int i, ElemType *e)
+{
+    LNode *p, *q;
+    int j;
+    p=L; j=0;
+    while(p->next &&j<i-1) {/*寻找第 i 个节点，并令 p 指向其前驱*/
+    p=p->next; j++;
+    }
+    if(!(p->next)||j>i-1) return -1; /*删除位置不合理*/
+    q=p->next;
+    *e=q->data; /*用 e 返回被删节点数据域的值*/

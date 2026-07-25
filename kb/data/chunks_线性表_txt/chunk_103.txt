@@ -1,0 +1,20 @@
+# ## 算法 2.18 双向循环链表的删除 › ## 2.4 本章实战练习 › ## 2.4.1 顺序表的常用操作
+
+## 算法 2.18 双向循环链表的删除
+
+```c
+void delelm(DuLinkList L, ElemType* e, DuLNode *p)
+/*设 L 为双向循环链表的头节点，删除地址为 p 的节点*/
+{ DuLNode *q,*r;
+    q=p->prior;
+    r=p->next;
+```
+
+
+```txt
+q->next=r;
+r->prior=q;
+e=p->data;
+free(p);
+}
+```

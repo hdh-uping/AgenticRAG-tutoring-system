@@ -1,0 +1,14 @@
+# ## 2. 程序实现代码 › ## 3. 程序的运行结果
+
+ode(head,p);
+    break;
+    case 3:
+    printf("**************************\n");
+    printf("* 通讯者节点的查询 *\n");
+    printf("**************************\n");
+    p=ListFind(head);
+    if(p!=NULL)
+    {
+    printf("编号 姓名 性别 联系电话 地址\n");
+    printf("----\n");
+    printf("%s%s%s%s%s",p->data.num,p->data.name,p->data.sex, p->data.phone,p->data.addr);

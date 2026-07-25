@@ -1,0 +1,14 @@
+# ## 1. 实现单链表常用操作的代码
+
+L->next=NULL;    /*先建立一个带头节点的单链表*/
+    q=L;    /*q 的初始值指向头节点*/
+    for(i=0; i<=n-1; i++)
+    {
+    p=(LNode *)malloc(sizeof(LNode));    /*生成新节点*/
+    printf("请输入第%d 个元素的值:",i);
+    scanf("%d",&p->data);    /*输入元素值*/
+    p->next=NULL;    q->next=p;    q=p;    /*将该节点插入表尾*/
+```
+
+next=p;    q=p;    /*将该节点插入表尾*/
+```

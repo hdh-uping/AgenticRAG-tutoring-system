@@ -1,0 +1,14 @@
+# ## 1. 实现顺序表常用操作的代码 › ## 2. 顺序表常用操作的程序运行结果 › ## 2.4.2 单链表的常用操作
+
+i;
+    printf("\n 该线性表的元素依次为：\n");
+    for(i=0; i<L.length; i++) printf("%d ",L.elem[i]);
+    printf("\n");
+}
+/*输入顺序表各个元素的值*/
+void InputSqList(SqList *L)
+```
+
+值*/
+void InputSqList(SqList *L)
+```

@@ -1,0 +1,23 @@
+# ## 1. 双向链表的存储结构描述
+
+## 1. 双向链表的存储结构描述
+
+```c
+typedef struct DuLNode {
+    ElemType data;
+    struct DuLNode *prior;
+    struct DuLNode *next;
+} DuLNode, *DuLinkList;
+```
+
+双向链表的节点结构如图 2.15 所示。
+
+<table><tr><td>prior</td><td>data</td><td>next</td></tr></table>
+
+图 2.15 双向链表的节点结构
+
+在双向链表中，若 p 为指向表中某一节点的指针，则显然有：
+
+```txt
+p->next->prior = p->prior->next = p
+```

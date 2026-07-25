@@ -1,0 +1,14 @@
+# ## 1. 实现单链表常用操作的代码
+
+e *p, *s;
+    int j;
+    p=L; j=-1;
+    while(p->next &&j<i-1) {p=p->next; j++; } /*寻找第 i-1 个节点*/
+    if(!p->next ||j>i-1) return -1; /*i 值不合法*/
+    s=(LNode *)malloc(sizeof(LNode)); /*生成新节点*/
+    s->data=e;
+    s->next=p->next; p->next=s; /*实现插入*/
+    return 1;
+}
+/*【算法 2.15 单链表的删除】*/
+/*在带头节点的单链表 L 中，删除第 i 个元素，并由 e 返回其值，若删除成功，则返回 1，否则返回 -1*/

@@ -1,0 +1,22 @@
+# ## 2. 链队列的算法实现 › ## 3.4 队列应用举例
+
+q->rear?TRUE:FALSE); }
+```
+
+(3) 进队。
+
+```c
+void EnQueue(LinkQueue *q, Elemtype e)
+{
+    // 将元素 e 进队，即在表尾插入新的结点
+    QueueNode *s;
+    s = (QueueNode*)malloc(sizeof(QueueNode));
+    s->data = e;
+    s->next = NULL;
+    q->rear->next = s;
+    q->rear = s;
+```
+
+(4) 出队。
+
+在进行出队操作时，除了考虑空队情况外，还应当注意队列中只有一个元素时的情况，如图 3.11(b) 所示。唯一的元素一旦出队，则队列为空，此时就需要修改队尾指针。

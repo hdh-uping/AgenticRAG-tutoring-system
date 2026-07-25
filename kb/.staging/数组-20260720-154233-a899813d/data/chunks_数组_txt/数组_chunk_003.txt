@@ -1,0 +1,7 @@
+# ## 1. 数组
+
+构,可以借助数据元素在存储器中的相对位置来表示数据元素之间的逻辑关系。
+
+一个数组的所有元素在内存中占用一段连续的存储空间，一维数组的存储结构关系以 $a[n]$ 为例： $\mathrm{loc}(a_i) = \mathrm{loc}(a_0) + i\times$ sizeof(ElemType) $(n > i\geqslant 0)$ 。
+
+注意数组的下标范围为 $n > i \geqslant 0$ , ElemType 为数组元素类型, sizeof(ElemType) 为数组元素所占用的存储单元。

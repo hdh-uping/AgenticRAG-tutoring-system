@@ -1,0 +1,20 @@
+# ## 3.2.2 括号匹配的检验 › ## 3.2.3 简单表达式求值
+
+```c
+typedef char Elemtype;
+int bracketmatching()
+{
+    SqStack S;
+    Elemtype ch;
+    InitStack(S);
+    while ((ch=getchar())!='\n')
+    {
+    switch (ch)    //遇左括号入栈;遇到右括号时,分别检测匹配情况
+    {
+    case '(':
+    case '[':
+    case '{: 
+    Push(S,ch);break;
+    case ')':
+    if (StackEmpty(S)) return FALSE;
+    else

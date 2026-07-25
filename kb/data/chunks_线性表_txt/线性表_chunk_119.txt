@@ -1,0 +1,16 @@
+# ## 1. 实现单链表常用操作的代码
+
+typedef int ElemType;    /*定义元素类型为 int*/
+/*线性表的链式存储结构定义*/
+typedef struct LNode {
+ElemType data;
+struct LNode *next;
+} LNode, *LinkList;
+/*【算法 2.9 通过尾插入法建立带头节点的单链表】*/
+/*建立带头节点的单链表 L，输入 n 个元素的值*/
+LinkList Create_LinkList(int n)
+{
+    LNode *L,*p,*q;
+    int i;
+    L=(LNode *)malloc(sizeof(LNode));
+    L->next=NULL;    /*先建立一个带头节点的单链表*/

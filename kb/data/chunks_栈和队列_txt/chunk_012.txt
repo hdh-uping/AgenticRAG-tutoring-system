@@ -1,0 +1,22 @@
+# ## 2. 顺序栈的算法实现 › ## 3.1.3 栈的链式存储结构
+
+S.top==MAXSIZE-1?TRUE:FALSE); }
+```
+
+(4) 进栈。
+
+进栈时应首先判栈满，若栈不满则将栈顶指针 top 上移，存入元素。
+
+```txt
+int Push(SqStack &S, Elemtype e)
+{
+```
+
+```txt
+int GetTop(SqStack S, Elemtype &e)
+{
+    if(StackEmpty(S)) return ERROR; //若栈不为空，则取栈顶元素
+    e=S.data[S.top]; //栈空
+    return OK; //取出数据，top不变
+}
+```

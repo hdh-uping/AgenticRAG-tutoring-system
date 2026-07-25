@@ -1,0 +1,12 @@
+# ## 1. 实现单链表常用操作的代码
+
+}
+    else{ printf("\n 删除失败！"); }
+    printf("\n\n 请输入要查找的值：e=");
+    scanf("%d",&e);
+    i=Locate_LinkElem(L,e);
+    if(i>=0) printf("该元素在线性表中的位序为：%d\n",i);
+    else printf("该元素在线性表中不存在\n");
+    return 0;
+}
+```

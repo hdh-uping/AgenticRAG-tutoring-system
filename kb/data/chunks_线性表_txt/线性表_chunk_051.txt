@@ -1,0 +1,20 @@
+# ## 算法 2.6 头插入法建立单链表
+
+```c
+LinkList CreatHead_LinkList(int n)
+/*建立一个单链表 L，输入 n 个元素的值*/
+{
+    LinkList L=NULL;    /*建立空链表 L*/
+    LNode *s;
+    int i;
+    for(i=0; i<=n-1; i++)
+    {
+    s=(LNode *)malloc(sizeof(LNode));    /*生成新节点*/
+    printf("请输入第%d 个元素的值:",i);
+    scanf("%d",&s->data);    /*输入元素值*/
+    s->next=L;
+    L=s;
+    }
+    return L;
+}
+```

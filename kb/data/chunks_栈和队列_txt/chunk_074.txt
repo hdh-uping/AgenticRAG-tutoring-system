@@ -1,0 +1,25 @@
+# ## 3. 循环队列的算法实现 › ## 3.3.3 队列的链式存储结构
+
+## 3. 循环队列的算法实现
+
+(1) 初始化。
+
+循环队列的初始化主要是分配存储空间，并将队头队尾指针置为相同。
+
+```c
+int InitQueue(SqQueue &Q)
+{
+    //构造一个空队列
+    Q.front=Q.rear=0;
+    return OK;
+}
+
+(2) 判队空。
+
+int QueueEmpty(SqQueue Q)
+//队空时返回值为真,反之为假
+{
+    return(Q.front==Q.rear? TRUE:FALSE);
+}
+
+(3) 判队满。

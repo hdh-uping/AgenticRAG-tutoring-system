@@ -1,0 +1,19 @@
+# ## 1. 实现顺序表常用操作的代码 › ## 2. 顺序表常用操作的程序运行结果 › ## 2.4.2 单链表的常用操作
+
+```c
+else return -1;
+}
+/*【算法2.5取顺序表中元素】*/
+/*在顺序线性表L中取第i个元素存入e中，若成功，则返回1，否则返回-1*/
+int Get_SqList(SqList L, int i, ElemType *e)
+{
+    if(i<0||i>L.length-1) return -1;    /*没有第i个元素，读取失败*/
+    *e=L.elem[i];
+    return 1; /*读取成功*/
+}
+int main()
+{
+    SqList L;
+    int status, e, i;
+    status=InitList_Sq(&L);
+    if(status==1) printf("顺序表初始化成功！\n");

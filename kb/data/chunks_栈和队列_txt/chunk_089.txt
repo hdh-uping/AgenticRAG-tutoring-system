@@ -1,0 +1,18 @@
+# ## 2. 具体实现
+
+```txt
+typedef char Elemtype;
+void keyboardinput()
+{//模拟键盘输入循环缓冲区
+    char ch1,ch2;
+    SqQueue Q;
+    int f;
+    InitQueue(Q); //队列初始化
+    for(;;)
+    { for(;;) //第一个进程
+    { printf("A");
+    if( kbhit() ) //检测键盘是否有输入
+    { ch1=bdos(7,0,0); //通过 DOS 命令读入一个字符
+    f=EnQueue(Q,ch1);
+    if(f==ERROR)
+    { printf("循环队列已满\n");

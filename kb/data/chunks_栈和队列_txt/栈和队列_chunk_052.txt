@@ -1,0 +1,3 @@
+# ## (3) 实例演示。
+
+r><td>7</td><td># + * (</td><td>4 2 7</td><td>-3)#</td><td>Push(optr,'-')</td></tr><tr><td>8</td><td># + * (-</td><td>4 2 7</td><td>3)#</td><td>Push(opnd,'3')</td></tr><tr><td>9</td><td># + * (-</td><td>4 2 7 3</td><td>)#</td><td>Pop(optr);Pop(opnd); Pop(opnd);Push(opnd,operate('7','-','3'))</td></tr><tr><td>10</td><td># + * (-</td><td>4 2

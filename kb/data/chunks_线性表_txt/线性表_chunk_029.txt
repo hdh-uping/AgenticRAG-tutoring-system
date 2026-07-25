@@ -1,0 +1,12 @@
+# ## 算法 2.3 顺序表的删除
+
+```c
+int ListDelete_Sq(SqList *L, int i, ElemType *e)
+/*在顺序表 L 中删除第 i 个元素，并用 e 返回其值，成功返回 1，失败返回 -1*/
+{
+    int j;
+    if (i < 0 || i > L->length - 1) return -1;    /*i 值不合法，删除失败*/
+    *e = L->elem[i];    /*将被删除元素的值赋给 e*/
+    for (j = i + 1; j <= L->length - 1; j++)
+    L->elem[j - 1] = L->elem[j];    /*被删元素之后的元素从前开始向前移动*/
+    --L->length;

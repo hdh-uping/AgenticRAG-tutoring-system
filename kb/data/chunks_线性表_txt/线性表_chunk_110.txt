@@ -1,0 +1,14 @@
+# ## 1. 实现顺序表常用操作的代码 › ## 2. 顺序表常用操作的程序运行结果 › ## 2.4.2 单链表的常用操作
+
+ize + INCREMENT)*sizeof(ElemType));
+    if(!newbase) return -1;    /*存储分配失败*/
+    L->elem = newbase;
+    L->listsize += INCREMENT;
+    }
+    for(j=L->length-1;j>=i;j--)
+    L->elem[j+1] = L->elem[j];    /*插入位置及之后的元素后移*/
+    L->elem[i]=e;    /*插入e*/
+    ++L->length;    /*表长增1*/
+    return 1;
+}
+/*【算法2.3 顺序表的删除】*/

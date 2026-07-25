@@ -1,0 +1,12 @@
+# ## 3.3.1 队列的定义 › ## 3.3.2 队列的顺序存储结构
+
+<div class="mineru-algorithm" style="white-space: pre-wrap; font-family:monospace;">
+ADT Queue{
+数据对象： $D=\{a_{i}\mid a_{i}\in ElemSet,i=1,2,\cdots,n,n\geq0\}$ 
+数据关系： $R1=\{\langle a_{i-1},a_{i}\rangle|a_{i-1},a_{i}\in D,i=2,\cdots,n\}$ 
+约定其中  $a_{1}$  端为队头， $a_{n}$  端为队尾
+基本操作：
+InitQueue(&amp;Q)
+操作结果：构造一个空队列 Q
+QueueEmpty(Q)
+初始条件：队列 Q 已存在

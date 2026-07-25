@@ -1,0 +1,12 @@
+# ## 2) 算法描述 › ## 3) 算法的时间复杂度
+
+```c
+int MergeList_Sq(SqList LA,SqList LB,SqList *LC)
+/*已知顺序线性表 LA 和 LB 的元素按值非递减排列，合并 LA 和 LB 得到新的顺序线性表 LC，LC 的元素也按值非递减排列，若成功，则返回 1，否则返回 -1*/
+{
+    int i=0,j=0,k=0;
+    LC->listsize = LA.length + LB.length;
+    LC->elem=(ElemType *)malloc(LC->listsize* sizeof(ElemType));
+    if(!LC->elem) return -1;
+    while(i<LA.length&&j<LB.length)
+    {

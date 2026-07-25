@@ -1,0 +1,21 @@
+# ## (2) 算法步骤。
+
+,c))
+    {
+    case '<': //栈顶算符优先级低
+    Push(optr,c); c=getchar();
+    break;
+    case '=': //优先级相同，脱去括号并读入下一字符
+    Pop(optr,x); c=getchar();
+    break;
+    case '>': //栈顶算符优先级高，退栈并将运算结果入栈
+    Pop(optr,theta);
+    Pop(opnd,b);Pop(opnd,a);
+    Push(opnd,Operate(a,theta,b));
+    break;
+    }
+    }
+    return GetTop(opnd);
+}
+```  
+算法 3.3

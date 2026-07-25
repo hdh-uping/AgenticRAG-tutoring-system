@@ -1,0 +1,16 @@
+# ## 算法 2.8 带头节点的单链表初始化
+
+算法 2.9 通过尾插入法建立带头节点的单链表  
+```c
+LinkList Create_LinkList (int n)
+/*建立带头节点的单链表 L，输入 n 个元素的值*/
+{
+    LNode *L,*p,*s;
+    int i;
+    L=(LNode *)malloc(sizeof(LNode));
+    L->next=NULL;    /*先建立一个带头节点的单链表*/
+    p=L;    /*p 的初始值指向头节点*/
+    for(i=0; i<=n-1; i++)
+    {
+    s=(LNode *)malloc(sizeof(LNode));    /*生成新节点*/
+    printf("请输入第%d 个元素的值:",i);

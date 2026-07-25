@@ -1,0 +1,3 @@
+# ## (3) 实例演示。
+
+><td>步骤</td><td>optr 栈</td><td>opnd 栈</td><td>依次读入字符</td><td>主要操作</td></tr><tr><td>1</td><td>#</td><td></td><td>4+2*(7-3)#</td><td>Push(opnd,'4')</td></tr><tr><td>2</td><td>#</td><td>4</td><td>+2*(7-3)#</td><td>Push(optr,'+')</td></tr><tr><td>3</td><td>#+</td><td>4</td><td>2*(7-3)#</td><td>Push(opnd,'2')</td></tr><tr><td>4</td><td>#+</td><td>4

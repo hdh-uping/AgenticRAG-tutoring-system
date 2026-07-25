@@ -1,0 +1,582 @@
+[
+  {
+    "head": "对称矩阵",
+    "relation": "IS_A",
+    "tail": "矩阵"
+  },
+  {
+    "head": "上三角矩阵",
+    "relation": "IS_A",
+    "tail": "矩阵"
+  },
+  {
+    "head": "下三角矩阵",
+    "relation": "IS_A",
+    "tail": "矩阵"
+  },
+  {
+    "head": "对称矩阵",
+    "relation": "HAS_OPERATION",
+    "tail": "对称矩阵·压缩存储"
+  },
+  {
+    "head": "上三角矩阵",
+    "relation": "HAS_OPERATION",
+    "tail": "上三角矩阵·压缩存储"
+  },
+  {
+    "head": "下三角矩阵",
+    "relation": "HAS_OPERATION",
+    "tail": "下三角矩阵·压缩存储"
+  },
+  {
+    "head": "三对角矩阵",
+    "relation": "HAS_OPERATION",
+    "tail": "三对角矩阵·压缩存储"
+  },
+  {
+    "head": "三元组顺序表",
+    "relation": "IS_A",
+    "tail": "稀疏矩阵"
+  },
+  {
+    "head": "顺序栈",
+    "relation": "IS_A",
+    "tail": "栈"
+  },
+  {
+    "head": "栈",
+    "relation": "HAS_OPERATION",
+    "tail": "栈·初始化"
+  },
+  {
+    "head": "栈",
+    "relation": "HAS_OPERATION",
+    "tail": "栈·判空"
+  },
+  {
+    "head": "栈",
+    "relation": "HAS_OPERATION",
+    "tail": "栈·判满"
+  },
+  {
+    "head": "栈",
+    "relation": "HAS_OPERATION",
+    "tail": "栈·取栈顶"
+  },
+  {
+    "head": "栈",
+    "relation": "HAS_OPERATION",
+    "tail": "栈·入栈"
+  },
+  {
+    "head": "栈",
+    "relation": "HAS_OPERATION",
+    "tail": "栈·出栈"
+  },
+  {
+    "head": "链栈",
+    "relation": "IS_A",
+    "tail": "栈"
+  },
+  {
+    "head": "顺序栈",
+    "relation": "HAS_OPERATION",
+    "tail": "顺序栈·初始化"
+  },
+  {
+    "head": "顺序栈",
+    "relation": "HAS_OPERATION",
+    "tail": "顺序栈·判栈空"
+  },
+  {
+    "head": "顺序栈",
+    "relation": "HAS_OPERATION",
+    "tail": "顺序栈·判栈满"
+  },
+  {
+    "head": "顺序栈",
+    "relation": "HAS_OPERATION",
+    "tail": "顺序栈·进栈"
+  },
+  {
+    "head": "顺序栈",
+    "relation": "HAS_OPERATION",
+    "tail": "顺序栈·出栈"
+  },
+  {
+    "head": "顺序栈",
+    "relation": "HAS_OPERATION",
+    "tail": "顺序栈·取栈顶元素"
+  },
+  {
+    "head": "顺序栈·进栈",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(1)"
+  },
+  {
+    "head": "顺序栈·出栈",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(1)"
+  },
+  {
+    "head": "链栈",
+    "relation": "HAS_OPERATION",
+    "tail": "链栈·初始化"
+  },
+  {
+    "head": "链栈",
+    "relation": "HAS_OPERATION",
+    "tail": "链栈·判栈空"
+  },
+  {
+    "head": "链栈",
+    "relation": "HAS_OPERATION",
+    "tail": "链栈·进栈"
+  },
+  {
+    "head": "链栈",
+    "relation": "HAS_OPERATION",
+    "tail": "链栈·出栈"
+  },
+  {
+    "head": "链栈·进栈",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(1)"
+  },
+  {
+    "head": "链栈·出栈",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(1)"
+  },
+  {
+    "head": "栈",
+    "relation": "HAS_OPERATION",
+    "tail": "栈·数制转换"
+  },
+  {
+    "head": "栈",
+    "relation": "HAS_OPERATION",
+    "tail": "栈·括号匹配"
+  },
+  {
+    "head": "栈",
+    "relation": "HAS_OPERATION",
+    "tail": "栈·表达式求值"
+  },
+  {
+    "head": "栈",
+    "relation": "HAS_OPERATION",
+    "tail": "表达式求值"
+  },
+  {
+    "head": "栈",
+    "relation": "HAS_OPERATION",
+    "tail": "后缀表达式求值"
+  },
+  {
+    "head": "顺序队列",
+    "relation": "IS_A",
+    "tail": "队列"
+  },
+  {
+    "head": "循环队列",
+    "relation": "IS_A",
+    "tail": "顺序队列"
+  },
+  {
+    "head": "队列",
+    "relation": "HAS_OPERATION",
+    "tail": "队列·初始化"
+  },
+  {
+    "head": "队列",
+    "relation": "HAS_OPERATION",
+    "tail": "队列·入队"
+  },
+  {
+    "head": "队列",
+    "relation": "HAS_OPERATION",
+    "tail": "队列·出队"
+  },
+  {
+    "head": "队列",
+    "relation": "HAS_OPERATION",
+    "tail": "队列·判空"
+  },
+  {
+    "head": "队列",
+    "relation": "HAS_OPERATION",
+    "tail": "队列·求长度"
+  },
+  {
+    "head": "队列",
+    "relation": "HAS_OPERATION",
+    "tail": "队列·取队头"
+  },
+  {
+    "head": "循环队列",
+    "relation": "IS_A",
+    "tail": "队列"
+  },
+  {
+    "head": "循环队列",
+    "relation": "HAS_OPERATION",
+    "tail": "循环队列·入队"
+  },
+  {
+    "head": "循环队列",
+    "relation": "HAS_OPERATION",
+    "tail": "循环队列·出队"
+  },
+  {
+    "head": "循环队列",
+    "relation": "HAS_OPERATION",
+    "tail": "循环队列·判空"
+  },
+  {
+    "head": "循环队列",
+    "relation": "HAS_OPERATION",
+    "tail": "循环队列·判满"
+  },
+  {
+    "head": "循环队列·入队",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(1)"
+  },
+  {
+    "head": "循环队列·出队",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(1)"
+  },
+  {
+    "head": "循环队列",
+    "relation": "HAS_OPERATION",
+    "tail": "循环队列·求队列长度"
+  },
+  {
+    "head": "循环队列",
+    "relation": "HAS_OPERATION",
+    "tail": "循环队列·初始化"
+  },
+  {
+    "head": "循环队列",
+    "relation": "HAS_OPERATION",
+    "tail": "循环队列·取队头"
+  },
+  {
+    "head": "循环队列·求队列长度",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(1)"
+  },
+  {
+    "head": "链队列",
+    "relation": "IS_A",
+    "tail": "队列"
+  },
+  {
+    "head": "链队列",
+    "relation": "HAS_OPERATION",
+    "tail": "链队列·初始化"
+  },
+  {
+    "head": "链队列",
+    "relation": "HAS_OPERATION",
+    "tail": "链队列·判队空"
+  },
+  {
+    "head": "链队列",
+    "relation": "HAS_OPERATION",
+    "tail": "链队列·进队"
+  },
+  {
+    "head": "链队列",
+    "relation": "HAS_OPERATION",
+    "tail": "链队列·出队"
+  },
+  {
+    "head": "链队列",
+    "relation": "HAS_OPERATION",
+    "tail": "链队列·求队列长度"
+  },
+  {
+    "head": "链队列·判队空",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(1)"
+  },
+  {
+    "head": "链队列·求队列长度",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(n)"
+  },
+  {
+    "head": "顺序表",
+    "relation": "IS_A",
+    "tail": "线性表"
+  },
+  {
+    "head": "单链表",
+    "relation": "IS_A",
+    "tail": "线性表"
+  },
+  {
+    "head": "循环链表",
+    "relation": "IS_A",
+    "tail": "线性表"
+  },
+  {
+    "head": "双向链表",
+    "relation": "IS_A",
+    "tail": "线性表"
+  },
+  {
+    "head": "顺序表",
+    "relation": "HAS_OPERATION",
+    "tail": "顺序表·初始化"
+  },
+  {
+    "head": "顺序表",
+    "relation": "HAS_OPERATION",
+    "tail": "顺序表·插入"
+  },
+  {
+    "head": "顺序表·插入",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(n)"
+  },
+  {
+    "head": "顺序表",
+    "relation": "HAS_OPERATION",
+    "tail": "顺序表·删除"
+  },
+  {
+    "head": "顺序表·删除",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(n)"
+  },
+  {
+    "head": "顺序表",
+    "relation": "HAS_OPERATION",
+    "tail": "顺序表·按值查找"
+  },
+  {
+    "head": "顺序表",
+    "relation": "HAS_OPERATION",
+    "tail": "顺序表·取元素"
+  },
+  {
+    "head": "顺序表·按值查找",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(n)"
+  },
+  {
+    "head": "顺序表·取元素",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(1)"
+  },
+  {
+    "head": "顺序表",
+    "relation": "HAS_OPERATION",
+    "tail": "顺序表·合并"
+  },
+  {
+    "head": "顺序表·合并",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(LA.length+LB.length)"
+  },
+  {
+    "head": "单链表",
+    "relation": "HAS_OPERATION",
+    "tail": "单链表·建立"
+  },
+  {
+    "head": "单链表",
+    "relation": "HAS_OPERATION",
+    "tail": "单链表·尾插入法建表"
+  },
+  {
+    "head": "带头节点的单链表",
+    "relation": "IS_A",
+    "tail": "单链表"
+  },
+  {
+    "head": "单链表",
+    "relation": "HAS_OPERATION",
+    "tail": "单链表·初始化"
+  },
+  {
+    "head": "单链表",
+    "relation": "HAS_OPERATION",
+    "tail": "单链表·求表长（带头节点）"
+  },
+  {
+    "head": "单链表",
+    "relation": "HAS_OPERATION",
+    "tail": "单链表·求表长（不带头节点）"
+  },
+  {
+    "head": "单链表·初始化",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(1)"
+  },
+  {
+    "head": "单链表·尾插入法建表",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(n)"
+  },
+  {
+    "head": "单链表·求表长（带头节点）",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(n)"
+  },
+  {
+    "head": "单链表·求表长（不带头节点）",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(n)"
+  },
+  {
+    "head": "单链表",
+    "relation": "HAS_OPERATION",
+    "tail": "单链表·按序号查找"
+  },
+  {
+    "head": "单链表",
+    "relation": "HAS_OPERATION",
+    "tail": "单链表·查询"
+  },
+  {
+    "head": "单链表",
+    "relation": "HAS_OPERATION",
+    "tail": "单链表·插入"
+  },
+  {
+    "head": "单链表·查询",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(n)"
+  },
+  {
+    "head": "单链表",
+    "relation": "HAS_OPERATION",
+    "tail": "单链表·删除指定节点"
+  },
+  {
+    "head": "单链表",
+    "relation": "HAS_OPERATION",
+    "tail": "单链表·删除后继节点"
+  },
+  {
+    "head": "单链表·删除指定节点",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(n)"
+  },
+  {
+    "head": "单链表·删除后继节点",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(1)"
+  },
+  {
+    "head": "单向循环链表",
+    "relation": "HAS_OPERATION",
+    "tail": "单向循环链表·连接"
+  },
+  {
+    "head": "单向循环链表·连接",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(1)"
+  },
+  {
+    "head": "单向循环链表·连接",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(n)"
+  },
+  {
+    "head": "双向循环链表",
+    "relation": "IS_A",
+    "tail": "双向链表"
+  },
+  {
+    "head": "双向链表",
+    "relation": "HAS_OPERATION",
+    "tail": "双向链表·插入"
+  },
+  {
+    "head": "双向链表·插入",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(1)"
+  },
+  {
+    "head": "双向循环链表",
+    "relation": "IS_A",
+    "tail": "线性表"
+  },
+  {
+    "head": "双向循环链表",
+    "relation": "HAS_OPERATION",
+    "tail": "双向循环链表·插入"
+  },
+  {
+    "head": "双向循环链表",
+    "relation": "HAS_OPERATION",
+    "tail": "双向循环链表·删除"
+  },
+  {
+    "head": "双向循环链表·插入",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(n)"
+  },
+  {
+    "head": "双向循环链表·删除",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(n)"
+  },
+  {
+    "head": "单链表",
+    "relation": "HAS_OPERATION",
+    "tail": "单链表·打印"
+  },
+  {
+    "head": "链表",
+    "relation": "IS_A",
+    "tail": "线性表"
+  },
+  {
+    "head": "链表",
+    "relation": "HAS_OPERATION",
+    "tail": "链表·查找"
+  },
+  {
+    "head": "链表",
+    "relation": "HAS_OPERATION",
+    "tail": "链表·删除"
+  },
+  {
+    "head": "链表",
+    "relation": "HAS_OPERATION",
+    "tail": "链表·输出"
+  },
+  {
+    "head": "链表",
+    "relation": "HAS_OPERATION",
+    "tail": "链表·插入"
+  },
+  {
+    "head": "链表",
+    "relation": "HAS_OPERATION",
+    "tail": "链表·建立"
+  },
+  {
+    "head": "单链表·建立",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(n)"
+  },
+  {
+    "head": "单链表·按序号查找",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(1)"
+  },
+  {
+    "head": "单链表·插入",
+    "relation": "HAS_COMPLEXITY",
+    "tail": "O(n)"
+  }
+]

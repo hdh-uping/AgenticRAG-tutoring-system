@@ -1,0 +1,14 @@
+# ## 2. 程序实现代码 › ## 3. 程序的运行结果
+
+istNode *p)
+{
+    ListNode *p1,*p2;
+    p1=head; p2=p1->next;
+    while(p2!=NULL && (strcmp(p2->data.num,p->data.num)<0))
+    {
+    p1=p2;    /*p1 指向刚访问过的节点*/
+    p2=p2->next;    /*p2 指向表的下一个节点*/
+    }
+    p1->next=p;    /*插入 p 所指向的节点*/
+    p->next=p2;    /*连接表中的剩余部分*/
+}

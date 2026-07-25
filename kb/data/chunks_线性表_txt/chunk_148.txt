@@ -1,0 +1,15 @@
+# ## 2. 程序实现代码 › ## 3. 程序的运行结果
+
+a.sex, p->data.phone,p->data.addr);
+    printf("----\n");
+    }
+    else printf("没有查找到查询的通讯者！\n");
+    break;
+case 4:
+    printf("**************************\n");
+    printf("* 通讯者节点的删除 *\n");
+    printf("**************************\n");
+    DelNode(head);
+    break;
+case 5 :
+```

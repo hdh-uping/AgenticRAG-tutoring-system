@@ -1,0 +1,3 @@
+# ## (3) 实例演示。
+
+</tr><tr><td>4</td><td>#+</td><td>4 2</td><td>*(7-3)#</td><td>Push(optr,'*)</td></tr><tr><td>5</td><td>#+*</td><td>4 2</td><td>(7-3)#</td><td>Push(optr,(')</td></tr><tr><td>6</td><td># + * (</td><td>4 2</td><td>7-3)#</td><td>Push(opnd,'7')</td></tr><tr><td>7</td><td># + * (</td><td>4 2

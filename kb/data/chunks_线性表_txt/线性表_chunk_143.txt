@@ -1,0 +1,20 @@
+# ## 2. 程序实现代码 › ## 3. 程序的运行结果
+
+f(jx='y'||jx='Y')
+    {
+    q=head;
+    while(q!=NULL && q->next!=p) q=q->next;
+    q->next=p->next;    /*删除节点*/
+    free(p);    /*释放被删除的节点*/
+    printf("通讯者已经被删除！\n");
+    }
+}
+/**********/
+/* 通讯录链表的输出 */
+/**********/
+void PrintList(LinkList head)
+```
+
+/
+void PrintList(LinkList head)
+```

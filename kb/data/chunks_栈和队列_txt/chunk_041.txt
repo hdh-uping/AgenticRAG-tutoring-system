@@ -1,0 +1,15 @@
+# ## (2) 算法步骤。
+
+```txt
+float CaculateExpression()
+    { //算术表达式求值的算符优先算法。设 optr 和 opnd 分别为算符栈和操作数栈，
+    //OP 为算符集合
+    InitStack(optr); Push(optr,'#');
+    InitStack(opnd); c=getchar();
+    while(c!='#' || GetTop(optr) != '#')
+    {
+    if(!In(c,OP)) {Push(opnd,c); c=getchar();} //不是算符则进栈
+    else
+    switch(Precede(GetTop(optr),c))
+    {
+    case '<': //栈顶算符优先级低

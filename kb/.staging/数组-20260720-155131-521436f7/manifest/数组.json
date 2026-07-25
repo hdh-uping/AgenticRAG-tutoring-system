@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "pipeline": "kb.scripts.ingest_pipeline",
+  "document": "数组",
+  "created_at": "2026-07-20T15:51:47+0800",
+  "source_pdf_sha256": "4d4f8b91e25d6538eac72e2c8629d2c9c6a3133f324072ea85ed534597710c39",
+  "markdown_sha256": "7f47af48c09ae07bf638a055a9bcb532ecd1d2837e4857d70774520d7a6bffcc",
+  "text_markdown_sha256": "42000e21d01e7999f7f820779219e4cb6c641b37e5c5f748ff72aaedf05256c2",
+  "content_json_sha256": "5c790fa042972f5097c9103ef4d4e76b695524f87c3c83bd2fb2f45de6ccc0d1",
+  "chunks_jsonl_sha256": "a8cda906ecc4449c091236ba5216bbb01589ec88e7c97ea376b54b148ed436d9",
+  "content_elements": 102,
+  "text_chars": 6495,
+  "chunk_count": 27,
+  "pages": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "graph_counts": {
+    "entities": 59,
+    "relations": 83,
+    "entity_types": {
+      "复杂度": 4,
+      "操作": 47,
+      "数据结构": 8
+    },
+    "relation_types": {
+      "HAS_COMPLEXITY": 34,
+      "HAS_OPERATION": 43,
+      "IS_A": 6
+    }
+  }
+}

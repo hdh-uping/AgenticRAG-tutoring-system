@@ -1,0 +1,14 @@
+# ## 3.1.1 栈的定义 › ## 3.1.2 栈的顺序存储结构
+
+```txt
+ADT Stack {
+    数据对象 D: D = { a_i | a_i ∈ ElemSet, i = 1, 2, ..., n, n ≥ 0 }
+    数据关系 R: R = { <a_{i-1}, a_i> | a_{i-1}, a_i ∈ D, i = 2, ..., n } 约定 a_n 端为栈顶，a_1 端为栈底。
+基本操作 P:
+    InitStack(&S)
+    操作结果：构造一个空栈 S
+    StackEmpty(S)
+    初始条件：栈 S 已存在
+    操作结果：若栈 S 为空栈，则返回 TRUE，否则返回 FALSE
+    StackFull(S)
+    初始条件：栈 S 已存在

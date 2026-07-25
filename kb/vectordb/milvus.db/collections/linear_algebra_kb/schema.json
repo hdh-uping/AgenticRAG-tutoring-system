@@ -1,0 +1,92 @@
+{
+  "collection_name": "linear_algebra_kb",
+  "enable_dynamic_field": false,
+  "fields": [
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": true,
+      "max_capacity": null,
+      "max_length": 32,
+      "name": "id",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": 1024,
+      "dtype": "float_vector",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": null,
+      "name": "vector",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 4096,
+      "name": "text",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 512,
+      "name": "header_path",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 128,
+      "name": "doc_name",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "int16",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": null,
+      "name": "page_num",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "int16",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": null,
+      "name": "char_count",
+      "nullable": false
+    }
+  ],
+  "schema_format_version": 2,
+  "version": 1
+}

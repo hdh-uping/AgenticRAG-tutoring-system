@@ -1,0 +1,11 @@
+# ## 1. 实现顺序表常用操作的代码 › ## 2. 顺序表常用操作的程序运行结果 › ## 2.4.2 单链表的常用操作
+
+序表L的第i个位置之前插入新的元素e，若成功则返回1，否则返回-1*/
+int ListInsert_Sq(SqList *L, int i, ElemType e)
+{
+    int j;
+    ElemType *newbase;
+    if(i<0 || i>L->length) return -1;    /*插入位置不合法*/
+    if(L->length>=L->listsize)    /*当前存储空间已满，增加分配*/
+    {
+    newbase = (ElemType *)realloc(L->elem, (L->listsize + INCREMENT)*sizeof(ElemType));

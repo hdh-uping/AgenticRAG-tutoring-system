@@ -1,0 +1,16 @@
+# ## 2. 链队列的算法实现 › ## 3.4 队列应用举例
+
+ar=p;
+    return q;
+}
+```
+
+(2) 判队空。
+
+```c
+int QueueEmpty(LinkQueue *q)
+//链队列为空时返回值为真，反之为假
+{ return(q->front==q->rear?TRUE:FALSE); }
+```
+
+(3) 进队。

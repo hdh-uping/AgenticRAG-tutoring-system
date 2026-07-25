@@ -1,0 +1,17 @@
+# ## 算法 2.1 顺序表的初始化
+
+## 算法 2.1 顺序表的初始化
+
+```c
+int InitList_Sq(SqList *L)
+/*初始化顺序表，成功返回1，失败返回-1*/
+{
+    L->elem=(ElemType *)malloc(INIT_SIZE*sizeof(ElemType)); /*分配存储空间*/
+    if(!L->elem) return -1;    /*初始化失败*/
+    L->length=0;
+    L->listsize=INIT_SIZE;
+    return 1;    /*初始化成功*/
+}
+```
+
+若 L 是 SqList 类型的顺序表，则表中的第 i 个数据元素是 L.elem[i]。

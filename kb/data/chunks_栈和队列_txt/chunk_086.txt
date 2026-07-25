@@ -1,0 +1,23 @@
+# ## 2. 链队列的算法实现 › ## 3.4 队列应用举例
+
+front;
+    return OK;
+}
+
+(5) 求队列长度。
+
+int QueueLength(LinkQueue *q)
+{
+    QueueNode *p; int len=0;
+    p=q->front->next;
+    while(p)
+    { len++;
+    p=p->next;
+    }
+    return len;
+}
+```
+
+## 3.4 队列应用举例
+
+队列是一种相当实用的数据结构，可应用于生产、生活的各个方面。凡是符合先进先出运算特点，都可以使用队列来实现。

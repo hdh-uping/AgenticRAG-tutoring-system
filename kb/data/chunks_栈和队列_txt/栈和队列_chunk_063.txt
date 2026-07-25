@@ -1,0 +1,15 @@
+# ## 1. 顺序队列的类型定义
+
+front 和 rear 也设置为整型变量。
+
+顺序队列类型描述如下:
+
+```c
+#define MAXSIZE 100
+typedef struct 
+{ Elemtype data[MAXSIZE];
+    int front, rear;
+} SqQueue;
+```
+
+假设有 SqQueue \*p，则 p 为指向顺序队列的指针。p->front 和 p->rear 分别为队头指针和队尾指针。根据约定，p->data[p->front+1] 表示队头元素，p->data[p->rear] 表示队尾元素。

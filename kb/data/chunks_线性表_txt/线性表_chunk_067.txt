@@ -1,0 +1,19 @@
+# ## 算法 2.12 单链表的按序号查找 › ## 2) 按值查找
+
+## 算法 2.12 单链表的按序号查找
+
+```c
+LNode *Get_LinkList(LinkList L, int i)
+/*在带头节点的单链表 L 中查找第 i 个元素，若成功则返回该节点，否则返回空*/
+{
+    LNode *p = L; /*p 指向单链表 L 的头节点*/
+    int j = -1; /*从表头开始找，初始位置为 -1*/
+    while (p->next != NULL && j < i)
+    {
+    p = p->next; j++; }
+    if (j == i) return p;
+    else return NULL;
+}
+```
+
+## 2) 按值查找

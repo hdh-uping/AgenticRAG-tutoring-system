@@ -1,0 +1,5 @@
+# ## 3) 插入操作的时间复杂度
+
+$$
+\mathrm{E} _ {\mathrm{in}} = \sum_ {\mathrm{i} = 0} ^ {\mathrm{n}} \mathrm{P} _ {\mathrm{i}} (\mathrm{n} - \mathrm{i}) = \frac {1}{\mathrm{n} + 1} \sum_ {\mathrm{i} = 0} ^ {\mathrm{n}} (\mathrm{n} - \mathrm{i}) = \frac {1}{\mathrm{n} + 1} \cdot \frac {\mathrm{n} (\mathrm{n} + 1)}{2} = \frac {\mathrm{n}}{2}\tag{2.2}
+$$

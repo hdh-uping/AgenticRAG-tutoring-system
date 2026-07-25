@@ -1,0 +1,7 @@
+# ## 3.2.1 数制转换
+
+转相除法解决这个问题，以 N=1348，r=8 为例，其转换方法如下：
+
+<table><tr><td>N</td><td>N/8(整除)</td><td>N%8(求余)</td><td></td></tr><tr><td>1348</td><td>168</td><td>4</td><td rowspan="3">低↑</td></tr><tr><td>168</td><td>21</td><td>0</td></tr><tr><td>21</td><td>2</td><td>5</td></tr><tr><td>2</td><td>0</td><td>2</td><td>高</td></tr></table>
+
+结果为 $(1348)_{10}=(2504)_{8}$ 。

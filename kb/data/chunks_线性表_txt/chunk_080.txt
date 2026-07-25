@@ -1,0 +1,12 @@
+# ## 算法 2.15 单链表的删除
+
+```c
+int Delete_LinkList (LinkList L, int i, ElemType *e)
+/*在带头节点的单链表L中，删除第i个元素，并由e返回其值，若删除成功，则返回1，否则返回-1*/
+{
+    LNode *p, *q;
+    int j;
+    p = L; j = -1; /*从表头开始找前驱节点p，初始位置为-1*/
+    while (p->next && j < i - 1)    /*寻找第i个节点的前驱节点p*/
+    {    p = p->next; j++;    }
+    if (!(p->next) || j > i - 1)    return -1;    /*删除位置不合理*/

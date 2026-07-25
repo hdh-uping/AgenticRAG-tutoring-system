@@ -1,0 +1,23 @@
+# ## 3.2.1 数制转换
+
+将栈 s 的内容依次出栈，算法结束。
+
+具体实现如算法 3.1 所示。
+
+```txt
+typedef int Elemtype;
+void conversion(int N, int r)
+{ SqStack S;    //定义一个顺序栈S
+    Elemtype x;
+    InitStack(S);
+    while(N)
+    { Push(S, N%r);    //余数入栈
+    N=N/r;
+    }
+    while(!StackEmpty(S))
+    { Pop(S,x);
+    printf("%d",x);
+    }
+}
+```  
+算法 3.1

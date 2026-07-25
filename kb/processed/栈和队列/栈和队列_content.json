@@ -1,0 +1,3238 @@
+[
+  {
+    "type": "text",
+    "text": "第3章",
+    "text_level": 2,
+    "bbox": [
+      157,
+      86,
+      270,
+      119
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "栈和队列",
+    "text_level": 2,
+    "bbox": [
+      416,
+      130,
+      616,
+      164
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "本章知识要点:",
+    "bbox": [
+      178,
+      248,
+      305,
+      267
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "\\- 栈和队列的基本概念。",
+    "bbox": [
+      178,
+      272,
+      386,
+      289
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "\\- 栈和队列的顺序存储结构和链式存储结构。",
+    "bbox": [
+      180,
+      295,
+      554,
+      313
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "\\- 栈和队列的应用。",
+    "bbox": [
+      180,
+      317,
+      349,
+      336
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "3.1 栈",
+    "text_level": 2,
+    "bbox": [
+      450,
+      360,
+      545,
+      385
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "栈是一种特殊的线性表，它的逻辑结构和存储结构与线性表相同，其特殊性体现在“运算受限”，即无论往表中插入元素还是删除表中已有元素，都被限制在线性表的一端进行。一般将表尾作为操作端，如图 3.1 所示。",
+    "bbox": [
+      139,
+      408,
+      855,
+      477
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "image",
+    "img_path": "images/32d31c22a6546ab7c3f7914eec42f7f95027a48027cb554030b07ad472ed012d.jpg",
+    "image_caption": [
+      "图 3.1 操作仅在表一端进行"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      293,
+      485,
+      704,
+      508
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "3.1.1 栈的定义",
+    "text_level": 2,
+    "bbox": [
+      141,
+      542,
+      303,
+      564
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "栈是限制在表的一端进行插入和删除操作的线性表。能够进行操作的一端是浮动端，称为栈顶，通常用一个“栈顶指针”指示，它的位置会随着操作而发生变化；与此相对，表的另一端是固定端，称为栈底。如同线性表可以为空表一样，当栈中没有元素时称为空栈。往栈中插入元素的操作称为入栈，删除栈中元素的操作称为出栈。图 3.2 表示了一个栈。",
+    "bbox": [
+      141,
+      580,
+      853,
+      692
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "image",
+    "img_path": "images/eb9831b277e73a053039f7e4e1c7f82ef152ac90302bee17ef8fca89a1d7d108.jpg",
+    "image_caption": [
+      "图 3.2 栈的示意图"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      323,
+      701,
+      669,
+      830
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "根据栈的运算特性，所有操作都只在栈顶进行。如果将数据元素按照 $a_{1}, a_{2}, a_{3}, \\cdots, a_{n}$ 的顺序依次入栈，则此时 $a_{1}$ 在栈底， $a_{n}$ 在栈顶，如图 3.2 所示。当要取出数据时，则必须按 $a_{n}, a_{n-1}, \\cdots, a_{1}$ 的顺序进行。由此可知， $a_{n}$ 作为栈顶元素总是最后入栈的，而最先出栈； $a_{1}$ 作为栈底元素总是最先入栈的，而最后出栈。栈按照这种后进先出（Last In First Out，",
+    "bbox": [
+      141,
+      867,
+      855,
+      957
+    ],
+    "page_idx": 0
+  },
+  {
+    "type": "text",
+    "text": "LIFO）或者先进后出（First In Last Out，FILO）的原则来组织数据的，因此，它也被称为后进先出或先进后出的线性表。",
+    "bbox": [
+      141,
+      86,
+      853,
+      127
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "基于栈的特性，栈的抽象数据类型定义如下：",
+    "bbox": [
+      178,
+      132,
+      545,
+      152
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```txt\nADT Stack {\n    数据对象 D: D = { a_i | a_i ∈ ElemSet, i = 1, 2, ..., n, n ≥ 0 }\n    数据关系 R: R = { <a_{i-1}, a_i> | a_{i-1}, a_i ∈ D, i = 2, ..., n } 约定 a_n 端为栈顶，a_1 端为栈底。\n基本操作 P:\n    InitStack(&S)\n    操作结果：构造一个空栈 S\n    StackEmpty(S)\n    初始条件：栈 S 已存在\n    操作结果：若栈 S 为空栈，则返回 TRUE，否则返回 FALSE\n    StackFull(S)\n    初始条件：栈 S 已存在\n    操作结果：若栈 S 满，则返回 TRUE，否则返回 FALSE\n    GetTop(S, &e)\n    初始条件：栈 S 已存在\n    操作结果：若栈 S 非空，用 e 返回 S 的栈顶元素\n    Push(&S, e)\n    初始条件：栈 S 已存在\n    操作结果：若栈 S 不满，插入元素 e 为新的栈顶元素\n    Pop(&S, &e)\n    初始条件：栈 S 已存在且非空\n    操作结果：若栈 S 非空，删除 S 的栈顶元素，并用 e 返回其值\n} ADT Stack\n```",
+    "bbox": [
+      178,
+      167,
+      681,
+      613
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "3.1.2 栈的顺序存储结构",
+    "text_level": 2,
+    "bbox": [
+      141,
+      642,
+      388,
+      664
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "采用顺序存储结构的栈称为顺序栈，它需要一段连续的存储空间来存储栈中元素。",
+    "bbox": [
+      178,
+      680,
+      842,
+      700
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "1. 顺序栈的类型定义",
+    "text_level": 2,
+    "bbox": [
+      178,
+      702,
+      358,
+      722
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "类似于顺序表的定义，通常用预先设定的足够大的一维数组来存放数据。由于栈顶会随着插入和删除操作而发生变化，用整型变量 top 作为栈顶指针指示栈顶的当前位置。栈底位置固定不变，可以设置在数组的任意端，一般将数组的下标端作为栈底。",
+    "bbox": [
+      141,
+      726,
+      853,
+      792
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "顺序栈的类型描述如下:",
+    "bbox": [
+      178,
+      795,
+      379,
+      814
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```c\n#define MAXSIZE 100\ntypedef struct \n{ Elemtype data[MAXSIZE];\n    int top;\n} SqStack;\n```",
+    "bbox": [
+      181,
+      829,
+      422,
+      925
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "在顺序栈中，用于指示栈顶的当前位置的 top 是整型，它的实质是栈顶元素在数组中的下标。栈顶指针 top 直接反映出栈的当前状态：空栈时，栈顶指针 top 为 -1；栈满时，栈顶指针 top 为 MAXSIZE-1；入栈时，栈顶指针 top 加 1；出栈时，栈顶指针 top 减 1。",
+    "bbox": [
+      178,
+      938,
+      853,
+      958
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "header",
+    "text": "第3章 栈和队列",
+    "bbox": [
+      717,
+      39,
+      853,
+      57
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "page_number",
+    "text": "45",
+    "bbox": [
+      892,
+      39,
+      927,
+      55
+    ],
+    "page_idx": 1
+  },
+  {
+    "type": "text",
+    "text": "",
+    "bbox": [
+      141,
+      86,
+      851,
+      129
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "如图 3.3 所示为 MAXSIZE 为 6 的顺序栈中数据元素和栈顶指针 top 的变化情况。其中，图 3.3(a) 表示空栈；图 3.3(b) 表示元素 a 进栈，top 指示的是当前栈顶的位置；图 3.3(c) 表示 b、c、d、e、f 依次进栈后栈满的情况；元素 f、e、d 依次出栈后的情况如图 3.3(d) 所示，top 为当前栈顶元素 c 的位置；图 3.3(e) 表示元素 c、b、a 继续出栈又重新回到空栈状态。",
+    "bbox": [
+      141,
+      132,
+      856,
+      222
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "chart",
+    "img_path": "images/0660af1d90c9f94e7b40fbc6421200bdde797a5509b16640d10bd412500683d5.jpg",
+    "content": "",
+    "chart_caption": [
+      "(d) 出栈"
+    ],
+    "chart_footnote": [
+      "(a) 空栈"
+    ],
+    "bbox": [
+      164,
+      227,
+      282,
+      376
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "chart",
+    "img_path": "images/8070dc7c0459e45f9bd76f19d8249c80062f776b216fe01e1e6ec283b59fc37a.jpg",
+    "content": "",
+    "chart_caption": [
+      "(b) 进栈"
+    ],
+    "chart_footnote": [],
+    "bbox": [
+      303,
+      227,
+      418,
+      373
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "chart",
+    "img_path": "images/3708464ab3791b90def26641e7c8c8ad2292ab2a1dbe7b437abaccfa2ba2bbb1.jpg",
+    "content": "",
+    "chart_caption": [
+      "(c) 栈满",
+      "图 3.3 栈顶指针 top 与栈中数据元素的关系"
+    ],
+    "chart_footnote": [],
+    "bbox": [
+      446,
+      227,
+      561,
+      375
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "chart",
+    "img_path": "images/698250228467a35039196d78def76a2c6bd571d4860c50bf031b8a9f5167cd32.jpg",
+    "content": "",
+    "chart_caption": [],
+    "chart_footnote": [],
+    "bbox": [
+      590,
+      227,
+      701,
+      373
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "chart",
+    "img_path": "images/38e27208481238c4170f19a6f510d21c7683c03ea78c8a2de67de67bc71366ba.jpg",
+    "content": "",
+    "chart_caption": [],
+    "chart_footnote": [
+      "(e) 栈空"
+    ],
+    "bbox": [
+      719,
+      227,
+      832,
+      375
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "2. 顺序栈的算法实现",
+    "text_level": 2,
+    "bbox": [
+      178,
+      433,
+      358,
+      451
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "（1）初始化栈（置栈空）。",
+    "bbox": [
+      178,
+      455,
+      388,
+      475
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "初始化栈主要是分配存储空间，并将栈顶指针置为-1。",
+    "bbox": [
+      178,
+      477,
+      621,
+      498
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```txt\nint InitStack(SqStack &S)\n//构造一个空栈\n{\n    S.top=-1;\n    return OK;\n}\n```",
+    "bbox": [
+      178,
+      511,
+      427,
+      630
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "(2) 判栈空。",
+    "bbox": [
+      181,
+      642,
+      287,
+      663
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```txt\nint StackEmpty(SqStack S)\n//判栈为空栈时返回值为真,反之为假\n{ return(S.top==-1? TRUE:FALSE); }\n```",
+    "bbox": [
+      178,
+      679,
+      530,
+      736
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "(3) 判栈满。",
+    "bbox": [
+      180,
+      750,
+      287,
+      769
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```c\nint StackFull(SqStack S)\n//判栈为满栈时返回值为真,反之为假\n{ return(S.top==MAXSIZE-1?TRUE:FALSE); }\n```",
+    "bbox": [
+      180,
+      783,
+      579,
+      842
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "(4) 进栈。",
+    "bbox": [
+      181,
+      855,
+      268,
+      875
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "text",
+    "text": "进栈时应首先判栈满，若栈不满则将栈顶指针 top 上移，存入元素。",
+    "bbox": [
+      178,
+      877,
+      727,
+      900
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```txt\nint Push(SqStack &S, Elemtype e)\n{\n```",
+    "bbox": [
+      181,
+      913,
+      489,
+      950
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "header",
+    "text": "46",
+    "bbox": [
+      17,
+      20,
+      134,
+      70
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "header",
+    "text": "数据结构（C语言版）（第2版）",
+    "bbox": [
+      143,
+      38,
+      376,
+      57
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "footer",
+    "text": "//将元素 e 插入到栈中,作为新栈顶",
+    "bbox": [
+      551,
+      932,
+      810,
+      950
+    ],
+    "page_idx": 2
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```txt\nint GetTop(SqStack S, Elemtype &e)\n{\n    if(StackEmpty(S)) return ERROR; //若栈不为空，则取栈顶元素\n    e=S.data[S.top]; //栈空\n    return OK; //取出数据，top不变\n}\n```",
+    "bbox": [
+      181,
+      454,
+      759,
+      570
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```javascript\nif(StackFull(S)) return ERROR; //栈满\nS.top++; //top加1，栈顶位置上移\nS.data[S.top]=e; //数据e存入当前栈顶\nreturn OK;\n}\n```",
+    "bbox": [
+      185,
+      83,
+      743,
+      180
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "(5) 出栈。",
+    "bbox": [
+      180,
+      192,
+      268,
+      213
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "出栈时应首先判断栈是否为空，若栈不为空，则取出栈顶元素，将栈顶指针 top 下移，再返回栈顶元素。",
+    "bbox": [
+      141,
+      216,
+      853,
+      260
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```c\nint Pop(SqStack &S, Elemtype &e)\n{\n    if(StackEmpty(S)) return ERROR; //若栈不为空，则删除栈顶元素\n    e=S.data[S.top]; //取出数据放入e所指单元中\n    S.top--; // top减1，栈顶位置下移\n    return OK;\n}\n```",
+    "bbox": [
+      181,
+      275,
+      775,
+      407
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "(6) 取栈顶元素。",
+    "bbox": [
+      181,
+      420,
+      323,
+      441
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "由于栈的运算特殊性，顺序栈中进栈和出栈操作并不存在移动数据的问题，因而效率较高。但顺序栈需要预先估计准确的存储空间大小，需要预先分配一个较大空间，这有可能造成存储空间的浪费。",
+    "bbox": [
+      141,
+      583,
+      856,
+      651
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "3.1.3 栈的链式存储结构",
+    "text_level": 2,
+    "bbox": [
+      141,
+      661,
+      388,
+      685
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "若是栈中元素的数目变化范围较大或不清楚栈元素的数目，就应该考虑使用链式存储结构。用链式存储结构表示的栈称为“链栈”。",
+    "bbox": [
+      141,
+      700,
+      853,
+      742
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "1. 链栈的类型定义",
+    "text_level": 2,
+    "bbox": [
+      178,
+      745,
+      340,
+      764
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "链栈通常用一个无头结点的单链表表示，其结点结构与单链表的结点结构相同。",
+    "bbox": [
+      178,
+      767,
+      823,
+      789
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```c\ntypedef struct node\n{ Elemtype data;\n    struct node* next;\n}StackNode,*LinkStack;\nLinkStack top; //top 为栈顶指针\n```",
+    "bbox": [
+      180,
+      802,
+      650,
+      900
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "由于栈中的主要运算是在栈顶进行插入、删除，对于单链表来说，在表头插入和删除结点要比在表尾相对简单，因此将单链表表头作为栈顶，则单链表的头指针即为栈顶",
+    "bbox": [
+      141,
+      911,
+      856,
+      955
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "header",
+    "text": "第3章 栈和队列",
+    "bbox": [
+      717,
+      39,
+      853,
+      57
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "page_number",
+    "text": "47",
+    "bbox": [
+      892,
+      39,
+      927,
+      57
+    ],
+    "page_idx": 3
+  },
+  {
+    "type": "text",
+    "text": "指针。通常将链栈表示如图 3.4 所示。",
+    "bbox": [
+      141,
+      85,
+      448,
+      105
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "2. 链栈的算法实现",
+    "text_level": 2,
+    "bbox": [
+      178,
+      108,
+      340,
+      127
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "链栈的本质是简化的单链表, top 作为栈顶指针始终指向链表首结点。进栈操作就是在链表表头插入一个新的结点，出栈操作就是删除当前的表头结点并释放空间。",
+    "bbox": [
+      141,
+      130,
+      651,
+      197
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "（1）初始化栈（置空栈）。",
+    "bbox": [
+      178,
+      200,
+      388,
+      220
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "image",
+    "img_path": "images/950e5371e176971007ab208cc3bc11bc708cf737528007353e64e2e89d255ee1.jpg",
+    "image_caption": [],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      683,
+      114,
+      830,
+      260
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [
+      "图 3.4 链栈示意图"
+    ],
+    "code_body": "```c\nLinkStack InitStack()\n//空栈的 top 指针为 NULL\n{ return NULL; }\n(2) 判栈空。\nint StackEmpty(LinkStack top)\n//判栈为空栈时返回值为真, 反之为假\n{ return (top == NULL? TRUE: FALSE); }\n(3) 进栈。\nvoid Push(LinkStack top, Elemtype e)\n{ //将元素 e 进链栈, 即在表头插入新的结点\n    StackNode *s;\n    s = (StackNode*)malloc(sizeof(StackNode));\n    s->data = e;\n    s->next = top;\n    top = s;\n}\n(4) 出栈。\nint Pop(LinkStack top, Elemtype &e)\n{ //若栈不为空将栈顶元素出栈, 即为删除表头结点\n    StackNode *p;\n    if (StackEmpty(top)) return ERROR; //栈空\n    e = top->data;\n    p = top;\n    top = top->next;\n    free(p);\n    retrun OK;\n}\n```",
+    "bbox": [
+      178,
+      233,
+      683,
+      838
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "3.2 栈的应用举例",
+    "text_level": 2,
+    "bbox": [
+      383,
+      855,
+      611,
+      882
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "根据栈的运算特点，在很多实际问题中都利用栈作为一个辅助的数据结构来进行求解，下面通过几个例子进行说明。",
+    "bbox": [
+      141,
+      905,
+      853,
+      950
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "header",
+    "text": "48",
+    "bbox": [
+      17,
+      20,
+      134,
+      70
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "header",
+    "text": "数据结构（C语言版）（第2版）",
+    "bbox": [
+      144,
+      38,
+      376,
+      57
+    ],
+    "page_idx": 4
+  },
+  {
+    "type": "text",
+    "text": "3.2.1 数制转换",
+    "text_level": 2,
+    "bbox": [
+      141,
+      95,
+      303,
+      117
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "text",
+    "text": "数制转换问题是指对于输入的任意一个非负十进制整数 N，打印输出与其等值的 r 进制数。一般利用辗转相除法解决这个问题，以 N=1348，r=8 为例，其转换方法如下：",
+    "bbox": [
+      141,
+      132,
+      856,
+      176
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "table",
+    "img_path": "images/d93439ebec7b44356fa27f1ebcfc87fddce27f7c10a3156ecc6c3944649f8746.jpg",
+    "table_caption": [],
+    "table_footnote": [],
+    "table_body": "<table><tr><td>N</td><td>N/8(整除)</td><td>N%8(求余)</td><td></td></tr><tr><td>1348</td><td>168</td><td>4</td><td rowspan=\"3\">低↑</td></tr><tr><td>168</td><td>21</td><td>0</td></tr><tr><td>21</td><td>2</td><td>5</td></tr><tr><td>2</td><td>0</td><td>2</td><td>高</td></tr></table>",
+    "bbox": [
+      277,
+      180,
+      743,
+      291
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "text",
+    "text": "结果为 $(1348)_{10}=(2504)_{8}$ 。",
+    "bbox": [
+      178,
+      295,
+      379,
+      314
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "text",
+    "text": "对其计算过程进行分析可以发现，八进制的各位数实际上就是每次运算所得的余数值，它们产生的顺序是由低位到高位的，这恰好与输出顺序相反。因此，在转换过程中每得到一位余数就将其进栈保存，转换完毕后再依次出栈，即可得出结果。",
+    "bbox": [
+      141,
+      317,
+      855,
+      383
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "text",
+    "text": "将十进制数 N 转换为 r 进制数，算法思路如下：",
+    "bbox": [
+      176,
+      386,
+      565,
+      405
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "text",
+    "text": "（1）当 $\\mathrm{N} \\neq 0$ ，则重复执行①和②：",
+    "bbox": [
+      178,
+      410,
+      454,
+      429
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "text",
+    "text": "① 将 N % r 进栈 s;",
+    "bbox": [
+      178,
+      433,
+      342,
+      452
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "text",
+    "text": "② N = N/r。",
+    "bbox": [
+      178,
+      455,
+      280,
+      475
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "text",
+    "text": "(2) 将栈 s 的内容依次出栈，算法结束。",
+    "bbox": [
+      178,
+      479,
+      507,
+      500
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "text",
+    "text": "具体实现如算法 3.1 所示。",
+    "bbox": [
+      178,
+      502,
+      393,
+      522
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [
+      "算法 3.1"
+    ],
+    "code_body": "```txt\ntypedef int Elemtype;\nvoid conversion(int N, int r)\n{ SqStack S;    //定义一个顺序栈S\n    Elemtype x;\n    InitStack(S);\n    while(N)\n    { Push(S, N%r);    //余数入栈\n    N=N/r;\n    }\n    while(!StackEmpty(S))\n    { Pop(S,x);\n    printf(\"%d\",x);\n    }\n}\n```",
+    "bbox": [
+      183,
+      533,
+      810,
+      814
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "text",
+    "text": "3.2.2 括号匹配的检验",
+    "text_level": 2,
+    "bbox": [
+      141,
+      860,
+      367,
+      882
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "text",
+    "text": "假设在一个算术表达式中，可以包含三种括号：圆括号“(”和“)”，方括号“[”和“]”和花括号“{”和“}”，并且这三种括号可以按任意的次序嵌套使用，例如某一个算术表达式中的括号使用括号情况为“…[…{…}…[…]…]…[…]…(…)…”。括号匹配的检验主要就是判别给定表达式中所含括号是否正确配对。",
+    "bbox": [
+      141,
+      898,
+      853,
+      964
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "header",
+    "text": "第3章 栈和队列",
+    "bbox": [
+      717,
+      38,
+      853,
+      57
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "page_number",
+    "text": "49",
+    "bbox": [
+      892,
+      39,
+      925,
+      55
+    ],
+    "page_idx": 5
+  },
+  {
+    "type": "text",
+    "text": "",
+    "bbox": [
+      141,
+      86,
+      639,
+      105
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "text",
+    "text": "算术表达式中各种括号的使用规则为：出现左括号，必有相应的右括号与之匹配，并且每对括号之间可以嵌套，但不能出现交叉情况。根据该规则可知，当前最晚出现的左括号总是最先与随后出现的右括号进行匹配，这一规律与栈的“后进先出”运算特性吻合，因此可以利用栈来解决这一问题，算法思路如下：",
+    "bbox": [
+      141,
+      108,
+      853,
+      198
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "text",
+    "text": "依次输入表达式每一个字符，若是左括号，将其入栈保存；若是右括号，则出栈左括号，并检验与其是否匹配。循环执行，直到表达式输入结束。",
+    "bbox": [
+      141,
+      202,
+      853,
+      244
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "text",
+    "text": "在检验过程中，若遇到以下几种情况之一，就可以得出括号不匹配的结论。",
+    "bbox": [
+      178,
+      248,
+      787,
+      267
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "text",
+    "text": "\\- 当遇到某一个右括号时，栈已空，说明到目前为止，右括号多于左括号；",
+    "bbox": [
+      178,
+      270,
+      793,
+      289
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "text",
+    "text": "\\- 从栈中弹出的左括号与当前检验的右括号类型不同，说明出现了括号交叉情况；",
+    "bbox": [
+      178,
+      294,
+      849,
+      314
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "text",
+    "text": "\\- 算术表达式输入完毕，但栈中还有没有匹配的左括号，说明左括号多于右括号。具体实现如算法3.2所示。",
+    "bbox": [
+      178,
+      317,
+      849,
+      360
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```c\ntypedef char Elemtype;\nint bracketmatching()\n{\n    SqStack S;\n    Elemtype ch;\n    InitStack(S);\n    while ((ch=getchar())!='\\n')\n    {\n    switch (ch)    //遇左括号入栈;遇到右括号时,分别检测匹配情况\n    {\n    case '(':\n    case '[':\n    case '{: \n    Push(S,ch);break;\n    case ')':\n    if (StackEmpty(S)) return FALSE;\n    else \n    { Pop(S,ch); if (ch != '(') return FALSE; }\n    break;\n    case ' '}':\n    if (StackEmpty(S)) return FALSE;\n    else \n    { Pop(S,ch); if (ch != '[') return FALSE; }\n    break;\n    case '}':\n    if (StackEmpty(S)) return FALSE;\n    else\n```",
+    "bbox": [
+      183,
+      372,
+      810,
+      917
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "header",
+    "text": "50",
+    "bbox": [
+      17,
+      20,
+      134,
+      70
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "header",
+    "text": "数据结构（C语言版）（第2版）",
+    "bbox": [
+      144,
+      39,
+      376,
+      57
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "page_number",
+    "text": "算法 3.2",
+    "bbox": [
+      462,
+      925,
+      535,
+      941
+    ],
+    "page_idx": 6
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [
+      "算法 3.2（续）"
+    ],
+    "code_body": "```c\n{ Pop(S,ch); if (ch!='{'}) return FALSE; }\n    break;\n    default:break;\n}\nif (StackEmpty(S)) return TRUE;\nelse return FALSE;\n}\n```",
+    "bbox": [
+      183,
+      80,
+      812,
+      252
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "3.2.3 简单表达式求值",
+    "text_level": 2,
+    "bbox": [
+      141,
+      300,
+      367,
+      322
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "表达式是由运算对象、运算符、括号组成的有意义的式子，而表达式求值是程序设计语言编译器中一个最基本的问题，它是栈的一个典型的应用实例。为了讨论方便，在不失一般性的前提下，以10以内整数构成的四则运算表达式为例来说明栈在表达式求值中的作用。",
+    "bbox": [
+      141,
+      336,
+      856,
+      426
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "1. 表达式的定义",
+    "text_level": 2,
+    "bbox": [
+      180,
+      430,
+      321,
+      450
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "(1) 表达式的构成。",
+    "bbox": [
+      178,
+      454,
+      342,
+      472
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "在计算机中，任何一个表达式都是由操作数（operand）、运算符（operator）和界限符（delimiter）组成的。本节讨论的简单表达式中，其操作数由数字0～9构成，运算符包括加、减、乘、除和括号，表达式界限符设定为“#”。由此，将表达式的构成分成两类符号：操作数和算符，其中算符包含运算符和界限符。",
+    "bbox": [
+      141,
+      477,
+      856,
+      566
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "(2) 表达式的运算规则。",
+    "bbox": [
+      178,
+      570,
+      379,
+      588
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "\\- 先乘除、后加减；",
+    "bbox": [
+      178,
+      592,
+      349,
+      611
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "\\- 同级运算时先左后右；",
+    "bbox": [
+      180,
+      616,
+      386,
+      633
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "\\- 先括号内，后括号外。",
+    "bbox": [
+      178,
+      639,
+      386,
+      657
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "2. 算符的优先级",
+    "text_level": 2,
+    "bbox": [
+      180,
+      661,
+      321,
+      680
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "根据运算规则，在运算的每一步中，任意两个相继出现的算符 $\\theta_{1}$ 和 $\\theta_{2}$ 之间的优先关系主要有以下三种情况。",
+    "bbox": [
+      141,
+      685,
+      853,
+      726
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "\\- $\\theta_{1}<\\theta_{2}$ : $\\theta_{1}$ 的优先级低于 $\\theta_{2}$ 。",
+    "bbox": [
+      178,
+      732,
+      427,
+      750
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "\\- $\\theta_{1} = \\theta_{2}$ : $\\theta_{1}$ 的优先级等于 $\\theta_{2}$ 。",
+    "bbox": [
+      180,
+      755,
+      427,
+      773
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "\\- $\\theta_{1} > \\theta_{2}$ : $\\theta_{1}$ 的优先级高于 $\\theta_{2}$ 。",
+    "bbox": [
+      180,
+      777,
+      427,
+      795
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "如表 3-1 所示，其中，当 $\\theta_{1}$ 和 $\\theta_{2}$ 都为 “+” 时，例如 $2+3+4$ ，应该先算由 $\\theta_{1}$ 代表的先出现的第一个加法，再算随后出现的由 $\\theta_{2}$ 代表的第二个加法，也就是说，相同的算符左优先。出现 “E” 表示错误，即 $\\theta_{1}$ 和 $\\theta_{2}$ 不可能相继出现，例如 “ $\\cdots2$ )7( $\\cdots$ )。为方便处理，在表达式的前后分别加上一个 “#” 作为开始和结束符，它的优先级最低。",
+    "bbox": [
+      141,
+      801,
+      853,
+      889
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "3. 算法思路",
+    "text_level": 2,
+    "bbox": [
+      178,
+      892,
+      284,
+      911
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "（1）算符优先关系的描述与实现。",
+    "bbox": [
+      178,
+      917,
+      452,
+      933
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "根据表 3-1，对于相继出现的算符 $\\theta_{1}$ 和 $\\theta_{2}$ 它们之间的优先关系可以总结为以下 5 种",
+    "bbox": [
+      178,
+      939,
+      853,
+      958
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "header",
+    "text": "第3章 栈和队列",
+    "bbox": [
+      717,
+      39,
+      853,
+      57
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "header",
+    "text": "51",
+    "bbox": [
+      863,
+      20,
+      978,
+      69
+    ],
+    "page_idx": 7
+  },
+  {
+    "type": "text",
+    "text": "情况。",
+    "bbox": [
+      141,
+      86,
+      194,
+      105
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "table",
+    "img_path": "images/37b324b4b82aedbd99bf9c5281e0ee8ac03a47e152a430878995ad9ed05fc40c.jpg",
+    "table_caption": [
+      "表 3-1 算符优先关系表"
+    ],
+    "table_footnote": [],
+    "table_body": "<table><tr><td> $\\theta_1$  $\\theta_2$ </td><td>+</td><td>-</td><td>*</td><td>/</td><td>(</td><td>)</td><td>#</td></tr><tr><td>+</td><td>&gt;</td><td>&gt;</td><td>&lt;</td><td>&lt;</td><td>&lt;</td><td>&gt;</td><td>&gt;</td></tr><tr><td>-</td><td>&gt;</td><td>&gt;</td><td>&lt;</td><td>&lt;</td><td>&lt;</td><td>&gt;</td><td>&gt;</td></tr><tr><td>*</td><td>&gt;</td><td>&gt;</td><td>&gt;</td><td>&gt;</td><td>&lt;</td><td>&gt;</td><td>&gt;</td></tr><tr><td>/</td><td>&gt;</td><td>&gt;</td><td>&gt;</td><td>&gt;</td><td>&lt;</td><td>&gt;</td><td>&gt;</td></tr><tr><td>(</td><td>&lt;</td><td>&lt;</td><td>&lt;</td><td>&lt;</td><td>&lt;</td><td>=</td><td>E</td></tr><tr><td>)</td><td>&gt;</td><td>&gt;</td><td>&gt;</td><td>&gt;</td><td>E</td><td>&gt;</td><td>&gt;</td></tr><tr><td>#</td><td>&lt;</td><td>&lt;</td><td>&lt;</td><td>&lt;</td><td>&lt;</td><td>E</td><td>=</td></tr></table>",
+    "bbox": [
+      144,
+      132,
+      849,
+      339
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "\\- $\\theta_{1}$ 是 “+” 和 “-” 时，当 $\\theta_{2}$ 是 “\\*”、“/” 和 “(” 时，它们的优先级关系应该是 “<”，其余时候它们之间的优先关系是 “>”；",
+    "bbox": [
+      178,
+      354,
+      853,
+      395
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "\\- $\\theta_{1}$ 是“\\*”和“/”时，当 $\\theta_{2}$ 是“(”时，它们之间的优先级是“<”，其余时候是“>”；",
+    "bbox": [
+      178,
+      400,
+      853,
+      441
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "\\- $\\theta_{1}$ 是 “(” 时，当 $\\theta_{2}$ 是表达式结束符时，它们之间的优先级是错误的可以用字符 “E” 表示，其余情况又可以分成两种：当 $\\theta_{2}$ 是 “)” 时，它们之间的优先级是相同的 “=”， $\\theta_{2}$ 是其他字符时，它们之间的优先关系是 “<”；",
+    "bbox": [
+      178,
+      445,
+      853,
+      511
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "\\- $\\theta_{1}$ 是 “)” 时，当 $\\theta_{2}$ 是 “(” 时，它们之间的优先关系是错误的用字符 “E” 表示， $\\theta_{2}$ 是其他字符时，它们之间的优先关系就是 “>”；",
+    "bbox": [
+      178,
+      516,
+      851,
+      558
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "\\- $\\theta_{1}$ 是表达式结束符时，当 $\\theta_{2}$ 也是表达式结束符时，它们之间的优先关系时相等的用“=”表示，其余情况又可分为两种：当 $\\theta_{2}$ 是“）”时，它们之间的优先级关系用“E”表示， $\\theta_{2}$ 是其他字符时，它们之间的优先级关系都可以利用“<”来表示。",
+    "bbox": [
+      178,
+      563,
+      853,
+      651
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "这 5 种情况是根据 $\\theta_{1}$ 的值来分的，即当 $\\theta_{1}$ 的值确定后，再根据 $\\theta_{2}$ 的值来判断。由此，利用多分支的选择结构可以实现算符之间的优先关系。",
+    "bbox": [
+      141,
+      655,
+      853,
+      698
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "(2) 算法步骤。",
+    "text_level": 2,
+    "bbox": [
+      178,
+      702,
+      305,
+      719
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "表达式作为满足一定语法规则的字符串，求值时需要自左向右地进行扫描。例如表达式 “ $4+2*(3+6/2)$ ”，当扫描到 $4+2$ 时是不能立刻计算的，因为后面还有优先级更高的运算。此时，需要将操作数和算符暂时保存，根据后面出现的算符的优先级高低进行计算。",
+    "bbox": [
+      141,
+      725,
+      853,
+      813
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "表达式求值的处理过程主要包含以下 3 步:",
+    "bbox": [
+      178,
+      817,
+      526,
+      836
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "① 设置两个工作栈：optr 算符栈和 opnd 操作数栈。初始置 opnd 为空栈；起始符“#”为 optr 的栈底元素；",
+    "bbox": [
+      139,
+      839,
+      853,
+      882
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "② 自左向右扫描表达式中的每个字符 c:",
+    "bbox": [
+      178,
+      886,
+      510,
+      905
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "若 c 为操作数，则进 opnd 栈；",
+    "bbox": [
+      178,
+      910,
+      424,
+      929
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "若 c 为算符，则让 optr 栈的栈顶元素与 c 比较优先级：",
+    "bbox": [
+      178,
+      933,
+      618,
+      952
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "header",
+    "text": "52",
+    "bbox": [
+      17,
+      20,
+      134,
+      69
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "header",
+    "text": "数据结构（C语言版）（第2版）",
+    "bbox": [
+      144,
+      38,
+      376,
+      57
+    ],
+    "page_idx": 8
+  },
+  {
+    "type": "text",
+    "text": "\\- 若栈顶算符优先级低于刚读入的运算符 c，则让刚读入的运算符 c 进 optr 栈。",
+    "bbox": [
+      178,
+      86,
+      828,
+      105
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "text",
+    "text": "\\- 若栈顶算符优先级高于刚读入的运算符 c，则将栈顶算符退栈，送入θ；同时将操作数栈 opnd 退栈两次，得到两个操作数 a、b，对 a、b 进行θ运算后，将运算结果作为中间结果推入 opnd 栈。",
+    "bbox": [
+      178,
+      108,
+      853,
+      175
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "text",
+    "text": "\\- 若栈顶运算符的优先级与刚读入的运算符 c 相同，说明左右括号相遇，只需将栈顶运算符（左括号）退栈即可。",
+    "bbox": [
+      178,
+      177,
+      853,
+      220
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "text",
+    "text": "③ 直到扫描到 c 为定界符，即 optr 栈的栈顶元素和当前读入的字符均为 “#”，则整个表达式求值完毕。",
+    "bbox": [
+      141,
+      225,
+      853,
+      267
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "text",
+    "text": "具体实现如算法 3.3 所示。",
+    "bbox": [
+      178,
+      270,
+      393,
+      291
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [
+      "算法 3.3"
+    ],
+    "code_body": "```txt\nfloat CaculateExpression()\n    { //算术表达式求值的算符优先算法。设 optr 和 opnd 分别为算符栈和操作数栈，\n    //OP 为算符集合\n    InitStack(optr); Push(optr,'#');\n    InitStack(opnd); c=getchar();\n    while(c!='#' || GetTop(optr) != '#')\n    {\n    if(!In(c,OP)) {Push(opnd,c); c=getchar();} //不是算符则进栈\n    else\n    switch(Precede(GetTop(optr),c))\n    {\n    case '<': //栈顶算符优先级低\n    Push(optr,c); c=getchar();\n    break;\n    case '=': //优先级相同，脱去括号并读入下一字符\n    Pop(optr,x); c=getchar();\n    break;\n    case '>': //栈顶算符优先级高，退栈并将运算结果入栈\n    Pop(optr,theta);\n    Pop(opnd,b);Pop(opnd,a);\n    Push(opnd,Operate(a,theta,b));\n    break;\n    }\n    }\n    return GetTop(opnd);\n}\n```",
+    "bbox": [
+      183,
+      302,
+      810,
+      836
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "text",
+    "text": "算法中还调用了两个函数。其中 Precede 函数是判定算符栈栈顶算符与读入的算符之间优先级的函数；Operate 函数为进行二元运算的函数。",
+    "bbox": [
+      141,
+      876,
+      853,
+      920
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "text",
+    "text": "(3) 实例演示。",
+    "text_level": 2,
+    "bbox": [
+      178,
+      923,
+      305,
+      941
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "text",
+    "text": "例如，对表达式“4+2\\*(7-3)”进行求值，求值过程中两个工作栈的使用情况如图3.5所示。图 3.5(a)呈现出两个工作栈的初始状态。从左到右扫描表达式，依次读入“4”、“+”、“2”、“\\*”、“(”、“7”、“-”、“3”。很容易判断出“4”、“2”、“7”、“3”是操作数依次进 opnd 栈；当读入的是算符时，需要将它与栈顶算法比较优先级。在依次读入“+”、“\\*”、“(”、“-”算符时，其优先级都比栈顶算符的优先级高，因此将其依次进 optr 栈，如图 3.5(b)所示。紧接着读入的字符是“)”，它的优先级比当前的栈顶算符“-”优先级低，因此需要进行出栈运算。将 opnd 栈中的操作数“3”和“7”依次出栈，将 optr 栈中的“-”出栈，计算出 7-3 的结果进 opnd 栈以便继续参与后续计算，如图 3.5(c)和(d)所示。继续将当前读入的字符“)”与栈顶算符“(”比较优先级，由于它们的优先级相同，则需要脱掉该层括号，即将“(”出栈，并继续向右扫描表达式读入下一个字符“#”，如图 3.5(e)所示。已知“#”的优先级比“\\*”和“+”的优先级低，因此进行了两次的出栈运算，并把运算结果都保存在 opnd 栈中，如图 3.5(f)和(g)所示。值得注意的是，在图 3.5(g)中 optr 栈中的栈顶元素和当前读入的字符均为表达式的定界符“#”，此时意味着整个表达是求值完毕，而最终结果就保存在 opnd 栈的栈顶元素中。",
+    "bbox": [
+      178,
+      945,
+      856,
+      966
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "header",
+    "text": "第3章 栈和队列",
+    "bbox": [
+      717,
+      39,
+      853,
+      57
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "page_number",
+    "text": "53",
+    "bbox": [
+      892,
+      39,
+      925,
+      55
+    ],
+    "page_idx": 9
+  },
+  {
+    "type": "text",
+    "text": "",
+    "bbox": [
+      139,
+      86,
+      856,
+      385
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "image",
+    "img_path": "images/4866f98e6d0d80fc6d03ede90d1288a90592c75146e65f7d2ede80b5147db687.jpg",
+    "image_caption": [
+      "(a)"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      247,
+      389,
+      351,
+      535
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "chart",
+    "img_path": "images/85262bbb5d9dad389ce8641eaad660f8560fd0ba2956468a5f7d5ff210f8bd45.jpg",
+    "content": "",
+    "chart_caption": [
+      "(b)"
+    ],
+    "chart_footnote": [],
+    "bbox": [
+      381,
+      389,
+      485,
+      536
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "chart",
+    "img_path": "images/aea5d1dcd9df405c4bbcfca35b8f8226e34239472d230efacbb7fe79f831584f.jpg",
+    "content": "",
+    "chart_caption": [
+      "(c)"
+    ],
+    "chart_footnote": [],
+    "bbox": [
+      514,
+      389,
+      618,
+      536
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "image",
+    "img_path": "images/a84a392b073fa49ad819f47898069138b2ea8bf01a7017858ecadf820e8980d1.jpg",
+    "image_caption": [
+      "(d)"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      646,
+      389,
+      749,
+      536
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "image",
+    "img_path": "images/34e4d5b73eb251bfbfd8a135885f83d49d00a61997744ac02ab8fbf6d88c76f5.jpg",
+    "image_caption": [
+      "(e)"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      247,
+      557,
+      360,
+      702
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "chart",
+    "img_path": "images/4ab48c618eae577e77c42458ad079c46a0e1010144f01fc1d695335e3827c97a.jpg",
+    "content": "",
+    "chart_caption": [
+      "(f)"
+    ],
+    "chart_footnote": [],
+    "bbox": [
+      379,
+      557,
+      492,
+      702
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "chart",
+    "img_path": "images/a14f625592b6ad567971f4cdddb4facda2cd70c410d1c0b3fed762291c53dc08.jpg",
+    "content": "",
+    "chart_caption": [
+      "(g)",
+      "图 3.5 表达式求值过程中各工作栈中的情况"
+    ],
+    "chart_footnote": [],
+    "bbox": [
+      512,
+      557,
+      625,
+      702
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "text",
+    "text": "表 3-2 中列出了表达式 “4+2\\*(7-3)” 求值过程中的每一个步骤和操作，清晰地体现了栈的相关运算在这个过程中的应用。",
+    "bbox": [
+      144,
+      757,
+      853,
+      801
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "table",
+    "img_path": "images/a2c2b0cee7211710ed29bd426ece9c080553b4463be4ba2e81446dbc06664e43.jpg",
+    "table_caption": [
+      "表 3-2 表达式的求值过程"
+    ],
+    "table_footnote": [],
+    "table_body": "<table><tr><td>步骤</td><td>optr 栈</td><td>opnd 栈</td><td>依次读入字符</td><td>主要操作</td></tr><tr><td>1</td><td>#</td><td></td><td>4+2*(7-3)#</td><td>Push(opnd,'4')</td></tr><tr><td>2</td><td>#</td><td>4</td><td>+2*(7-3)#</td><td>Push(optr,'+')</td></tr><tr><td>3</td><td>#+</td><td>4</td><td>2*(7-3)#</td><td>Push(opnd,'2')</td></tr><tr><td>4</td><td>#+</td><td>4 2</td><td>*(7-3)#</td><td>Push(optr,'*)</td></tr><tr><td>5</td><td>#+*</td><td>4 2</td><td>(7-3)#</td><td>Push(optr,(')</td></tr><tr><td>6</td><td># + * (</td><td>4 2</td><td>7-3)#</td><td>Push(opnd,'7')</td></tr><tr><td>7</td><td># + * (</td><td>4 2 7</td><td>-3)#</td><td>Push(optr,'-')</td></tr><tr><td>8</td><td># + * (-</td><td>4 2 7</td><td>3)#</td><td>Push(opnd,'3')</td></tr><tr><td>9</td><td># + * (-</td><td>4 2 7 3</td><td>)#</td><td>Pop(optr);Pop(opnd); Pop(opnd);Push(opnd,operate('7','-','3'))</td></tr><tr><td>10</td><td># + * (-</td><td>4 2 4</td><td>)#</td><td>Pop(optr);</td></tr><tr><td>11</td><td># + *</td><td>4 2 4</td><td>#</td><td>Pop(optr);Pop(opnd); Pop(opnd);Push(opnd,operate('2','*','4'))</td></tr><tr><td>12</td><td># +</td><td>4 8</td><td>#</td><td>Pop(optr);Pop(opnd); Pop(opnd);Push(opnd,operate('4','+','8'))</td></tr><tr><td>13</td><td>#</td><td>12</td><td>#</td><td>Gettop(opnd);</td></tr></table>",
+    "bbox": [
+      144,
+      827,
+      851,
+      958
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "header",
+    "text": "54",
+    "bbox": [
+      17,
+      20,
+      134,
+      70
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "header",
+    "text": "数据结构（C语言版）（第2版）",
+    "bbox": [
+      143,
+      38,
+      376,
+      57
+    ],
+    "page_idx": 10
+  },
+  {
+    "type": "table",
+    "img_path": "",
+    "table_caption": [
+      ""
+    ],
+    "table_footnote": [],
+    "bbox": [
+      144,
+      114,
+      849,
+      385
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "text",
+    "text": "表达式中运算符放在两个操作数中间的，被称为中缀表达式。通过上述求值过程可以看出，中缀表达式的计算需要考虑运算符的优先关系，计算过程比较复杂。为了处理方便，通常把中缀表达式首先转换成等价的后缀表达式。在后缀表达式中，运算符总是在操作数之后，并且没有括号，所有的计算按运算符出现的顺序，严格从左向右进行，而不用考虑运算规则和优先级。中缀表达式“4+2\\*(7-3)”的后缀表达式是“4273-\\*”。",
+    "bbox": [
+      139,
+      400,
+      855,
+      533
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "text",
+    "text": "由于后缀表达式中既无括号又无优先级的约束，其求值算法要简单很多，只需要借助一个操作数栈即可完成求值过程。具体做法是，当从左向右扫描表达式时，每遇到一个操作数就将其进栈保存，每遇到一个运算符就从栈中取出两个操作数进行当前的计算，并将计算结果继续入栈，直到整个表达式结束，这时栈顶元素的值就是表达式的结果。",
+    "bbox": [
+      141,
+      538,
+      856,
+      652
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "text",
+    "text": "3.3 队列",
+    "text_level": 2,
+    "bbox": [
+      409,
+      673,
+      584,
+      698
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "text",
+    "text": "与栈类似，队列（Queue）也是一种运算受限的线性表，它的特殊性主要体现在插入和删除操作分别被限定在表的两端进行。图 3.6 就反映了这种运算受限的性质。",
+    "bbox": [
+      141,
+      723,
+      853,
+      766
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "table",
+    "img_path": "images/bbff596048d911406ae230e4224a70a2eeed88a925f8b34688b961281a5dd9d2.jpg",
+    "table_caption": [
+      "图 3.6 插入和删除分别限制在表的两端进行"
+    ],
+    "table_footnote": [],
+    "table_body": "<table><tr><td>删除仅在该端进行←</td><td> $a_{1}$ </td><td> $a_{2}$ </td><td> $a_{3}$ </td><td>...</td><td>...</td><td> $a_{n}$ </td><td>←插入仅在该端进行</td></tr></table>",
+    "bbox": [
+      249,
+      776,
+      747,
+      798
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "text",
+    "text": "3.3.1 队列的定义",
+    "text_level": 2,
+    "bbox": [
+      141,
+      833,
+      326,
+      855
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "text",
+    "text": "与栈的 “后进先出” 不同，队列具有 “先进先出”（First In First Out, FIFO）的特性：数据元素的插入只能在表的一端进行，而删除数据元素只能在表的另一端进行。允许删除的一端称为队头，允许插入的一端称为队尾，它们的位置会随着插入和删除操作而发生变化，分别设置 “队头指针” 和 “队尾指针” 来指示队头和队尾的位置。同线性表可以为空表一样，当队列中没有元素时称为空队。在队尾插入元素称为入队，在队头删除以为空表一样，当队列中没有元素时称为空队。元素称为出队。如图 3.7 所示是一个具有 5 个元素的队列。进队的顺序依次为 $a_{1}, a_{2}, a_{3}, a_{4}, a_{5}$ ，出队的顺序依然是 $a_{1}, a_{2}, a_{3}, a_{4}, a_{5}$ 。当前的队头元素为 $a_{1}$ 时，队尾元素为 $a_{5}$ 。",
+    "bbox": [
+      139,
+      870,
+      856,
+      961
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "header",
+    "text": "第3章 栈和队列",
+    "bbox": [
+      717,
+      39,
+      853,
+      57
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "header",
+    "text": "55",
+    "bbox": [
+      863,
+      20,
+      978,
+      69
+    ],
+    "page_idx": 11
+  },
+  {
+    "type": "text",
+    "text": "",
+    "bbox": [
+      141,
+      86,
+      853,
+      105
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "text",
+    "text": "",
+    "bbox": [
+      141,
+      86,
+      531,
+      200
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "text",
+    "text": "基于队列的特性, 队列的抽象数据类型定义如下:",
+    "bbox": [
+      141,
+      202,
+      531,
+      244
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "image",
+    "img_path": "images/c5e8b18f9a9332c52366bc93758acfc399686ee28b55867b6824e7b3a9520d79.jpg",
+    "image_caption": [
+      "图 3.7 队列示意图"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      547,
+      122,
+      840,
+      180
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "code",
+    "sub_type": "algorithm",
+    "code_caption": [],
+    "code_body": "<div class=\"mineru-algorithm\" style=\"white-space: pre-wrap; font-family:monospace;\">\nADT Queue{\n数据对象： $D=\\{a_{i}\\mid a_{i}\\in ElemSet,i=1,2,\\cdots,n,n\\geq0\\}$ \n数据关系： $R1=\\{\\langle a_{i-1},a_{i}\\rangle|a_{i-1},a_{i}\\in D,i=2,\\cdots,n\\}$ \n约定其中  $a_{1}$  端为队头， $a_{n}$  端为队尾\n基本操作：\nInitQueue(&amp;Q)\n操作结果：构造一个空队列 Q\nQueueEmpty(Q)\n初始条件：队列 Q 已存在\n操作结果：若 Q 为空队列，则返回 TRUE，否则 FALSE\nQueueLength(Q)\n初始条件：队列 Q 已存在\n操作结果：返回 Q 的元素个数，即队列的长度\nGetHead(Q,&amp;e)\n初始条件：Q 为非空队列\n操作结果：用 e 返回的队头元素\nEnQueue(&amp;Q,e)\n初始条件：队列 Q 已存在\n操作结果：插入元素 e 为 Q 的新的队尾元素\nDeQueue(&amp;Q,&amp;e)\n初始条件：Q 为非空队列\n操作结果：删除 Q 的队头元素，并用 e 返回其值\n} ADT Queue\n</div>",
+    "bbox": [
+      146,
+      255,
+      849,
+      726
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "text",
+    "text": "3.3.2 队列的顺序存储结构",
+    "text_level": 2,
+    "bbox": [
+      141,
+      752,
+      409,
+      775
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "text",
+    "text": "与顺序栈类似，用顺序存储的队列就称为顺序队列。",
+    "bbox": [
+      180,
+      789,
+      602,
+      808
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "text",
+    "text": "1. 顺序队列的类型定义",
+    "text_level": 2,
+    "bbox": [
+      178,
+      813,
+      376,
+      832
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "text",
+    "text": "顺序队列需要预先分配一段连续空间来存储队列中数据元素队列的顺序存储结构，一般情况下借助于一维数组来作为队列的顺序存储空间。随着元素的出队、入队，队头和队尾的位置不断发生变化，设置头指针和尾指针可以反映出当前队列队头和队尾的位置信息。通常约定队头指针 front 指示队头元素前面一个位置，队尾指针 rear 指示队尾元素的位置。由于顺序队列使用一维数组存放数据，队列中各个元素的位置信息可以用下标来表示，因此与顺序栈的栈顶指针 top 类似，在顺序队列中 front 和 rear 也设置为整型变量。",
+    "bbox": [
+      141,
+      836,
+      856,
+      950
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "header",
+    "text": "56",
+    "bbox": [
+      17,
+      20,
+      134,
+      69
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "header",
+    "text": "数据结构（C语言版）（第2版）",
+    "bbox": [
+      144,
+      38,
+      376,
+      57
+    ],
+    "page_idx": 12
+  },
+  {
+    "type": "text",
+    "text": "",
+    "bbox": [
+      141,
+      86,
+      853,
+      127
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "text",
+    "text": "顺序队列类型描述如下:",
+    "bbox": [
+      178,
+      132,
+      379,
+      151
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```c\n#define MAXSIZE 100\ntypedef struct \n{ Elemtype data[MAXSIZE];\n    int front, rear;\n} SqQueue;\n```",
+    "bbox": [
+      180,
+      166,
+      422,
+      264
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "text",
+    "text": "假设有 SqQueue \\*p，则 p 为指向顺序队列的指针。p->front 和 p->rear 分别为队头指针和队尾指针。根据约定，p->data[p->front+1] 表示队头元素，p->data[p->rear] 表示队尾元素。",
+    "bbox": [
+      141,
+      277,
+      856,
+      342
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "text",
+    "text": "队列初始化时，令 p->front=p->rear=-1。当新元素进队时，队尾指针 p->rear 增 1；当有元素出队时，队头指针 p->front 增 1。图 3.8(a) 表示具有 8 个存储空间的空队列状态，随后三个元素依次进队，如图 3.8(b) 所示；经过若干次进队、出队后顺序队列的状态如图 3.8(c) 所示。最后，元素 h 入队，状态如图 3.8(d) 所示。",
+    "bbox": [
+      141,
+      347,
+      855,
+      436
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "image",
+    "img_path": "images/8de0f6c488123dc191f8f43d4f0c4c31463086413a2a4953d728c6c74f6f80d3.jpg",
+    "image_caption": [
+      "(a) 空队列"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      252,
+      442,
+      381,
+      620
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "image",
+    "img_path": "images/ed6ea314c992b79a7d0876bb6f58578637fb60af268b65b4286f57891bae2357.jpg",
+    "image_caption": [
+      "(b) 元素进队"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      399,
+      442,
+      501,
+      619
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "image",
+    "img_path": "images/191f8adebe94289722b59abdae797828f4beeb82727332a215cd23731bf1920e.jpg",
+    "image_caption": [
+      "(c) 元素出队"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      530,
+      442,
+      623,
+      607
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "image",
+    "img_path": "images/3aa7dc5a6f5d66aaf1b0ee392d81a52a2c515edb5c41ca65d647b04cb1f51682.jpg",
+    "image_caption": [
+      "(d) 假溢出现象",
+      "图 3.8 队尾指针 front 和队尾指针 rear 与顺序队列中数据的关系"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      648,
+      444,
+      740,
+      605
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "text",
+    "text": "2. 循环队列",
+    "text_level": 2,
+    "bbox": [
+      178,
+      676,
+      284,
+      695
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "text",
+    "text": "从图中可以看出，随着进队、出队的进行，整个队列会向后移动，最终会到达空间的最后端，即 rear=MAXSIZE-1，此时即使前端还有空闲位置，再有入队操作也会发生溢出。但事实上，此时的队列中并未真的“满员”，还有空闲存储空间，这种现象称为“假溢出”，如图 3.7(d) 所示。",
+    "bbox": [
+      141,
+      700,
+      855,
+      789
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "text",
+    "text": "假溢出现象的发生是由于 “队尾进队队头出队” 这种受限制的操作造成的，不论是进队还是入队，指针的操作只增不减，最终总会到达存储空间的最后端。解决假溢出的方法主要有两种：",
+    "bbox": [
+      141,
+      792,
+      855,
+      858
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "text",
+    "text": "\\- 采用平移元素的方法。当发生假溢出时，就把整个队列的元素平移到存储区的首部，然后再插入新元素。这种方法的优点是简单，缺点是可能造成大量元素的移动，效率很低。",
+    "bbox": [
+      178,
+      861,
+      855,
+      927
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "text",
+    "text": "\\- 将顺序队列的存储区假想为一个首位相接的环状的空间，当发生假溢出时，将新",
+    "bbox": [
+      178,
+      930,
+      855,
+      951
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "header",
+    "text": "第3章 栈和队列",
+    "bbox": [
+      717,
+      38,
+      853,
+      57
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "page_number",
+    "text": "57",
+    "bbox": [
+      892,
+      38,
+      925,
+      57
+    ],
+    "page_idx": 13
+  },
+  {
+    "type": "text",
+    "text": "元素插入到第一个位置上。这样做，虽然物理上队尾在队首之前，但逻辑上队首",
+    "bbox": [
+      204,
+      86,
+      853,
+      105
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "text",
+    "text": "仍然在前，头尾指针的关系不变。进队和出队仍按“先进先出”的原则进行，这就是循环队列，如图 3.9 所示。很显然，该方法不需要移动元素，操作效率高，空间的利用率也很高。",
+    "bbox": [
+      204,
+      108,
+      540,
+      220
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "text",
+    "text": "假设为队列分配的数组单元数为 MAXSIZE，在 C 语言中，它的下标在范围 0～MAXSIZE-1。若在增加队头或队尾指针时使其能够 “首尾相接”，可以利用取模运算来实现。如下所示：",
+    "bbox": [
+      141,
+      225,
+      540,
+      314
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "image",
+    "img_path": "images/e09fac642d30bebcd6d7408d46877612f552a1c09b16b6ec2e54bedc9d16548e.jpg",
+    "image_caption": [
+      "图 3.9 循环队列示意图"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      553,
+      111,
+      846,
+      280
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```txt\nfront=(front+1)%MAXSIZE;\nrear=(rear+1)%MAXSIZE;\n```",
+    "bbox": [
+      178,
+      327,
+      411,
+      366
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "text",
+    "text": "当 front 或 rear 为 MAXSIZE-1 时，上述两个公式计算的结果就为 0。这样，就使得指针自动由最后面转到最前面，形成了循环的效果。",
+    "bbox": [
+      141,
+      380,
+      853,
+      423
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "text",
+    "text": "(1) 循环队列中队满与队空的判定",
+    "text_level": 2,
+    "bbox": [
+      178,
+      426,
+      466,
+      445
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "text",
+    "text": "图 3.10 中是具有 8 个存储空间的循环队列。图 3.10(a) 所示，队列中有 4 个元素，随着 $a_{7} \\sim a_{10}$ 的相继入队，队列中共有 9 个元素，已占满所有的存储空间，此时 front = rear = 2，如图 3.10(b) 所示，可见在队满的情况下：front == rear。紧接着让 $a_{3} \\sim a_{10}$ 相继出队，此时队列变空 front = rear = 2，如图 3.10(c) 所示，可见在队空的情况下也有：front == rear。也就是说“队满”和“队空”的条件是相同的，仅凭 front == rear 无法区分当前队列是满还是空。",
+    "bbox": [
+      141,
+      450,
+      856,
+      561
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "image",
+    "img_path": "images/9946767623ac7d85b011000037c68bfc451dc6c9fdbd8062ce7372b651365c7a.jpg",
+    "image_caption": [
+      "(a) 一般状态"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      259,
+      570,
+      358,
+      739
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "image",
+    "img_path": "images/4097bb3d344028239839d92805060b90e570c13b8467eafddf8d7e31b8af7262.jpg",
+    "image_caption": [
+      "(b) 队满"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      386,
+      570,
+      487,
+      739
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "image",
+    "img_path": "images/5685f158681da7c68af701ebae7cb71560ee2311db34518de003700d3dfd09c1.jpg",
+    "image_caption": [
+      "(c) 队空",
+      "图 3.10 循环队列操作示意图"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      519,
+      569,
+      621,
+      739
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "image",
+    "img_path": "images/a0cb7080fe401f4841e14a8d71e90b27413a46b650bb4c310e02beeed569ad60.jpg",
+    "image_caption": [
+      "(d) 队满"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      643,
+      570,
+      738,
+      739
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "text",
+    "text": "循环队列中常用以下两种方法来判定队满与队空:",
+    "bbox": [
+      178,
+      795,
+      583,
+      814
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "text",
+    "text": "\\- 设置一个量 len，专门用于记录队列元素个数。当 len 为 0 时队空，当 len 为 MAXSIZE 时队满。",
+    "bbox": [
+      178,
+      820,
+      853,
+      861
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "text",
+    "text": "\\- 队空条件为 rear==front；当 $(\\text{rear}+1)\\%$ MAXSIZE==front 时队满，即牺牲一个存储空间，当 rear 只差一步就追上 front 时则认为队满，如图 3.10(d) 所示。",
+    "bbox": [
+      178,
+      866,
+      853,
+      908
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "text",
+    "text": "(2) 循环队列求队列长度的问题",
+    "text_level": 2,
+    "bbox": [
+      180,
+      911,
+      446,
+      930
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "text",
+    "text": "由于循环队列“首尾相接”的结构特性，求队列长度时会遇到两种情况。在图 3.10(a)",
+    "bbox": [
+      178,
+      935,
+      855,
+      955
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "header",
+    "text": "58",
+    "bbox": [
+      17,
+      20,
+      134,
+      70
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "header",
+    "text": "数据结构（C语言版）（第2版）",
+    "bbox": [
+      143,
+      38,
+      376,
+      57
+    ],
+    "page_idx": 14
+  },
+  {
+    "type": "text",
+    "text": "中，由于 rear>front，所以直接使用 rear-front 可以得出该队列中当前具有 4 个元素。但当出现如图 3.10(d) 所示的情况时，由于 rear<front，使用 rear-front 不能求出队列长度。对于该问题，可以有两种解决方案：",
+    "bbox": [
+      141,
+      86,
+      853,
+      152
+    ],
+    "page_idx": 15
+  },
+  {
+    "type": "text",
+    "text": "\\- 设置一个量 len，专门用于记录队列元素个数；",
+    "bbox": [
+      178,
+      155,
+      581,
+      175
+    ],
+    "page_idx": 15
+  },
+  {
+    "type": "text",
+    "text": "\\- 当 rear≥front 时，队列长度为 rear-front；当 rear<front 时，队列长度为 rear-front+MAXSIZE；因此，循环队列的队列长度可以统一写为 (rear-front+MAXSIZE)% MAXSIZE。",
+    "bbox": [
+      178,
+      179,
+      856,
+      242
+    ],
+    "page_idx": 15
+  },
+  {
+    "type": "text",
+    "text": "3. 循环队列的算法实现",
+    "text_level": 2,
+    "bbox": [
+      178,
+      248,
+      376,
+      267
+    ],
+    "page_idx": 15
+  },
+  {
+    "type": "text",
+    "text": "(1) 初始化。",
+    "bbox": [
+      180,
+      270,
+      287,
+      289
+    ],
+    "page_idx": 15
+  },
+  {
+    "type": "text",
+    "text": "循环队列的初始化主要是分配存储空间，并将队头队尾指针置为相同。",
+    "bbox": [
+      178,
+      294,
+      750,
+      314
+    ],
+    "page_idx": 15
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```c\nint InitQueue(SqQueue &Q)\n{\n    //构造一个空队列\n    Q.front=Q.rear=0;\n    return OK;\n}\n\n(2) 判队空。\n\nint QueueEmpty(SqQueue Q)\n//队空时返回值为真,反之为假\n{\n    return(Q.front==Q.rear? TRUE:FALSE);\n}\n\n(3) 判队满。\n\nint QueueFull(SqQueue Q)\n//队满时返回值为真,反之为假\n{\n    return((Q.rear+1)%MAXSIZE==Q.front?TRUE:FALSE);\n}\n\n(4) 进队。\n\nint EnQueue(SqQueue &Q, Elemtype e)\n{\n    if(QueueFull(Q)) return ERROR;    //队满\n    Q.rear=(Q.rear+1)%MAXSIZE;    //rear加1,队尾位置上移\n    Q.data[Q.rear]=e;    //数据e存入当前队尾\n    return OK;\n}\n\n(5) 出队。\n\nint DeQueue(SqQueue &Q,Elemtype &e)\n{\n    if(QueueEmpty(Q)) return ERROR;    //队空\n    Q.front=(Q.front+1)%MAXSIZE;    //front加1,队头位置上移\n```",
+    "bbox": [
+      178,
+      326,
+      837,
+      952
+    ],
+    "page_idx": 15
+  },
+  {
+    "type": "header",
+    "text": "第3章 栈和队列",
+    "bbox": [
+      717,
+      39,
+      853,
+      57
+    ],
+    "page_idx": 15
+  },
+  {
+    "type": "page_number",
+    "text": "59",
+    "bbox": [
+      892,
+      39,
+      925,
+      57
+    ],
+    "page_idx": 15
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```txt\ne=Q.data[Q.front];\nreturn OK;\n}\n```",
+    "bbox": [
+      181,
+      86,
+      393,
+      144
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```txt\n//取出数据放入 e 所指的单元中\n```",
+    "bbox": [
+      621,
+      83,
+      853,
+      102
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "text",
+    "text": "(6) 取队头。",
+    "bbox": [
+      181,
+      155,
+      286,
+      176
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```c\nint QueueFront(SqQueue Q, Elemtype &e)\n{\n    if(QueueEmpty(Q)) return ERROR; // 队空\n    e = Q.data[(Q.front + 1) % MAXSIZE]; // 取出队头数据\n    return OK;\n}\n```",
+    "bbox": [
+      181,
+      189,
+      708,
+      305
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "text",
+    "text": "(7) 求队列长度。",
+    "bbox": [
+      180,
+      317,
+      323,
+      339
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```txt\nint QueueLength(SqQueue Q)\n{\n    return (Q.rear-Q.front+MAXSIZE)%MAXSIZE;\n}\n```",
+    "bbox": [
+      181,
+      352,
+      602,
+      430
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "text",
+    "text": "3.3.3 队列的链式存储结构",
+    "text_level": 2,
+    "bbox": [
+      141,
+      452,
+      409,
+      475
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "text",
+    "text": "链式存储的队列称为链队列。和链栈类似，通常用单链表来实现链队列。",
+    "bbox": [
+      178,
+      489,
+      768,
+      510
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "text",
+    "text": "1. 链队列的类型定义",
+    "text_level": 2,
+    "bbox": [
+      178,
+      514,
+      358,
+      532
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "text",
+    "text": "根据队列 “先进先出” 的特性，为了能够方便地在队头删除元素，在队尾插入元素，除了头指针外，还需要一个尾指针，用来指向链表的尾结点。因此，一个链队列就需要两个指针才能唯一确定，它们分别指示队头和队尾（分别称为头指针和尾指针）。",
+    "bbox": [
+      141,
+      536,
+      853,
+      602
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "text",
+    "text": "在 C 语言中，队列链式存储结构的类型定义为：",
+    "bbox": [
+      178,
+      605,
+      567,
+      626
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```c\ntypedef struct node\n{ Elemtype data;\n    struct node* next;\n}QueueNode; //链队列的结点类型\ntypedef struct\n{ QueueNode *front; //链队列的队头指针\n    QueueNode *rear; //链队列的队尾指针\n}LinkQueue; //链队列\n```",
+    "bbox": [
+      180,
+      639,
+      666,
+      792
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "text",
+    "text": "此外，为了简化链表边界条件的处理，在链队列的队头结点之前附加一个头结点，并令队头指针 front 指向附加的头结点。若定义一个指向链队列的指针：LinkQueue \\*q，则带头结点的链队列如图 3.11 所示。",
+    "bbox": [
+      141,
+      805,
+      846,
+      873
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "text",
+    "text": "2. 链队列的算法实现",
+    "text_level": 2,
+    "bbox": [
+      178,
+      875,
+      360,
+      894
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "text",
+    "text": "从图 3.11 中可以看出, 空的链队列的判别条件为头指针和尾指针均指向附加头结点。链队列的入队操作即为在链表表尾插入新结点; 出队操作即为在链表表头删除表头结点; 求链队列的队列长度就是计算链队列结点个数。",
+    "bbox": [
+      141,
+      900,
+      853,
+      967
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "header",
+    "text": "60",
+    "bbox": [
+      17,
+      20,
+      134,
+      70
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "header",
+    "text": "数据结构（C语言版）（第2版）",
+    "bbox": [
+      144,
+      38,
+      376,
+      57
+    ],
+    "page_idx": 16
+  },
+  {
+    "type": "image",
+    "img_path": "images/c96c8631ef4425f75df7d5fd71fcc4fa00960176a9e7f3badd173dc2743a2b25.jpg",
+    "image_caption": [
+      "(a) 空队列"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      273,
+      80,
+      722,
+      150
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "image",
+    "img_path": "images/1b701e9ff40b5ecca0f2cc9397ea68143121ac621a67b81225ed273df188e2a3.jpg",
+    "image_caption": [
+      "(b) 元素 $a_{1}$ 进队",
+      "(c) 元素 $a_{2} 、 a_{3}$ 进队"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      280,
+      177,
+      722,
+      250
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "image",
+    "img_path": "images/8cdb86b9a4f10913686380c08c4e7f54a6b7ba533c9fd53ad35b150e8917a8b5.jpg",
+    "image_caption": [
+      "(d) 元素 $\\mathbf{a}_1$ 出队",
+      "图 3.11 链队列示意图"
+    ],
+    "image_footnote": [],
+    "content": "",
+    "bbox": [
+      280,
+      277,
+      722,
+      355
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "text",
+    "text": "(1) 初始化。",
+    "bbox": [
+      180,
+      405,
+      287,
+      426
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```c\nLinkQueue* InitQueue()\n//创建一个带头结点的空队\n{\n    LinkQueue *q;\n    QueueNode *p;\n    q=(LinkQueue*)malloc(sizeof(LinkQueue)); //申请头尾指针结点\n    p=(QueueNode*)malloc(sizeof(QueueNode)); //申请链队列头结点\n    p->next=NULL;\n    q->front=q->rear=p;\n    return q;\n}\n```",
+    "bbox": [
+      178,
+      439,
+      814,
+      636
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "text",
+    "text": "(2) 判队空。",
+    "bbox": [
+      181,
+      651,
+      287,
+      670
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```c\nint QueueEmpty(LinkQueue *q)\n//链队列为空时返回值为真，反之为假\n{ return(q->front==q->rear?TRUE:FALSE); }\n```",
+    "bbox": [
+      180,
+      685,
+      595,
+      744
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "text",
+    "text": "(3) 进队。",
+    "bbox": [
+      181,
+      755,
+      268,
+      776
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```c\nvoid EnQueue(LinkQueue *q, Elemtype e)\n{\n    // 将元素 e 进队，即在表尾插入新的结点\n    QueueNode *s;\n    s = (QueueNode*)malloc(sizeof(QueueNode));\n    s->data = e;\n    s->next = NULL;\n    q->rear->next = s;\n    q->rear = s;\n```",
+    "bbox": [
+      178,
+      789,
+      595,
+      950
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "header",
+    "text": "第3章 栈和队列",
+    "bbox": [
+      717,
+      39,
+      853,
+      57
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "header",
+    "text": "61",
+    "bbox": [
+      862,
+      20,
+      978,
+      70
+    ],
+    "page_idx": 17
+  },
+  {
+    "type": "text",
+    "text": "(4) 出队。",
+    "bbox": [
+      180,
+      117,
+      268,
+      136
+    ],
+    "page_idx": 18
+  },
+  {
+    "type": "text",
+    "text": "在进行出队操作时，除了考虑空队情况外，还应当注意队列中只有一个元素时的情况，如图 3.11(b) 所示。唯一的元素一旦出队，则队列为空，此时就需要修改队尾指针。",
+    "bbox": [
+      141,
+      139,
+      853,
+      185
+    ],
+    "page_idx": 18
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```c\nint DeQueue(LinkQueue *q, Elemtype &e)\n{\n    //若队列不为空将出队，即为删除队头结点\n    QueueNode *p;\n    if(QueueEmpty(q)) return ERROR;    //队空\n    p=q->front->next;\n    e=p->data;\n    q->front->next=p->next;\n    free(p);\n    if(q->front->next==NULL) q->rear=q->front;\n    return OK;\n}\n\n(5) 求队列长度。\n\nint QueueLength(LinkQueue *q)\n{\n    QueueNode *p; int len=0;\n    p=q->front->next;\n    while(p)\n    { len++;\n    p=p->next;\n    }\n    return len;\n}\n```",
+    "bbox": [
+      178,
+      195,
+      681,
+      663
+    ],
+    "page_idx": 18
+  },
+  {
+    "type": "text",
+    "text": "3.4 队列应用举例",
+    "text_level": 2,
+    "bbox": [
+      383,
+      692,
+      611,
+      717
+    ],
+    "page_idx": 18
+  },
+  {
+    "type": "text",
+    "text": "队列是一种相当实用的数据结构，可应用于生产、生活的各个方面。凡是符合先进先出运算特点，都可以使用队列来实现。",
+    "bbox": [
+      141,
+      741,
+      855,
+      786
+    ],
+    "page_idx": 18
+  },
+  {
+    "type": "text",
+    "text": "3.4.1 键盘输入循环缓冲区问题",
+    "text_level": 2,
+    "bbox": [
+      141,
+      797,
+      452,
+      820
+    ],
+    "page_idx": 18
+  },
+  {
+    "type": "text",
+    "text": "在操作系统中，循环队列经常用于实时应用程序。例如，当程序正在执行其他任务时，用户可以从键盘上不断输入所要输入的内容。很多字处理软件就是这样工作的。系统在利用这种分时处理方法时，用户输入的内容不能在屏幕上立刻显示出来，直到当前正在工作的那个进程结束为止。但在这个进程执行时，系统是在不断地检查键盘状态，如果检测到用户输入了一个新的字符，就立刻把它存到系统缓冲区中，然后继续运行原来的进程。当当前工作的进程结束后，系统就从缓冲区中取出输入的字符，并按要求进行处理。这里的键盘输入缓冲区采用了循环队列。队列的特性保证了输入字符先输入、先保存、先处理的要求，循环结构又有效地限制了缓冲区的大小，并避免了假溢出问题。下面用程序来模拟这种应用情况。",
+    "bbox": [
+      141,
+      835,
+      856,
+      950
+    ],
+    "page_idx": 18
+  },
+  {
+    "type": "header",
+    "text": "62",
+    "bbox": [
+      17,
+      20,
+      134,
+      70
+    ],
+    "page_idx": 18
+  },
+  {
+    "type": "header",
+    "text": "数据结构（C语言版）（第2版）",
+    "bbox": [
+      143,
+      38,
+      376,
+      57
+    ],
+    "page_idx": 18
+  },
+  {
+    "type": "text",
+    "text": "",
+    "bbox": [
+      141,
+      86,
+      855,
+      175
+    ],
+    "page_idx": 19
+  },
+  {
+    "type": "text",
+    "text": "1. 问题的描述",
+    "text_level": 2,
+    "bbox": [
+      178,
+      179,
+      303,
+      197
+    ],
+    "page_idx": 19
+  },
+  {
+    "type": "text",
+    "text": "假设有两个进程同时存在于一个程序中。其中第一个进程在屏幕上连续显示字符“A”，与此同时，程序不断检测键盘是否有输入，如果有，就读入用户输入的字符并保存到输入缓冲区中。在用户输入时，输入的字符并不立即回显在屏幕上。而当用户输入一个逗号（,）时，表示第一个进程结束，这时第二个进程才从缓冲区中读取那些已输入的字符并显示在屏幕上。第二个进程结束后，程序又进入第一个进程，重新显示字符“A”，同时用户又可以继续输入字符，直到用户输入一个分号（;）键，才结束第一个进程，同时也结束整个程序。",
+    "bbox": [
+      139,
+      202,
+      856,
+      360
+    ],
+    "page_idx": 19
+  },
+  {
+    "type": "text",
+    "text": "2. 具体实现",
+    "text_level": 2,
+    "bbox": [
+      178,
+      364,
+      284,
+      382
+    ],
+    "page_idx": 19
+  },
+  {
+    "type": "text",
+    "text": "具体实现如算法 3.4 所示。",
+    "bbox": [
+      180,
+      386,
+      393,
+      407
+    ],
+    "page_idx": 19
+  },
+  {
+    "type": "code",
+    "sub_type": "code",
+    "code_caption": [],
+    "code_body": "```txt\ntypedef char Elemtype;\nvoid keyboardinput()\n{//模拟键盘输入循环缓冲区\n    char ch1,ch2;\n    SqQueue Q;\n    int f;\n    InitQueue(Q); //队列初始化\n    for(;;)\n    { for(;;) //第一个进程\n    { printf(\"A\");\n    if( kbhit() ) //检测键盘是否有输入\n    { ch1=bdos(7,0,0); //通过 DOS 命令读入一个字符\n    f=EnQueue(Q,ch1);\n    if(f==ERROR)\n    { printf(\"循环队列已满\\n\");\n    break; //循环队列满时，强制中断第一个进程\n    }\n    }\n    if(ch1=='';'||ch1==',')\n    break; //第一个进程正常结束\n    }\n    while (!QueueEmpty(Q)) //第二个进程\n    {\n    DeQueue(Q,ch2);\n    putchar(ch2); //显示输入缓冲区的内容\n```",
+    "bbox": [
+      183,
+      417,
+      809,
+      925
+    ],
+    "page_idx": 19
+  },
+  {
+    "type": "header",
+    "text": "63",
+    "bbox": [
+      863,
+      20,
+      978,
+      69
+    ],
+    "page_idx": 19
+  },
+  {
+    "type": "header",
+    "text": "第3章 栈和队列",
+    "bbox": [
+      717,
+      39,
+      853,
+      57
+    ],
+    "page_idx": 19
+  },
+  {
+    "type": "page_number",
+    "text": "算法 3.4",
+    "bbox": [
+      462,
+      932,
+      535,
+      948
+    ],
+    "page_idx": 19
+  }
+]

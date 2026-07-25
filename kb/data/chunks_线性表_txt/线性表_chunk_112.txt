@@ -1,0 +1,19 @@
+# ## 1. 实现顺序表常用操作的代码 › ## 2. 顺序表常用操作的程序运行结果 › ## 2.4.2 单链表的常用操作
+
+*/
+    --L->length;
+    return 1;
+}
+/*【算法2.4 顺序表的按值查找】*/
+/*在顺序线性表L中查找第1个值与e相等的元素的位序，若找到，则返回其在L中的位序，否则返回-1*/
+int LocateElem_Sq(SqList L, ElemType e)
+{
+    int i=0;    /*i 的初值为第一个元素的位序*/
+    while(i<L.length&&L.elem[i]!=e) i++;
+    if(L.elem[i]==e) return i;
+}
+```
+
+if(L.elem[i]==e) return i;
+}
+```

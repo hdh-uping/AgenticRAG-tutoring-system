@@ -1,0 +1,9 @@
+# ## 1）对称矩阵
+
+-1+j-1=i(i-1)/2+j-1$ 。
+
+得到下标对应关系如下：
+
+$$
+k = \left\{ \begin{array}{l l} i \times (i - 1) / 2 + j - 1 & (i \geqslant j) \text {下三角区和主对角线元素} \\ j \times (j - 1) / 2 + i - 1 & (i <   j) \text {上三角区元素} \end{array} \right.
+$$
